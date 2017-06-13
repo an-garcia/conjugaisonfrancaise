@@ -18,4 +18,8 @@
     <color name="colorPrimary">#F44336</color>
     <color name="colorPrimaryDark">#D50000</color>
     <color name="colorAccent">#3F51B5</color>
+
+    <color name="colorRed">#F44336</color>
+    <color name="colorGray">#9E9E9E</color>
+    <color name="playColor">#E8EAF6</color>
 </resources>

@@ -13,13 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.xengar.android.conjugaisonfrancaise;
+package com.xengar.android.conjugaisonfrancaise.ui;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -27,6 +26,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+
+import com.xengar.android.conjugaisonfrancaise.R;
+import com.xengar.android.conjugaisonfrancaise.utils.ActivityUtils;
 
 /**
  * MainActivity
@@ -117,7 +120,7 @@ public class MainActivity extends AppCompatActivity
                 //ActivityUtils.launchSettingsActivity(getApplicationContext());
                 break;
             case R.id.nav_help:
-                //ActivityUtils.launchHelpActivity(getApplicationContext());
+                ActivityUtils.launchHelpActivity(getApplicationContext());
                 break;
         }
 
