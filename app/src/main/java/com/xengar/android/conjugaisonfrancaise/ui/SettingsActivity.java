@@ -18,24 +18,31 @@ package com.xengar.android.conjugaisonfrancaise.ui;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.CheckBoxPreference;
+import android.preference.EditTextPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
-import android.support.v7.app.ActionBar;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.preference.RingtonePreference;
+import android.preference.SwitchPreference;
+import android.support.v4.app.NavUtils;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatDelegate;
 import android.text.TextUtils;
 import android.view.MenuItem;
-import android.support.v4.app.NavUtils;
 
 import com.xengar.android.conjugaisonfrancaise.R;
+import com.xengar.android.conjugaisonfrancaise.utils.ActivityUtils;
+import com.xengar.android.conjugaisonfrancaise.utils.FontDialog;
 
 import java.util.List;
 
@@ -50,7 +57,11 @@ import java.util.List;
  * href="http://developer.android.com/guide/topics/ui/settings.html">Settings
  * API Guide</a> for more information on developing a Settings UI.
  */
-public class SettingsActivity extends AppCompatPreferenceActivity {
+public class SettingsActivity extends AppCompatPreferenceActivity
+        implements SharedPreferences.OnSharedPreferenceChangeListener {
+
+    //private FirebaseAnalytics mFirebaseAnalytics;
+
     /**
      * A preference value change listener that updates the preference's summary
      * to reflect its new value.
@@ -77,7 +88,7 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
                 // using RingtoneManager.
                 if (TextUtils.isEmpty(stringValue)) {
                     // Empty values correspond to 'silent' (no ringtone).
-                    preference.setSummary(R.string.pref_ringtone_silent);
+                    //preference.setSummary(R.string.pref_ringtone_silent);
 
                 } else {
                     Ringtone ringtone = RingtoneManager.getRingtone(
@@ -93,6 +104,10 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
                         preference.setSummary(name);
                     }
                 }
+
+            } else if (preference instanceof SwitchPreference) {
+                // For a boolean value, set the default value "true"
+                preference.setDefaultValue((stringValue.contains("t")));
 
             } else {
                 // For all other preferences, set the summary to the value's
@@ -125,18 +140,30 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
         // Set the listener to watch for value changes.
         preference.setOnPreferenceChangeListener(sBindPreferenceSummaryToValueListener);
 
-        // Trigger the listener immediately with the preference's
-        // current value.
-        sBindPreferenceSummaryToValueListener.onPreferenceChange(preference,
-                PreferenceManager
-                        .getDefaultSharedPreferences(preference.getContext())
-                        .getString(preference.getKey(), ""));
+        // Trigger the listener immediately with the preference' current value.
+        if (preference instanceof ListPreference
+                || preference instanceof EditTextPreference
+                || preference instanceof FontDialog) {
+            sBindPreferenceSummaryToValueListener.onPreferenceChange(preference,
+                    PreferenceManager
+                            .getDefaultSharedPreferences(preference.getContext())
+                            .getString(preference.getKey(), ""));
+        } else if (preference instanceof SwitchPreference
+                || preference instanceof CheckBoxPreference) {
+            sBindPreferenceSummaryToValueListener.onPreferenceChange(preference,
+                    PreferenceManager
+                            .getDefaultSharedPreferences(preference.getContext())
+                            .getBoolean(preference.getKey(),true));
+        }
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
         setupActionBar();
+
+        //mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
     }
 
     /**
@@ -188,6 +215,57 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
                 || GeneralPreferenceFragment.class.getName().equals(fragmentName);
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+    }
+
+    // Registers a shared preference change listener that gets notified when preferences change.
+    @Override
+    protected void onResume() {
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
+        sp.registerOnSharedPreferenceChangeListener(this);
+        super.onResume();
+    }
+
+    // Unregisters a shared preference change listener.
+    @Override
+    protected void onPause() {
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
+        sp.unregisterOnSharedPreferenceChangeListener(this);
+        super.onPause();
+    }
+
+    /**
+     * Called after a preference changes.
+     * @param sharedPreferences SharedPreferences
+     * @param key key
+     */
+    @Override
+    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+        /*if ( key.equals(getString(R.string.pref_enable_notifications))
+                || key.equals(getString(R.string.pref_notification_list))
+                || key.equals(getString(R.string.pref_notification_time))
+                || key.equals(getString(R.string.pref_notification_frequency))) {
+            // Reconfigure Verb Notifications
+            boolean enabled = ActivityUtils.getPreferenceEnableNotifications(getApplicationContext());
+            if (!enabled){
+                ActivityUtils.cancelAlarm(getApplicationContext());
+                ActivityUtils.firebaseAnalyticsLogEventSelectContent(mFirebaseAnalytics,
+                        TYPE_STOP_NOTIFICATIONS, "Preferences", TYPE_VERB_NOTIFICATION);
+            } else{
+                ActivityUtils.startAlarm(getApplicationContext());
+                ActivityUtils.firebaseAnalyticsLogEventSelectContent(mFirebaseAnalytics,
+                        TYPE_START_NOTIFICATIONS, "Preferences", TYPE_VERB_NOTIFICATION);
+            }
+        }*/
+    }
+
     /**
      * This fragment shows general preferences only. It is used when the
      * activity is showing a two-pane settings UI.
@@ -204,8 +282,10 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
             // to their values. When their values change, their summaries are
             // updated to reflect the new value, per the Android Design
             // guidelines.
-            bindPreferenceSummaryToValue(findPreference("example_text"));
-            bindPreferenceSummaryToValue(findPreference("example_list"));
+            //bindPreferenceSummaryToValue(findPreference("example_text"));
+            //bindPreferenceSummaryToValue(findPreference("example_list"));
+            bindPreferenceSummaryToValue(findPreference(getString(R.string.pref_translation_language)));
+            bindPreferenceSummaryToValue(findPreference(getString(R.string.pref_font_size)));
         }
 
         @Override
@@ -216,6 +296,36 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
                 return true;
             }
             return super.onOptionsItemSelected(item);
+        }
+
+        private final SharedPreferences.OnSharedPreferenceChangeListener sharedPrefsChangeListener
+                = new SharedPreferences.OnSharedPreferenceChangeListener() {
+            @Override
+            public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+                updateSummary();
+            }
+        };
+
+        private void updateSummary() {
+            Preference fontPref = findPreference(getString(R.string.pref_font_size));
+            fontPref.setSummary(ActivityUtils.getPreferenceFontSize(getActivity()));
+        }
+
+        @Override
+        public void onPause() {
+            super.onPause();
+            getPreferenceScreen()
+                    .getSharedPreferences()
+                    .unregisterOnSharedPreferenceChangeListener(sharedPrefsChangeListener);
+        }
+
+        @Override
+        public void onResume() {
+            super.onResume();
+            updateSummary();
+            getPreferenceScreen()
+                    .getSharedPreferences()
+                    .registerOnSharedPreferenceChangeListener(sharedPrefsChangeListener);
         }
     }
 }

@@ -35,7 +35,11 @@ import com.xengar.android.conjugaisonfrancaise.ui.SettingsActivity;
 
 import static android.content.Context.MODE_PRIVATE;
 import static com.xengar.android.conjugaisonfrancaise.utils.Constants.DEFAULT_FONT_SIZE;
+import static com.xengar.android.conjugaisonfrancaise.utils.Constants.FRENCH;
+import static com.xengar.android.conjugaisonfrancaise.utils.Constants.NONE;
+import static com.xengar.android.conjugaisonfrancaise.utils.Constants.PORTUGUESE;
 import static com.xengar.android.conjugaisonfrancaise.utils.Constants.SHARED_PREF_NAME;
+import static com.xengar.android.conjugaisonfrancaise.utils.Constants.SPANISH;
 
 
 /**
@@ -170,12 +174,12 @@ public class ActivityUtils {
      * Returns the value of show definitions from preferences.
      * @param context context
      * @return boolean or default(true)
-     *//*
+     */
     public static boolean getPreferenceShowDefinitions(final Context context) {
         String key = context.getString(R.string.pref_show_definitions_switch);
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         return prefs.getBoolean(key, true);
-    }*/
+    }
 
     /**
      * Returns the value of show definitions from preferences.
@@ -192,7 +196,7 @@ public class ActivityUtils {
      * Returns the translation language from preferences.
      * @param context Context
      * @return code of language (default NONE)
-     *//*
+     */
     public static String getPreferenceTranslationLanguage(final Context context) {
         String key = context.getString(R.string.pref_translation_language);
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
@@ -209,7 +213,7 @@ public class ActivityUtils {
             case "pt_PT":
                 return PORTUGUESE;
         }
-    }*/
+    }
 
 
     /**
