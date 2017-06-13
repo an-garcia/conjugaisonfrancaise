@@ -117,7 +117,7 @@ public class MainActivity extends AppCompatActivity
                 //launchFragment(PAGE_FAVORITES);
                 break;
             case R.id.nav_settings:
-                //ActivityUtils.launchSettingsActivity(getApplicationContext());
+                ActivityUtils.launchSettingsActivity(getApplicationContext());
                 break;
             case R.id.nav_help:
                 ActivityUtils.launchHelpActivity(getApplicationContext());

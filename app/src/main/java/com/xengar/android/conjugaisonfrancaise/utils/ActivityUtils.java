@@ -20,6 +20,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
+import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 import android.support.v4.app.ShareCompat;
 import android.support.v7.widget.AppCompatDrawableManager;
@@ -30,6 +31,7 @@ import android.widget.ImageView;
 
 import com.xengar.android.conjugaisonfrancaise.R;
 import com.xengar.android.conjugaisonfrancaise.ui.HelpActivity;
+import com.xengar.android.conjugaisonfrancaise.ui.SettingsActivity;
 
 import static android.content.Context.MODE_PRIVATE;
 import static com.xengar.android.conjugaisonfrancaise.utils.Constants.DEFAULT_FONT_SIZE;
@@ -126,7 +128,7 @@ public class ActivityUtils {
     /**
      * Launches Settings Activity.
      * @param context context
-     *//*
+     */
     public static void launchSettingsActivity(final Context context) {
         Intent intent = new Intent(context, SettingsActivity.class);
         intent.putExtra( PreferenceActivity.EXTRA_SHOW_FRAGMENT,
@@ -135,7 +137,7 @@ public class ActivityUtils {
         intent.putExtra( PreferenceActivity.EXTRA_SHOW_FRAGMENT_TITLE, R.string.settings);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(intent);
-    }*/
+    }
 
     /**
      * Launches Search Activity.
