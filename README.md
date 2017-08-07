@@ -19,7 +19,9 @@ Pre-requisites
 
 References
 ----------
-bescherelle
+http://bescherelle.com/conjugueur.php?term=trouver
+http://www.conjugaison.com/grammaire/conjugaison.html
+
 
 
 # Set up
