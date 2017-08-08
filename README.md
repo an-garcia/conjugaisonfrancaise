@@ -31,43 +31,53 @@ Color Picker Module
 
 1.  Download repository from
   ```
-  git clone https://android.googlesource.com/platform/frameworks/opt/colorpicker
+  git clone https://android.googlesource.com/platform/frameworks/opt/colorpicker  (preferred) or
+  git clone https://xengar@bitbucket.org/xengar/colorpicker.git
   ```
 
-2. Import a new module in android studio with the New/import module menu, choosing the path where the project was cloned.
+2. Import a new module in android studio with the New/import module menu,
+   choosing the path where the project was cloned.
+   Remove the empty "colorpicker" directory if needed.
 
 3. Add dependency to app/build.gradle
-```
-apply plugin: 'com.android.application'
+   ```
+   apply plugin: 'com.android.application'
 
-android {
-    ...
-}
+   android {
+       ...
+   }
 
-dependencies {
-    compile project(':colorpicker')
-    ...
-}
+   dependencies {
+       compile project(':colorpicker')
+       ...
+   }
+   ```
 
-```
+4. Add compileSdkVersion and buildToolsVersion in colorpicker/build.gradle to avoid
+   Error buildToolsVersion is not specified. Try to use latest versions.
+   ```
+    apply plugin: 'com.android.library'
 
-4. Add compileSdkVersion and buildToolsVersion in colorpicker/build.gradle to avoid Error buildToolsVersion is not specified
-```
- apply plugin: 'com.android.library'
+    android {
 
- android {
+        compileSdkVersion 25
+        buildToolsVersion "25.0.2"
 
-     compileSdkVersion 25
-     buildToolsVersion "25.0.2"
+        sourceSets.main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = ['src']
+            res.srcDirs = ['res']
+        }
+    }
+   ```
 
-     sourceSets.main {
-         manifest.srcFile 'AndroidManifest.xml'
-         java.srcDirs = ['src']
-         res.srcDirs = ['res']
-     }
- }
-```
-
+5. Commit the modified changes in the colorpicker module.
+   (There is no remote repository to push. Keep it local.)
+   ```
+   cd englishverbs/colorpicker
+   git add -A
+   git commit -m "Import colorpicker module into English Verbs project"
+   ```
 
 ## License
 
