@@ -19,9 +19,9 @@ Pre-requisites
 
 References
 ----------
-http://bescherelle.com/conjugueur.php?term=trouver
-http://www.conjugaison.com/grammaire/conjugaison.html
-http://monsu.desiderio.free.fr/atelier/freqverb.html
+- http://bescherelle.com/conjugueur.php?term=trouver
+- http://www.conjugaison.com/grammaire/conjugaison.html
+- http://monsu.desiderio.free.fr/atelier/freqverb.html
 
 
 
