@@ -24,15 +24,16 @@ public final class Constants {
     public static final String MAIN_ACTIVITY = "main_activity";
 
     public static final String SHARED_PREF_NAME = "com.xengar.android.englishverbs";
-    public static final String VERB_TYPE = "verb_type";
-    public static final String REGULAR = "regular";
-    public static final String IRREGULAR = "irregular";
-    public static final String BOTH = "both (regular, irregular)";
+    public static final String VERB_GROUP = "verb_group";
+    public static final String GROUP_1 = "1er_group";
+    public static final String GROUP_2 = "2nd_group";
+    public static final String GROUP_3 = "3rd_group";
+    public static final String GROUP_ALL = "all_groups";
     public static final String FAVORITES = "favorites";
     public static final String SORT_TYPE = "sort_type";
     public static final String ALPHABET = "alphabet";
     public static final String COLOR = "color";
-    public static final String VERBS_ED = "verbs_ed";
+    public static final String GROUPS = "verbs_groups";
     public static final String COMMON_TYPE = "common_type";
     public static final String MOST_COMMON_25 = "25";
     public static final String MOST_COMMON_50 = "50";
@@ -64,7 +65,7 @@ public final class Constants {
 
     // Translation languages
     public static final String NONE = "None";
-    public static final String FRENCH = "fr";
+    public static final String ENGLISH = "en";
     public static final String SPANISH = "es";
     public static final String PORTUGUESE = "pt";
 

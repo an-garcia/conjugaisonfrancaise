@@ -19,8 +19,14 @@
     <color name="colorPrimaryDark">#D50000</color>
     <color name="colorAccent">#3F51B5</color>
 
+    <!-- Color for user backgrounds in list -->
+    <color name="backgroundColorWhite">#FFFFFFFF</color>
+    <color name="backgroundColorRed">#F44336</color> <!-- 500 -->
+
     <color name="colorBlack">#000000</color>
     <color name="colorRed">#F44336</color>
     <color name="colorGray">#9E9E9E</color>
+    <color name="colorDeepOrange">#FF5722</color>
     <color name="playColor">#E8EAF6</color>
+    <color name="colorIndigo">#3F51B5</color>
 </resources>

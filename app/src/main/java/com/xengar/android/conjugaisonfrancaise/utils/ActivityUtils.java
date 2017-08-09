@@ -19,6 +19,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.os.Build;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
@@ -26,16 +27,20 @@ import android.support.v4.app.ShareCompat;
 import android.support.v7.widget.AppCompatDrawableManager;
 import android.text.Html;
 import android.text.Spanned;
+import android.util.TypedValue;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.xengar.android.conjugaisonfrancaise.R;
+import com.xengar.android.conjugaisonfrancaise.data.Verb;
+import com.xengar.android.conjugaisonfrancaise.data.VerbContract.VerbEntry;
 import com.xengar.android.conjugaisonfrancaise.ui.HelpActivity;
 import com.xengar.android.conjugaisonfrancaise.ui.SettingsActivity;
 
 import static android.content.Context.MODE_PRIVATE;
 import static com.xengar.android.conjugaisonfrancaise.utils.Constants.DEFAULT_FONT_SIZE;
-import static com.xengar.android.conjugaisonfrancaise.utils.Constants.FRENCH;
+import static com.xengar.android.conjugaisonfrancaise.utils.Constants.ENGLISH;
 import static com.xengar.android.conjugaisonfrancaise.utils.Constants.NONE;
 import static com.xengar.android.conjugaisonfrancaise.utils.Constants.PORTUGUESE;
 import static com.xengar.android.conjugaisonfrancaise.utils.Constants.SHARED_PREF_NAME;
@@ -206,14 +211,25 @@ public class ActivityUtils {
             case "None":
             default:
                 return NONE;
-            case "fr_FR":
-                return FRENCH;
+            case "en_EN":
+                return ENGLISH;
             case "es_ES":
                 return SPANISH;
             case "pt_PT":
                 return PORTUGUESE;
         }
     }
+
+    /**
+     * Returns the favorites mode from preferences.
+     * @param context context
+     * @return CARD or LIST
+     *//*
+    public static String getPreferenceFavoritesMode(final Context context) {
+        String key = context.getString(R.string.pref_favorite_mode_list);
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        return prefs.getString(key, LIST);
+    }*/
 
 
     /**
@@ -295,7 +311,7 @@ public class ActivityUtils {
      * @param context Context
      * @param textView view
      * @param verb Verb
-     *//*
+     */
     public static void setTranslation(final Context context, TextView textView, Verb verb) {
         int fontSize = Integer.parseInt(getPreferenceFontSize(context));
         switch (getPreferenceTranslationLanguage(context)) {
@@ -303,9 +319,9 @@ public class ActivityUtils {
                 textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, fontSize);
                 textView.setVisibility(View.GONE);
                 break;
-            case FRENCH:
+            case ENGLISH:
                 textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, fontSize);
-                textView.setText(verb.getTranslationFR());
+                textView.setText(verb.getTranslationEN());
                 break;
             case SPANISH:
                 textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, fontSize);
@@ -316,7 +332,7 @@ public class ActivityUtils {
                 textView.setText(verb.getTranslationPT());
                 break;
         }
-    }*/
+    }
 
     /**
      * Text we want to speak.
@@ -340,59 +356,49 @@ public class ActivityUtils {
     /**
      * Generate all table verb columns.
      * @return String[]
-     *//*
+     */
     public static String[] allVerbColumns(){
         return new String[]{
-                VerbEntry.COLUMN_INFINITIVE,
-                VerbEntry.COLUMN_SIMPLE_PAST,
-                VerbEntry.COLUMN_PAST_PARTICIPLE,
                 VerbEntry.COLUMN_ID,
+                VerbEntry.COLUMN_CONJUGATION_NUMBER,
+                VerbEntry.COLUMN_INFINITIVE,
                 VerbEntry.COLUMN_DEFINITION,
-                VerbEntry.COLUMN_PHONETIC_INFINITIVE,
-                VerbEntry.COLUMN_PHONETIC_SIMPLE_PAST,
-                VerbEntry.COLUMN_PHONETIC_PAST_PARTICIPLE,
                 VerbEntry.COLUMN_SAMPLE_1,
                 VerbEntry.COLUMN_SAMPLE_2,
                 VerbEntry.COLUMN_SAMPLE_3,
                 VerbEntry.COLUMN_COMMON,
-                VerbEntry.COLUMN_REGULAR,
+                VerbEntry.COLUMN_GROUP,
                 VerbEntry.COLUMN_COLOR,
                 VerbEntry.COLUMN_SCORE,
-                VerbEntry.COLUMN_SOURCE,
                 VerbEntry.COLUMN_NOTES,
+                VerbEntry.COLUMN_TRANSLATION_EN,
                 VerbEntry.COLUMN_TRANSLATION_ES,
-                VerbEntry.COLUMN_TRANSLATION_FR,
                 VerbEntry.COLUMN_TRANSLATION_PT, };
-    }*/
+    }
 
     /**
      * Create a Verb from the current cursor position.
      * Note: columns must exist.
      * @param cursor Cursor
      * @return Verb
-     *//*
-    public static Verb verbFromCursor(final Cursor cursor){
+     */
+    public static Verb verbFromCursor(final Cursor cursor) {
         return new Verb(cursor.getLong(cursor.getColumnIndex(VerbEntry.COLUMN_ID)),
+                cursor.getInt(cursor.getColumnIndex(VerbEntry.COLUMN_CONJUGATION_NUMBER)),
                 cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_INFINITIVE)),
-                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_SIMPLE_PAST)),
-                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_PAST_PARTICIPLE)),
                 cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_DEFINITION)),
                 cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_SAMPLE_1)),
                 cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_SAMPLE_2)),
                 cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_SAMPLE_3)),
-                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_PHONETIC_INFINITIVE)),
-                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_PHONETIC_SIMPLE_PAST)),
-                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_PHONETIC_PAST_PARTICIPLE)),
                 cursor.getInt(cursor.getColumnIndex(VerbEntry.COLUMN_COMMON)),
-                cursor.getInt(cursor.getColumnIndex(VerbEntry.COLUMN_REGULAR)),
+                cursor.getInt(cursor.getColumnIndex(VerbEntry.COLUMN_GROUP)),
                 cursor.getInt(cursor.getColumnIndex(VerbEntry.COLUMN_COLOR)),
                 cursor.getInt(cursor.getColumnIndex(VerbEntry.COLUMN_SCORE)),
-                cursor.getInt(cursor.getColumnIndex(VerbEntry.COLUMN_SOURCE)),
                 cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_NOTES)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_TRANSLATION_EN)),
                 cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_TRANSLATION_ES)),
-                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_TRANSLATION_FR)),
                 cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_TRANSLATION_PT)) );
-    }*/
+    }
 
     /**
      * Sets the image id into the view.

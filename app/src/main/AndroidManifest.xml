@@ -50,6 +50,12 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.xengar.android.conjugaisonfrancaise.ui.MainActivity" />
         </activity>
+
+        <provider
+            android:name=".data.VerbProvider"
+            android:authorities="com.xengar.android.conjugaisonfrancaise"
+            android:exported="false" />
+
     </application>
 
 </manifest>

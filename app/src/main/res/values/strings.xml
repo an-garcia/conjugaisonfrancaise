@@ -173,7 +173,7 @@
         <item name="esperanto">Esperanto</item>
         <item name="estonian">Eesti</item>
         <item name="finnish">Suomi</item>-->
-        <item name="french">Français</item>
+        <item name="english">English</item>
         <!--        <item name="german">Deutsch</item>
         <item name="greek">Ελληνικά</item>
         <item name="hebrew">עברית</item>
@@ -214,7 +214,7 @@
         <item name="esperanto">eo_EO</item>
         <item name="estonian">et_ET</item>
         <item name="finnish">fi_FI</item>-->
-        <item name="french">fr_FR</item>
+        <item name="english">en_EN</item>
         <!--       <item name="german">de_DE</item>
         <item name="greek">el_GR</item>
         <item name="hebrew">he_IL</item>
