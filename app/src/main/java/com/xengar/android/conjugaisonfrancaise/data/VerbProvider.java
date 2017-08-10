@@ -28,6 +28,7 @@ import android.util.Log;
 
 import com.xengar.android.conjugaisonfrancaise.data.VerbContract.VerbEntry;
 
+import static com.xengar.android.conjugaisonfrancaise.data.VerbContract.VerbEntry.COLUMN_GROUP;
 import static com.xengar.android.conjugaisonfrancaise.data.VerbContract.VerbEntry.COLUMN_ID;
 import static com.xengar.android.conjugaisonfrancaise.utils.Constants.LOG;
 
@@ -235,8 +236,45 @@ public class VerbProvider extends ContentProvider{
         return rowsDeleted;
     }
 
+    @Override
+    public int update(@NonNull Uri uri, ContentValues contentValues, String selection,
+                      String[] selectionArgs) {
+        final int match = sUriMatcher.match(uri);
+        switch (match) {
+            case VERBS:
+                return updateVerb(uri, contentValues, selection, selectionArgs);
+            case VERB_ID:
+                // For the VERB_ID code, extract out the ID from the URI,
+                // so we know which row to update. Selection will be "_id=?" and selection
+                // arguments will be a String array containing the actual ID.
+                selection = VerbEntry.COLUMN_ID + "=?";
+                selectionArgs = new String[] { String.valueOf(ContentUris.parseId(uri)) };
+                return updateVerb(uri, contentValues, selection, selectionArgs);
+            default:
+                throw new IllegalArgumentException("Update is not supported for " + uri);
+        }
+    }
+
     private void checkNull(String value, String message){
         if (value == null) {
+            throw new IllegalArgumentException(message);
+        }
+    }
+
+    private void checkNullAndPositive(Integer value, String message){
+        if (value != null && value < 0) {
+            throw new IllegalArgumentException(message);
+        }
+    }
+
+    private void checkCommonUsage(Integer commonUsage, String message){
+        if (commonUsage == null || !VerbEntry.isValidCommonUsage(commonUsage)) {
+            throw new IllegalArgumentException(message);
+        }
+    }
+
+    private void checkGroup(Integer regular, String message){
+        if (regular == null || !VerbEntry.isValidGroup(regular)) {
             throw new IllegalArgumentException(message);
         }
     }
@@ -268,10 +306,71 @@ public class VerbProvider extends ContentProvider{
         return ContentUris.withAppendedId(uri, id);
     }
 
-    @Override
-    public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String s,
-                      @Nullable String[] strings) {
-        // We don't allow updates
-        return 0;
+    /** If the key is there, checks that is not null */
+    private void checkNotNullKeyString(ContentValues values, String key, String message){
+        if (values.containsKey(key)) {
+            checkNull(values.getAsString(key), message);
+        }
+    }
+
+    /** If the key is there, checks that is valid */
+    private void checkCommonUsage(ContentValues values, String key, String message){
+        if (values.containsKey(key)) {
+            checkCommonUsage(values.getAsInteger(key), message);
+        }
+    }
+
+    /** If the key is there, checks that is valid */
+    private void checkGroup(ContentValues values, String key, String message){
+        if (values.containsKey(key)) {
+            checkGroup(values.getAsInteger(key), message);
+        }
+    }
+
+    /** If the key is there, checks that is valid */
+    private void checkNullAndPositive(ContentValues values, String key, String message){
+        if (values.containsKey(key)) {
+            checkNullAndPositive(values.getAsInteger(key), message);
+        }
+    }
+
+    /**
+     * Update verbs in the database with the given content values. Apply the changes to the rows
+     * specified in the selection and selection arguments (which could be 0 or 1 or more verbs).
+     * Return the number of rows that were successfully updated.
+     */
+    private int updateVerb(Uri uri, ContentValues values, String selection,
+                           String[] selectionArgs) {
+        // Check possible value changes
+        checkNotNullKeyString(values, VerbEntry.COLUMN_INFINITIVE, "Verb requires infinitive");
+        checkCommonUsage(values, VerbEntry.COLUMN_COMMON,
+                "Verb requires valid common usage (top 50, top 100)");
+        checkGroup(values, COLUMN_GROUP, "Verb requires valid group value (1, 2, 3)");
+        checkNotNullKeyString(values, VerbEntry.COLUMN_DEFINITION, "Verb requires a definition");
+        /*checkNotNullKeyString(values, VerbEntry.COLUMN_SAMPLE_1, "Verb requires sample 1");
+        checkNotNullKeyString(values, VerbEntry.COLUMN_SAMPLE_2, "Verb requires sample 2");
+        checkNotNullKeyString(values, VerbEntry.COLUMN_SAMPLE_3, "Verb requires sample 3");*/
+        checkNotNullKeyString(values, VerbEntry.COLUMN_COLOR, "Verb requires valid color");
+        checkNullAndPositive(values, VerbEntry.COLUMN_SCORE, "Verb requires valid score");
+
+        // If there are no values to update, then don't try to update the database
+        if (values.size() == 0) {
+            return 0;
+        }
+
+        // Otherwise, get writeable database to update the data
+        SQLiteDatabase database = mDbHelper.getWritableDatabase();
+
+        // Perform the update on the database and get the number of rows affected
+        int rowsUpdated = database.update(VerbEntry.VERBS_TBL, values, selection, selectionArgs);
+
+        // If 1 or more rows were updated, then notify all listeners that the data at the
+        // given URI has changed
+        if (rowsUpdated != 0) {
+            getContext().getContentResolver().notifyChange(uri, null);
+        }
+
+        // Return the number of rows updated
+        return rowsUpdated;
     }
 }
