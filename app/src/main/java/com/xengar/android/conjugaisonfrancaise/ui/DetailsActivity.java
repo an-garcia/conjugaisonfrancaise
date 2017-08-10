@@ -42,6 +42,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.colorpicker.ColorPickerPalette;
+import com.android.colorpicker.ColorPickerSwatch;
 import com.xengar.android.conjugaisonfrancaise.R;
 import com.xengar.android.conjugaisonfrancaise.data.Verb;
 import com.xengar.android.conjugaisonfrancaise.data.VerbContract;
@@ -220,7 +222,7 @@ public class DetailsActivity extends AppCompatActivity implements
         //noinspection SimplifiableIfStatement
         switch (id) {
             case R.id.action_change_color:
-                //changeColorDialog();
+                changeColorDialog();
                 return true;
 
             case R.id.action_search:
@@ -256,7 +258,7 @@ public class DetailsActivity extends AppCompatActivity implements
 
     /**
      * Changes the color
-     *//*
+     */
     private void changeColorDialog() {
         final int[] colors = {
                 ContextCompat.getColor(getApplicationContext(), R.color.colorBlack),
@@ -305,7 +307,7 @@ public class DetailsActivity extends AppCompatActivity implements
                 .setView(colorPickerPalette)
                 .create();
         alert.show();
-    }*/
+    }
 
     /**
      * Save the color to database.
