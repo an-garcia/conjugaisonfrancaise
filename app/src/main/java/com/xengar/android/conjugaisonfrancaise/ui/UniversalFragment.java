@@ -99,7 +99,7 @@ public class UniversalFragment extends Fragment {
             @Override
             public void onInit(int status) {
                 if (status == TextToSpeech.SUCCESS) {
-                    int result = tts.setLanguage(Locale.US);
+                    int result = tts.setLanguage(Locale.FRENCH);
                     if (result == TextToSpeech.LANG_MISSING_DATA
                             || result == TextToSpeech.LANG_NOT_SUPPORTED) {
                         if (LOG) {

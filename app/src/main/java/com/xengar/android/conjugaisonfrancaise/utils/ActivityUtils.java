@@ -20,9 +20,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.media.AudioManager;
 import android.os.Build;
+import android.os.Bundle;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
+import android.speech.tts.TextToSpeech;
 import android.support.v4.app.ShareCompat;
 import android.support.v7.widget.AppCompatDrawableManager;
 import android.text.Html;
@@ -35,17 +38,20 @@ import android.widget.TextView;
 import com.xengar.android.conjugaisonfrancaise.R;
 import com.xengar.android.conjugaisonfrancaise.data.Verb;
 import com.xengar.android.conjugaisonfrancaise.data.VerbContract.VerbEntry;
+import com.xengar.android.conjugaisonfrancaise.ui.DetailsActivity;
 import com.xengar.android.conjugaisonfrancaise.ui.HelpActivity;
 import com.xengar.android.conjugaisonfrancaise.ui.SearchActivity;
 import com.xengar.android.conjugaisonfrancaise.ui.SettingsActivity;
 
 import static android.content.Context.MODE_PRIVATE;
 import static com.xengar.android.conjugaisonfrancaise.utils.Constants.DEFAULT_FONT_SIZE;
+import static com.xengar.android.conjugaisonfrancaise.utils.Constants.DEMO_MODE;
 import static com.xengar.android.conjugaisonfrancaise.utils.Constants.ENGLISH;
 import static com.xengar.android.conjugaisonfrancaise.utils.Constants.NONE;
 import static com.xengar.android.conjugaisonfrancaise.utils.Constants.PORTUGUESE;
 import static com.xengar.android.conjugaisonfrancaise.utils.Constants.SHARED_PREF_NAME;
 import static com.xengar.android.conjugaisonfrancaise.utils.Constants.SPANISH;
+import static com.xengar.android.conjugaisonfrancaise.utils.Constants.VERB_ID;
 
 
 /**
@@ -111,7 +117,12 @@ public class ActivityUtils {
         e.commit();
     }
 
-    /*
+    /**
+     * Launches Details Activity.
+     * @param context context
+     * @param id verb id
+     * @param demoMode demo
+     */
     public static void launchDetailsActivity(final Context context, final long id,
                                              final boolean demoMode) {
         Intent intent = new Intent(context, DetailsActivity.class);
@@ -123,7 +134,7 @@ public class ActivityUtils {
         intent.putExtras(bundle);
 
         context.startActivity(intent);
-    }*/
+    }
 
     /**
      * Launches Help Activity.
@@ -338,7 +349,7 @@ public class ActivityUtils {
     /**
      * Text we want to speak.
      * @param text String
-     *//*
+     */
     public static void speak(final Context context, TextToSpeech tts, String text){
         // Use the current media player volume
         AudioManager am = (AudioManager)context.getSystemService(Context.AUDIO_SERVICE);
@@ -352,7 +363,7 @@ public class ActivityUtils {
             //noinspection deprecation
             tts.speak(text, TextToSpeech.QUEUE_FLUSH, null);
         }
-    }*/
+    }
 
     /**
      * Generate all table verb columns.

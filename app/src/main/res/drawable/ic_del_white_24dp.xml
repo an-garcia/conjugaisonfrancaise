@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <!--
      Copyright (C) 2017 Angel Garcia
 
@@ -13,16 +14,13 @@
      See the License for the specific language governing permissions and
      limitations under the License.
  -->
-<resources>
-    <!-- Default screen margins, per the Android Design guidelines. -->
-    <dimen name="activity_horizontal_margin">16dp</dimen>
-    <dimen name="activity_vertical_margin">16dp</dimen>
-    <dimen name="nav_header_vertical_spacing">16dp</dimen>
-    <dimen name="nav_header_height">160dp</dimen>
-    <dimen name="fab_margin">16dp</dimen>
-    <dimen name="card_margin">16dp</dimen>
-
-    <!-- verb image original 6width=48dp x 6height=24dp -->
-    <dimen name="verb_image_width">288dp</dimen>
-    <dimen name="verb_image_height">144dp</dimen>
-</resources>
+<vector
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportHeight="24"
+    android:viewportWidth="24">
+    <path
+        android:fillColor="#FFF"
+        android:pathData="M19,13H13V13H5V11H11V11H19V13Z" />
+</vector>

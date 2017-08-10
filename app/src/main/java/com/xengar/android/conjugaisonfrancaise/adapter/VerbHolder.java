@@ -99,8 +99,8 @@ public class VerbHolder extends RecyclerView.ViewHolder implements View.OnClickL
         switch(view.getId()) {
             default:
                 if (verb != null) {
-                    //ActivityUtils.launchDetailsActivity(context, verb.getId(), false);
-                    Toast.makeText(context, verb.getInfinitive(), Toast.LENGTH_SHORT).show();
+                    ActivityUtils.launchDetailsActivity(context, verb.getId(), false);
+                    //Toast.makeText(context, verb.getInfinitive(), Toast.LENGTH_SHORT).show();
                 }
                 break;
         }
