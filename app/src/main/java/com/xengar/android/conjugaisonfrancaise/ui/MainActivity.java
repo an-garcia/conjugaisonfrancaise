@@ -39,6 +39,7 @@ import static com.xengar.android.conjugaisonfrancaise.utils.Constants.DISPLAY_CO
 import static com.xengar.android.conjugaisonfrancaise.utils.Constants.DISPLAY_SORT_TYPE;
 import static com.xengar.android.conjugaisonfrancaise.utils.Constants.DISPLAY_VERB_TYPE;
 import static com.xengar.android.conjugaisonfrancaise.utils.Constants.FAVORITES;
+import static com.xengar.android.conjugaisonfrancaise.utils.Constants.GROUP;
 import static com.xengar.android.conjugaisonfrancaise.utils.Constants.GROUPS;
 import static com.xengar.android.conjugaisonfrancaise.utils.Constants.GROUP_1;
 import static com.xengar.android.conjugaisonfrancaise.utils.Constants.GROUP_2;
@@ -74,7 +75,7 @@ public class MainActivity extends AppCompatActivity
     private final int[] verbSelection = {3};
     private final String[] verbGroup = {VERB_GROUPS[verbSelection[0]]}; // current verb group list in screen
 
-    private final String[] SORT_TYPES = {ALPHABET, COLOR, GROUPS};
+    private final String[] SORT_TYPES = {ALPHABET, COLOR, GROUP};
     private final int[] sortSelection = {0};
     private final String[] sortType = {SORT_TYPES[sortSelection[0]]}; // current sort type list in screen
 
@@ -166,7 +167,7 @@ public class MainActivity extends AppCompatActivity
                 return true;
 
             case R.id.action_sort:
-                //sortVerbs();
+                sortVerbs();
                 return true;
 
             case R.id.action_most_common:
@@ -229,6 +230,44 @@ public class MainActivity extends AppCompatActivity
                     case GROUP_ALL:
                         ActivityUtils.saveStringToPreferences(
                                 getApplicationContext(), DISPLAY_VERB_TYPE, verbGroup[0]);
+                        changeFragmentsDisplay();
+                        break;
+
+                    default:
+                        break;
+                }
+            }
+        });
+        builder.show();
+    }
+
+    /**
+     * Changes the sort order.
+     */
+    private void sortVerbs() {
+        final CharSequence options[] = new CharSequence[] {
+                getString(R.string.alphabet), getString(R.string.color),
+                getString(R.string.group) };
+
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.MyAlertDialogStyle);
+        builder.setTitle(getString(R.string.select_type_of_sort));
+        builder.setSingleChoiceItems(options, sortSelection[0],
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int item) {
+                        // save the selected verb type
+                        sortSelection[0] = item;
+                        sortType[0] = SORT_TYPES[item];
+                    }
+                });
+        builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                // Change the selection.
+                switch (sortType[0]){
+                    case ALPHABET:
+                    case COLOR:
+                    case GROUP:
+                        ActivityUtils.saveStringToPreferences(
+                                getApplicationContext(), DISPLAY_SORT_TYPE, sortType[0]);
                         changeFragmentsDisplay();
                         break;
 

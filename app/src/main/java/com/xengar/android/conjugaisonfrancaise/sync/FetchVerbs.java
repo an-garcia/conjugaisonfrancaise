@@ -42,6 +42,7 @@ import static com.xengar.android.conjugaisonfrancaise.data.VerbContract.VerbEntr
 import static com.xengar.android.conjugaisonfrancaise.utils.Constants.ALPHABET;
 import static com.xengar.android.conjugaisonfrancaise.utils.Constants.COLOR;
 import static com.xengar.android.conjugaisonfrancaise.utils.Constants.FAVORITES;
+import static com.xengar.android.conjugaisonfrancaise.utils.Constants.GROUP;
 import static com.xengar.android.conjugaisonfrancaise.utils.Constants.GROUPS;
 import static com.xengar.android.conjugaisonfrancaise.utils.Constants.GROUP_1;
 import static com.xengar.android.conjugaisonfrancaise.utils.Constants.GROUP_2;
@@ -96,7 +97,7 @@ public class FetchVerbs extends AsyncTask<Void, Void, ArrayList<Verb>> {
             case COLOR:
                 sortOrder = VerbEntry.COLUMN_COLOR + " DESC, " + VerbEntry.COLUMN_INFINITIVE + " ASC";
                 break;
-            case GROUPS:
+            case GROUP:
                 sortOrder = VerbEntry.COLUMN_GROUP + " ASC, " + VerbEntry.COLUMN_INFINITIVE + " ASC";
                 break;
         }

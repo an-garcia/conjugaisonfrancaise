@@ -33,6 +33,7 @@ public final class Constants {
     public static final String SORT_TYPE = "sort_type";
     public static final String ALPHABET = "alphabet";
     public static final String COLOR = "color";
+    public static final String GROUP = "group";
     public static final String GROUPS = "verbs_groups";
     public static final String COMMON_TYPE = "common_type";
     public static final String MOST_COMMON_25 = "25";

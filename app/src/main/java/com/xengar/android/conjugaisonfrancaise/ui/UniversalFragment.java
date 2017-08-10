@@ -61,7 +61,7 @@ public class UniversalFragment extends Fragment {
     private VerbAdapter mAdapter;
     private List<Verb> mVerbs;
     private String verbGroup = GROUP_ALL;    // 1er group, 2nd group, 3rd group, all groups
-    private String sortTYpe = ALPHABET; // alphabet, color, verb groups
+    private String sortTYpe = ALPHABET; // alphabet, color, group
     private String itemType = LIST;     // card, list
     private String commonType = MOST_COMMON_ALL;
     private TextToSpeech tts;
