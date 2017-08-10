@@ -27,6 +27,7 @@
     <color name="colorRed">#F44336</color>
     <color name="colorGray">#9E9E9E</color>
     <color name="colorDeepOrange">#FF5722</color>
+    <color name="grey_850">#303030</color> <!-- 212121-->
     <color name="playColor">#E8EAF6</color>
     <color name="colorIndigo">#3F51B5</color>
 </resources>

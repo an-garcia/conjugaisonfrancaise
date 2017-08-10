@@ -15,12 +15,14 @@
  */
 package com.xengar.android.conjugaisonfrancaise.ui;
 
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -68,9 +70,9 @@ public class MainActivity extends AppCompatActivity
     private UniversalFragment verbsFragment;
     private UniversalFragment favoritesFragment;
 
-    private final String[] VERB_TYPES = {GROUP_1, GROUP_2, GROUP_3, GROUP_ALL};
+    private final String[] VERB_GROUPS = {GROUP_1, GROUP_2, GROUP_3, GROUP_ALL};
     private final int[] verbSelection = {3};
-    private final String[] verbType = {VERB_TYPES[verbSelection[0]]}; // current verb type list in screen
+    private final String[] verbGroup = {VERB_GROUPS[verbSelection[0]]}; // current verb group list in screen
 
     private final String[] SORT_TYPES = {ALPHABET, COLOR, GROUPS};
     private final int[] sortSelection = {0};
@@ -104,9 +106,9 @@ public class MainActivity extends AppCompatActivity
         SharedPreferences prefs = getSharedPreferences(SHARED_PREF_NAME, MODE_PRIVATE);
         page = prefs.getString(CURRENT_PAGE, PAGE_VERBS);
         // read verb Type
-        verbType[0] = prefs.getString(DISPLAY_VERB_TYPE, GROUP_ALL);
-        for (int i = 0; i < VERB_TYPES.length ; i++ ){
-            if (verbType[0].contentEquals(VERB_TYPES[i])){
+        verbGroup[0] = prefs.getString(DISPLAY_VERB_TYPE, GROUP_ALL);
+        for (int i = 0; i < VERB_GROUPS.length ; i++ ){
+            if (verbGroup[0].contentEquals(VERB_GROUPS[i])){
                 verbSelection[0] = i;
                 break;
             }
@@ -126,8 +128,8 @@ public class MainActivity extends AppCompatActivity
             }
         }
 
-        verbsFragment = createUniversalFragment(verbType[0], LIST, sortType[0], commonType[0]);
-        //cardsFragment = createUniversalFragment(verbType[0], CARD, sortType[0], commonType[0]);
+        verbsFragment = createUniversalFragment(verbGroup[0], LIST, sortType[0], commonType[0]);
+        //cardsFragment = createUniversalFragment(verbGroup[0], CARD, sortType[0], commonType[0]);
         favoritesFragment = createUniversalFragment(FAVORITES, LIST, sortType[0], MOST_COMMON_ALL);
         showPage(page);
         assignCheckedItem(page);
@@ -160,7 +162,7 @@ public class MainActivity extends AppCompatActivity
 
         switch (item.getItemId()) {
             case R.id.action_change_group:
-                //changeVerbGroup();
+                changeVerbGroup();
                 return true;
 
             case R.id.action_sort:
@@ -197,6 +199,74 @@ public class MainActivity extends AppCompatActivity
         bundle.putString(COMMON_TYPE, commonType);
         fragment.setArguments(bundle);
         return fragment;
+    }
+
+    /**
+     * Changes the list according to the selected group (1er, 2nd, 3rd, all).
+     */
+    private void changeVerbGroup(){
+        final CharSequence options[] = new CharSequence[] {
+                getString(R.string.group1), getString(R.string.group2),
+                getString(R.string.group3), getString(R.string.all) };
+
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.MyAlertDialogStyle);
+        builder.setTitle(getString(R.string.select_show_verbs));
+        builder.setSingleChoiceItems(options, verbSelection[0],
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int item) {
+                        // save the selected verb type
+                        verbSelection[0] = item;
+                        verbGroup[0] = VERB_GROUPS[item];
+                    }
+                });
+        builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                // Change the selection.
+                switch (verbGroup[0]){
+                    case GROUP_1:
+                    case GROUP_2:
+                    case GROUP_3:
+                    case GROUP_ALL:
+                        ActivityUtils.saveStringToPreferences(
+                                getApplicationContext(), DISPLAY_VERB_TYPE, verbGroup[0]);
+                        changeFragmentsDisplay();
+                        break;
+
+                    default:
+                        break;
+                }
+            }
+        });
+        builder.show();
+    }
+
+    /**
+     * Creates if needed a new fragment with the new display configurations.
+     */
+    private void changeFragmentsDisplay(){
+        if (!verbsFragment.getVerbGroup().contentEquals(verbGroup[0])
+                || !verbsFragment.getSortType().contentEquals(sortType[0])
+                || !verbsFragment.getCommonType().contentEquals(commonType[0])) {
+            verbsFragment = createUniversalFragment(verbGroup[0], LIST, sortType[0], commonType[0]);
+            if (page.contentEquals(PAGE_VERBS)) {
+                launchFragment(PAGE_VERBS);
+            }
+        }
+        /*if (!cardsFragment.getVerbGroup().contentEquals(verbGroup[0])
+                || !cardsFragment.getSortType().contentEquals(sortType[0])
+                || !cardsFragment.getCommonType().contentEquals(commonType[0])) {
+            cardsFragment = createUniversalFragment(verbGroup[0], CARD, sortType[0], commonType[0]);
+            if (page.contentEquals(PAGE_CARDS)) {
+                launchFragment(PAGE_CARDS);
+            }
+        }*/
+        if (!favoritesFragment.getSortType().contentEquals(sortType[0])) {
+            // Only allow to change sort order
+            favoritesFragment = createUniversalFragment(FAVORITES, LIST, sortType[0], MOST_COMMON_ALL);
+            if (page.contentEquals(PAGE_FAVORITES)) {
+                launchFragment(PAGE_FAVORITES);
+            }
+        }
     }
 
     @SuppressWarnings("StatementWithEmptyBody")

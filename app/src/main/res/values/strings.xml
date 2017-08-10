@@ -31,6 +31,21 @@
     <string name="favorites">Favorites</string>
     <string name="settings">Settings</string>
 
+    <string name="select_show_verbs">Show verbs</string>
+    <string name="group1">1st group</string>
+    <string name="group2">2nd group</string>
+    <string name="group3">3rd group</string>
+    <string name="select_type_of_sort">Sort by</string>
+    <string name="alphabet">Alphabet</string>
+    <string name="color">Color</string>
+    <string name="most_common_25">25 most common</string>
+    <string name="most_common_50">50 most common</string>
+    <string name="most_common_100">100 most common</string>
+    <string name="most_common_250">250 most common</string>
+    <string name="most_common_500">500 most common</string>
+    <string name="most_common_1000">1000 most common</string>
+    <string name="all">all</string>
+
     <!-- error messages -->
     <string name="network_not_available_message">Network is not available!</string>
     <string name="network_error">Cannot connect to the Internet.</string>
