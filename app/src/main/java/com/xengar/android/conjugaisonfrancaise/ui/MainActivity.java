@@ -176,7 +176,7 @@ public class MainActivity extends AppCompatActivity
                 return true;
 
             case R.id.action_search:
-                //ActivityUtils.launchSearchActivity(getApplicationContext());
+                ActivityUtils.launchSearchActivity(getApplicationContext());
                 return true;
         }
 

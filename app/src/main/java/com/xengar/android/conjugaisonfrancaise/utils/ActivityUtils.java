@@ -36,6 +36,7 @@ import com.xengar.android.conjugaisonfrancaise.R;
 import com.xengar.android.conjugaisonfrancaise.data.Verb;
 import com.xengar.android.conjugaisonfrancaise.data.VerbContract.VerbEntry;
 import com.xengar.android.conjugaisonfrancaise.ui.HelpActivity;
+import com.xengar.android.conjugaisonfrancaise.ui.SearchActivity;
 import com.xengar.android.conjugaisonfrancaise.ui.SettingsActivity;
 
 import static android.content.Context.MODE_PRIVATE;
@@ -151,12 +152,12 @@ public class ActivityUtils {
     /**
      * Launches Search Activity.
      * @param context context
-     *//*
+     */
     public static void launchSearchActivity(final Context context) {
         Intent intent = new Intent(context, SearchActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(intent);
-    }*/
+    }
 
     /**
      * Helper class to handle deprecated method.
