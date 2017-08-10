@@ -50,6 +50,7 @@ import static com.xengar.android.conjugaisonfrancaise.utils.Constants.LAST_ACTIV
 import static com.xengar.android.conjugaisonfrancaise.utils.Constants.LIST;
 import static com.xengar.android.conjugaisonfrancaise.utils.Constants.MAIN_ACTIVITY;
 import static com.xengar.android.conjugaisonfrancaise.utils.Constants.MOST_COMMON_100;
+import static com.xengar.android.conjugaisonfrancaise.utils.Constants.MOST_COMMON_1000;
 import static com.xengar.android.conjugaisonfrancaise.utils.Constants.MOST_COMMON_25;
 import static com.xengar.android.conjugaisonfrancaise.utils.Constants.MOST_COMMON_250;
 import static com.xengar.android.conjugaisonfrancaise.utils.Constants.MOST_COMMON_50;
@@ -80,8 +81,8 @@ public class MainActivity extends AppCompatActivity
     private final String[] sortType = {SORT_TYPES[sortSelection[0]]}; // current sort type list in screen
 
     private final String[] COMMON_TYPES = {MOST_COMMON_25, MOST_COMMON_50, MOST_COMMON_100,
-            MOST_COMMON_250, MOST_COMMON_500, MOST_COMMON_ALL};
-    private final int[] commonSelection = {5};
+            /*MOST_COMMON_250, MOST_COMMON_500,*/ MOST_COMMON_ALL};
+    private final int[] commonSelection = {3};
     private final String[] commonType = {COMMON_TYPES[commonSelection[0]]}; // current most common type list in screen
 
     private String page = PAGE_VERBS; // Current page
@@ -171,7 +172,7 @@ public class MainActivity extends AppCompatActivity
                 return true;
 
             case R.id.action_most_common:
-                //showMostCommon();
+                showMostCommon();
                 return true;
 
             case R.id.action_search:
@@ -306,6 +307,49 @@ public class MainActivity extends AppCompatActivity
                 launchFragment(PAGE_FAVORITES);
             }
         }
+    }
+
+    /**
+     * Shows the most common verbs according to selection.
+     */
+    private void showMostCommon() {
+        final CharSequence options[] = new CharSequence[] {
+                getString(R.string.most_common_25), getString(R.string.most_common_50),
+                getString(R.string.most_common_100), //getString(R.string.most_common_250),
+                /*getString(R.string.most_common_500),*/ getString(R.string.all),};
+
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.MyAlertDialogStyle);
+        builder.setTitle(getString(R.string.select_show_verbs));
+        builder.setSingleChoiceItems(options, commonSelection[0],
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int item) {
+                        // save the selected verb type
+                        commonSelection[0] = item;
+                        commonType[0] = COMMON_TYPES[item];
+                    }
+                });
+        builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                // Change the selection.
+                switch (commonType[0]){
+                    case MOST_COMMON_25:
+                    case MOST_COMMON_50:
+                    case MOST_COMMON_100:
+                    //case MOST_COMMON_250:
+                    //case MOST_COMMON_500:
+                    //case MOST_COMMON_1000:
+                    case MOST_COMMON_ALL:
+                        ActivityUtils.saveStringToPreferences(
+                                getApplicationContext(), DISPLAY_COMMON_TYPE, commonType[0]);
+                        changeFragmentsDisplay();
+                        break;
+
+                    default:
+                        break;
+                }
+            }
+        });
+        builder.show();
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
