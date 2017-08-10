@@ -3,9 +3,8 @@ Conjugaison Française
 
 <a href='https://play.google.com/store/apps/details?id=com.xengar.android.conjugaisonfrancaise'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png' height=90px/></a>
 
-![Scheme](/readmeImages/device-2017-03-11-172715x.png)
-![Scheme](/readmeImages/device-2017-03-11-172808x.png)
-![Scheme](/readmeImages/device-2017-03-11-172852x.png)
+![Scheme](/readmeImages/Screenshot_20170810-125823.png)
+![Scheme](/readmeImages/Screenshot_20170810-125850.png)
 
 
 Android application to learn french verb tenses.
@@ -22,7 +21,7 @@ References
 - http://bescherelle.com/conjugueur.php?term=trouver
 - http://www.conjugaison.com/grammaire/conjugaison.html
 - http://monsu.desiderio.free.fr/atelier/freqverb.html
-
+- http://dictionnaire.reverso.net/francais-portugais/ouvrir
 
 
 # Set up
