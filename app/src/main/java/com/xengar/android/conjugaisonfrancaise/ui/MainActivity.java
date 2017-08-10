@@ -367,11 +367,11 @@ public class MainActivity extends AppCompatActivity
                 launchFragment(PAGE_VERBS);
                 break;
             case R.id.nav_favorites:
-                //page = PAGE_FAVORITES;
+                page = PAGE_FAVORITES;
                 //noinspection ConstantConditions
                 getSupportActionBar().setTitle(R.string.favorites);
-                //ActivityUtils.saveStringToPreferences(this, CURRENT_PAGE, PAGE_FAVORITES);
-                //launchFragment(PAGE_FAVORITES);
+                ActivityUtils.saveStringToPreferences(this, CURRENT_PAGE, PAGE_FAVORITES);
+                launchFragment(PAGE_FAVORITES);
                 break;
             case R.id.nav_settings:
                 ActivityUtils.launchSettingsActivity(getApplicationContext());
