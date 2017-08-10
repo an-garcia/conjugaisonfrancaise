@@ -16,6 +16,11 @@
 <resources>
     <string name="app_name">Conjugaison Française</string>
 
+    <string name="action_search">Search</string>
+    <string name="action_sort">Sort</string>
+    <string name="action_most_common">Most common</string>
+    <string name="group">Group</string>
+
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 

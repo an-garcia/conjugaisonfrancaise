@@ -158,9 +158,22 @@ public class MainActivity extends AppCompatActivity
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch (item.getItemId()) {
+            case R.id.action_change_group:
+                //changeVerbGroup();
+                return true;
+
+            case R.id.action_sort:
+                //sortVerbs();
+                return true;
+
+            case R.id.action_most_common:
+                //showMostCommon();
+                return true;
+
+            case R.id.action_search:
+                //ActivityUtils.launchSearchActivity(getApplicationContext());
+                return true;
         }
 
         return super.onOptionsItemSelected(item);
