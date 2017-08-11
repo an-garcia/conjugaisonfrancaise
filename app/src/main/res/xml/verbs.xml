@@ -33,7 +33,7 @@
     <!-- TOP 25 -->
     <verb
         id="0"
-        ta=""
+        ta="1"
         in="être"
         s1="Je pense, donc je suis."
         s2="Les érables sont magnifiques."
@@ -47,7 +47,7 @@
         trpt="ser" />
     <verb
         id="1"
-        ta=""
+        ta="2"
         in="avoir"
         s1="Laurence a une bicyclette."
         s2="Nous avons eu ce voilier à bon compte."

@@ -71,6 +71,7 @@ public class VerbDBHelper extends SQLiteOpenHelper {
         createCurrentSchemaVersion(db);
         insertVerbs(db);
         insertFavorites(db);
+        insertConjugation(db);
     }
 
     /**
@@ -209,7 +210,8 @@ public class VerbDBHelper extends SQLiteOpenHelper {
                 + VerbEntry.COLUMN_CONDITIONNEL_PASSE_TU + " TEXT, "
                 + VerbEntry.COLUMN_CONDITIONNEL_PASSE_IL + " TEXT, "
                 + VerbEntry.COLUMN_CONDITIONNEL_PASSE_NOUS + " TEXT, "
-                + VerbEntry.COLUMN_CONDITIONNEL_PASSE_VOUS + " TEXT); ";
+                + VerbEntry.COLUMN_CONDITIONNEL_PASSE_VOUS + " TEXT, "
+                + VerbEntry.COLUMN_CONDITIONNEL_PASSE_ILS + " TEXT);";
 
         db.execSQL(query);
     }
@@ -220,13 +222,11 @@ public class VerbDBHelper extends SQLiteOpenHelper {
      */
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        String query;
         if (oldVersion > newVersion) {
             // This should not happen, version numbers should increment. Start clean.
-            query = "DROP TABLE IF EXISTS " +  VerbEntry.VERBS_TBL;
-            db.execSQL(query);
-            query = "DROP TABLE IF EXISTS " +  VerbEntry.FAVORITES_TBL;
-            db.execSQL(query);
+            db.execSQL("DROP TABLE IF EXISTS " + VerbEntry.VERBS_TBL);
+            db.execSQL("DROP TABLE IF EXISTS " + VerbEntry.FAVORITES_TBL);
+            db.execSQL("DROP TABLE IF EXISTS " + VerbEntry.CONJUGATION_TBL);
         }
 
         // Update version by version using a method for the update.
@@ -319,6 +319,151 @@ public class VerbDBHelper extends SQLiteOpenHelper {
             e.printStackTrace();
             if (LOG){
                 Log.e(TAG, "Error loading verbs xml file. ");
+            }
+        }
+    }
+
+    /**
+     * Insert conjugation verb models.
+     * @param db SQLiteDatabase
+     */
+    private void insertConjugation(SQLiteDatabase db) {
+        ContentValues values = new ContentValues();
+
+        // Initialize a XmlResourceParser instance
+        XmlResourceParser parser = context.getResources().getXml(R.xml.conjugations);
+        int eventType = -1, i = 0;
+        String verbName, conjugationId;
+        try{
+            // Loop through the XML data
+            while (eventType != XmlPullParser.END_DOCUMENT){
+                if(eventType == XmlResourceParser.START_TAG){
+                    String verbValue = parser.getName();
+                    if (verbValue.equals("verb")){
+                        values.put("_id", i);
+                        conjugationId = parser.getAttributeValue(null, "id");
+                        verbName = parser.getAttributeValue(null, "inf_pr");
+                        values.put(VerbEntry.COLUMN_ID, conjugationId);
+                        values.put(VerbEntry.COLUMN_TERMINATION, parser.getAttributeValue(null, "term"));
+                        values.put(VerbEntry.COLUMN_INFINITIVE_PRESENT, verbName);
+                        values.put(VerbEntry.COLUMN_INFINITIVE_PASSE, parser.getAttributeValue(null, "inf_pa"));
+                        values.put(VerbEntry.COLUMN_PARTICIPE_PRESENT, parser.getAttributeValue(null, "pa_pr"));
+                        values.put(VerbEntry.COLUMN_PARTICIPE_PASSE_1, parser.getAttributeValue(null, "pa_pa1"));
+                        values.put(VerbEntry.COLUMN_PARTICIPE_PASSE_2, parser.getAttributeValue(null, "pa_pa2"));
+                        values.put(VerbEntry.COLUMN_GERONDIF_PRESENT, parser.getAttributeValue(null, "ge_pr"));
+                        values.put(VerbEntry.COLUMN_GERONDIF_PASSE, parser.getAttributeValue(null, "ge_pa"));
+
+                        values.put(VerbEntry.COLUMN_IMPERATIF_PRESENT_TU, parser.getAttributeValue(null, "im_pr_t"));
+                        values.put(VerbEntry.COLUMN_IMPERATIF_PRESENT_NOUS, parser.getAttributeValue(null, "im_pr_n"));
+                        values.put(VerbEntry.COLUMN_IMPERATIF_PRESENT_VOUS, parser.getAttributeValue(null, "im_pr_v"));
+                        values.put(VerbEntry.COLUMN_IMPERATIF_PASSE_TU, parser.getAttributeValue(null, "im_pa_t"));
+                        values.put(VerbEntry.COLUMN_IMPERATIF_PASSE_NOUS, parser.getAttributeValue(null, "im_pa_n"));
+                        values.put(VerbEntry.COLUMN_IMPERATIF_PASSE_VOUS, parser.getAttributeValue(null, "im_pa_v"));
+
+                        values.put(VerbEntry.COLUMN_INDICATIF_PRESENT_JE, parser.getAttributeValue(null, "in_pr_j"));
+                        values.put(VerbEntry.COLUMN_INDICATIF_PRESENT_TU, parser.getAttributeValue(null, "in_pr_t"));
+                        values.put(VerbEntry.COLUMN_INDICATIF_PRESENT_IL, parser.getAttributeValue(null, "in_pr_il"));
+                        values.put(VerbEntry.COLUMN_INDICATIF_PRESENT_NOUS, parser.getAttributeValue(null, "in_pr_n"));
+                        values.put(VerbEntry.COLUMN_INDICATIF_PRESENT_VOUS, parser.getAttributeValue(null, "in_pr_v"));
+                        values.put(VerbEntry.COLUMN_INDICATIF_PRESENT_ILS, parser.getAttributeValue(null, "in_pr_ils"));
+                        values.put(VerbEntry.COLUMN_INDICATIF_PASSE_COMPOSE_JE, parser.getAttributeValue(null, "in_pc_j"));
+                        values.put(VerbEntry.COLUMN_INDICATIF_PASSE_COMPOSE_TU, parser.getAttributeValue(null, "in_pc_t"));
+                        values.put(VerbEntry.COLUMN_INDICATIF_PASSE_COMPOSE_IL, parser.getAttributeValue(null, "in_pc_il"));
+                        values.put(VerbEntry.COLUMN_INDICATIF_PASSE_COMPOSE_NOUS, parser.getAttributeValue(null, "in_pc_n"));
+                        values.put(VerbEntry.COLUMN_INDICATIF_PASSE_COMPOSE_VOUS, parser.getAttributeValue(null, "in_pc_v"));
+                        values.put(VerbEntry.COLUMN_INDICATIF_PASSE_COMPOSE_ILS, parser.getAttributeValue(null, "in_pc_ils"));
+                        values.put(VerbEntry.COLUMN_INDICATIF_IMPERFAIT_JE, parser.getAttributeValue(null, "in_im_j"));
+                        values.put(VerbEntry.COLUMN_INDICATIF_IMPERFAIT_TU, parser.getAttributeValue(null, "in_im_t"));
+                        values.put(VerbEntry.COLUMN_INDICATIF_IMPERFAIT_IL, parser.getAttributeValue(null, "in_im_il"));
+                        values.put(VerbEntry.COLUMN_INDICATIF_IMPERFAIT_NOUS, parser.getAttributeValue(null, "in_im_n"));
+                        values.put(VerbEntry.COLUMN_INDICATIF_IMPERFAIT_VOUS, parser.getAttributeValue(null, "in_im_v"));
+                        values.put(VerbEntry.COLUMN_INDICATIF_IMPERFAIT_ILS, parser.getAttributeValue(null, "in_im_ils"));
+                        values.put(VerbEntry.COLUMN_INDICATIF_PLUS_QUE_PARFAIT_JE, parser.getAttributeValue(null, "in_pqp_j"));
+                        values.put(VerbEntry.COLUMN_INDICATIF_PLUS_QUE_PARFAIT_TU, parser.getAttributeValue(null, "in_pqp_t"));
+                        values.put(VerbEntry.COLUMN_INDICATIF_PLUS_QUE_PARFAIT_IL, parser.getAttributeValue(null, "in_pqp_il"));
+                        values.put(VerbEntry.COLUMN_INDICATIF_PLUS_QUE_PARFAIT_NOUS, parser.getAttributeValue(null, "in_pqp_n"));
+                        values.put(VerbEntry.COLUMN_INDICATIF_PLUS_QUE_PARFAIT_VOUS, parser.getAttributeValue(null, "in_pqp_v"));
+                        values.put(VerbEntry.COLUMN_INDICATIF_PLUS_QUE_PARFAIT_ILS, parser.getAttributeValue(null, "in_pqp_ils"));
+                        values.put(VerbEntry.COLUMN_INDICATIF_PASSE_SIMPLE_JE, parser.getAttributeValue(null, "in_ps_j"));
+                        values.put(VerbEntry.COLUMN_INDICATIF_PASSE_SIMPLE_TU, parser.getAttributeValue(null, "in_ps_t"));
+                        values.put(VerbEntry.COLUMN_INDICATIF_PASSE_SIMPLE_IL, parser.getAttributeValue(null, "in_ps_il"));
+                        values.put(VerbEntry.COLUMN_INDICATIF_PASSE_SIMPLE_NOUS, parser.getAttributeValue(null, "in_ps_n"));
+                        values.put(VerbEntry.COLUMN_INDICATIF_PASSE_SIMPLE_VOUS, parser.getAttributeValue(null, "in_ps_v"));
+                        values.put(VerbEntry.COLUMN_INDICATIF_PASSE_SIMPLE_ILS, parser.getAttributeValue(null, "in_ps_ils"));
+                        values.put(VerbEntry.COLUMN_INDICATIF_PASSE_ANTERIEUR_JE, parser.getAttributeValue(null, "in_pa_j"));
+                        values.put(VerbEntry.COLUMN_INDICATIF_PASSE_ANTERIEUR_TU, parser.getAttributeValue(null, "in_pa_t"));
+                        values.put(VerbEntry.COLUMN_INDICATIF_PASSE_ANTERIEUR_IL, parser.getAttributeValue(null, "in_pa_il"));
+                        values.put(VerbEntry.COLUMN_INDICATIF_PASSE_ANTERIEUR_NOUS, parser.getAttributeValue(null, "in_pa_n"));
+                        values.put(VerbEntry.COLUMN_INDICATIF_PASSE_ANTERIEUR_VOUS, parser.getAttributeValue(null, "in_pa_v"));
+                        values.put(VerbEntry.COLUMN_INDICATIF_PASSE_ANTERIEUR_ILS, parser.getAttributeValue(null, "in_pa_ils"));
+                        values.put(VerbEntry.COLUMN_INDICATIF_FUTUR_SIMPLE_JE, parser.getAttributeValue(null, "in_fs_j"));
+                        values.put(VerbEntry.COLUMN_INDICATIF_FUTUR_SIMPLE_TU, parser.getAttributeValue(null, "in_fs_t"));
+                        values.put(VerbEntry.COLUMN_INDICATIF_FUTUR_SIMPLE_IL, parser.getAttributeValue(null, "in_fs_il"));
+                        values.put(VerbEntry.COLUMN_INDICATIF_FUTUR_SIMPLE_NOUS, parser.getAttributeValue(null, "in_fs_n"));
+                        values.put(VerbEntry.COLUMN_INDICATIF_FUTUR_SIMPLE_VOUS, parser.getAttributeValue(null, "in_fs_v"));
+                        values.put(VerbEntry.COLUMN_INDICATIF_FUTUR_SIMPLE_ILS, parser.getAttributeValue(null, "in_fs_ils"));
+                        values.put(VerbEntry.COLUMN_INDICATIF_FUTUR_ANTERIEUR_JE, parser.getAttributeValue(null, "in_fa_j"));
+                        values.put(VerbEntry.COLUMN_INDICATIF_FUTUR_ANTERIEUR_TU, parser.getAttributeValue(null, "in_fa_t"));
+                        values.put(VerbEntry.COLUMN_INDICATIF_FUTUR_ANTERIEUR_IL, parser.getAttributeValue(null, "in_fa_il"));
+                        values.put(VerbEntry.COLUMN_INDICATIF_FUTUR_ANTERIEUR_NOUS, parser.getAttributeValue(null, "in_fa_n"));
+                        values.put(VerbEntry.COLUMN_INDICATIF_FUTUR_ANTERIEUR_VOUS, parser.getAttributeValue(null, "in_fa_v"));
+                        values.put(VerbEntry.COLUMN_INDICATIF_FUTUR_ANTERIEUR_ILS, parser.getAttributeValue(null, "in_fa_ils"));
+
+                        values.put(VerbEntry.COLUMN_SUBJONTIF_PRESENT_JE, parser.getAttributeValue(null, "su_pr_j"));
+                        values.put(VerbEntry.COLUMN_SUBJONTIF_PRESENT_TU, parser.getAttributeValue(null, "su_pr_t"));
+                        values.put(VerbEntry.COLUMN_SUBJONTIF_PRESENT_IL, parser.getAttributeValue(null, "su_pr_il"));
+                        values.put(VerbEntry.COLUMN_SUBJONTIF_PRESENT_NOUS, parser.getAttributeValue(null, "su_pr_n"));
+                        values.put(VerbEntry.COLUMN_SUBJONTIF_PRESENT_VOUS, parser.getAttributeValue(null, "su_pr_v"));
+                        values.put(VerbEntry.COLUMN_SUBJONTIF_PRESENT_ILS, parser.getAttributeValue(null, "su_pr_ils"));
+                        values.put(VerbEntry.COLUMN_SUBJONTIF_PASSE_JE, parser.getAttributeValue(null, "su_pa_j"));
+                        values.put(VerbEntry.COLUMN_SUBJONTIF_PASSE_TU, parser.getAttributeValue(null, "su_pa_t"));
+                        values.put(VerbEntry.COLUMN_SUBJONTIF_PASSE_IL, parser.getAttributeValue(null, "su_pa_il"));
+                        values.put(VerbEntry.COLUMN_SUBJONTIF_PASSE_NOUS, parser.getAttributeValue(null, "su_pa_n"));
+                        values.put(VerbEntry.COLUMN_SUBJONTIF_PASSE_VOUS, parser.getAttributeValue(null, "su_pa_v"));
+                        values.put(VerbEntry.COLUMN_SUBJONTIF_PASSE_ILS, parser.getAttributeValue(null, "su_pa_ils"));
+                        values.put(VerbEntry.COLUMN_SUBJONTIF_IMPERFAIT_JE, parser.getAttributeValue(null, "su_im_j"));
+                        values.put(VerbEntry.COLUMN_SUBJONTIF_IMPERFAIT_TU, parser.getAttributeValue(null, "su_im_t"));
+                        values.put(VerbEntry.COLUMN_SUBJONTIF_IMPERFAIT_IL, parser.getAttributeValue(null, "su_im_il"));
+                        values.put(VerbEntry.COLUMN_SUBJONTIF_IMPERFAIT_NOUS, parser.getAttributeValue(null, "su_im_n"));
+                        values.put(VerbEntry.COLUMN_SUBJONTIF_IMPERFAIT_VOUS, parser.getAttributeValue(null, "su_im_v"));
+                        values.put(VerbEntry.COLUMN_SUBJONTIF_IMPERFAIT_ILS, parser.getAttributeValue(null, "su_im_ils"));
+                        values.put(VerbEntry.COLUMN_SUBJONTIF_PLUS_QUE_PARFAIT_JE, parser.getAttributeValue(null, "su_pqp_j"));
+                        values.put(VerbEntry.COLUMN_SUBJONTIF_PLUS_QUE_PARFAIT_TU, parser.getAttributeValue(null, "su_pqp_t"));
+                        values.put(VerbEntry.COLUMN_SUBJONTIF_PLUS_QUE_PARFAIT_IL, parser.getAttributeValue(null, "su_pqp_il"));
+                        values.put(VerbEntry.COLUMN_SUBJONTIF_PLUS_QUE_PARFAIT_NOUS, parser.getAttributeValue(null, "su_pqp_n"));
+                        values.put(VerbEntry.COLUMN_SUBJONTIF_PLUS_QUE_PARFAIT_VOUS, parser.getAttributeValue(null, "su_pqp_v"));
+                        values.put(VerbEntry.COLUMN_SUBJONTIF_PLUS_QUE_PARFAIT_ILS, parser.getAttributeValue(null, "su_pqp_ils"));
+
+                        values.put(VerbEntry.COLUMN_CONDITIONNEL_PRESENT_JE, parser.getAttributeValue(null, "co_pr_j"));
+                        values.put(VerbEntry.COLUMN_CONDITIONNEL_PRESENT_TU, parser.getAttributeValue(null, "co_pr_t"));
+                        values.put(VerbEntry.COLUMN_CONDITIONNEL_PRESENT_IL, parser.getAttributeValue(null, "co_pr_il"));
+                        values.put(VerbEntry.COLUMN_CONDITIONNEL_PRESENT_NOUS, parser.getAttributeValue(null, "co_pr_n"));
+                        values.put(VerbEntry.COLUMN_CONDITIONNEL_PRESENT_VOUS, parser.getAttributeValue(null, "co_pr_v"));
+                        values.put(VerbEntry.COLUMN_CONDITIONNEL_PRESENT_ILS, parser.getAttributeValue(null, "co_pr_ils"));
+                        values.put(VerbEntry.COLUMN_CONDITIONNEL_PASSE_JE, parser.getAttributeValue(null, "co_pa_j"));
+                        values.put(VerbEntry.COLUMN_CONDITIONNEL_PASSE_TU, parser.getAttributeValue(null, "co_pa_t"));
+                        values.put(VerbEntry.COLUMN_CONDITIONNEL_PASSE_IL, parser.getAttributeValue(null, "co_pa_il"));
+                        values.put(VerbEntry.COLUMN_CONDITIONNEL_PASSE_NOUS, parser.getAttributeValue(null, "co_pa_n"));
+                        values.put(VerbEntry.COLUMN_CONDITIONNEL_PASSE_VOUS, parser.getAttributeValue(null, "co_pa_v"));
+                        values.put(VerbEntry.COLUMN_CONDITIONNEL_PASSE_ILS, parser.getAttributeValue(null, "co_pa_ils"));
+
+                        try {
+                            db.insertWithOnConflict(VerbEntry.VERBS_TBL, null, values, CONFLICT_REPLACE);
+                        } catch (Exception e){
+                            if (LOG){
+                                Log.e(TAG, "Error inserting conjugation: " + conjugationId + " " + verbName );
+                            }
+                            throw e;
+                        }
+                        i++;
+                    }
+                }
+                eventType = parser.next();
+            }
+        } catch (IOException|XmlPullParserException e){
+            e.printStackTrace();
+            if (LOG){
+                Log.e(TAG, "Error loading conjugations xml file. ");
             }
         }
     }

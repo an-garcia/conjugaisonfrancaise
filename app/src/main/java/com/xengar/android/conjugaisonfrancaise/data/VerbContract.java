@@ -109,10 +109,6 @@ public final class VerbContract {
         public static final int GROUP_2 = 2;
         public static final int GROUP_3 = 3;
         public static final int GROUP_ALL = 0;
-        public static final String S_GROUP_1 = "" + GROUP_1;
-        public static final String S_GROUP_2 = "" + GROUP_2;
-        public static final String S_GROUP_3 = "" + GROUP_3;
-        public static final String S_GROUP_ALL = "" + GROUP_ALL;
 
         public static boolean isValidGroup(int value) {
             return value == GROUP_1 || value == GROUP_2 || value == GROUP_3 || value == GROUP_ALL;
@@ -248,6 +244,7 @@ public final class VerbContract {
         public final static String COLUMN_CONDITIONNEL_PASSE_IL = "CONDITIONNEL_PASSE_IL";
         public final static String COLUMN_CONDITIONNEL_PASSE_NOUS = "CONDITIONNEL_PASSE_NOUS";
         public final static String COLUMN_CONDITIONNEL_PASSE_VOUS = "CONDITIONNEL_PASSE_VOUS";
+        public final static String COLUMN_CONDITIONNEL_PASSE_ILS = "CONDITIONNEL_PASSE_ILS";
     }
 
 }
