@@ -65,6 +65,7 @@ public final class VerbContract {
         /** Name of database table for verbs */
         public final static String VERBS_TBL = "VERBS_TBL";
         public final static String FAVORITES_TBL = "FAVORITES_TBL";
+        public final static String CONJUGATION_TBL = "CONJUGATION_TBL";
 
         /** Unique ID number for the verb (only for use in the database table). - Type: INTEGER */
         public final static String _ID = BaseColumns._ID;
@@ -141,6 +142,112 @@ public final class VerbContract {
         public final static String COLUMN_TRANSLATION_EN = "TRANSLATION_EN";
         public final static String COLUMN_TRANSLATION_ES = "TRANSLATION_ES";
         public final static String COLUMN_TRANSLATION_PT = "TRANSLATION_PT";
+
+
+        /**
+         * Verb CONJUGATION columns.
+         * Type: TEXT
+         */
+        public final static String COLUMN_TERMINATION = "TERMINATION";
+        public final static String COLUMN_INFINITIVE_PRESENT = "INFINITIVE_PRESENT";
+        public final static String COLUMN_INFINITIVE_PASSE = "INFINITIVE_PASSE";
+        public final static String COLUMN_PARTICIPE_PRESENT = "PARTICIPE_PRESENT";
+        public final static String COLUMN_PARTICIPE_PASSE_1 = "PARTICIPE_PASSE_1";
+        public final static String COLUMN_PARTICIPE_PASSE_2 = "PARTICIPE_PASSE_2";
+        public final static String COLUMN_GERONDIF_PRESENT = "GERONDIF_PRESENT";
+        public final static String COLUMN_GERONDIF_PASSE = "GERONDIF_PASSE";
+        public final static String COLUMN_IMPERATIF_PRESENT_TU = "IMPERATIF_PRESENT_TU";
+        public final static String COLUMN_IMPERATIF_PRESENT_NOUS = "IMPERATIF_PRESENT_NOUS";
+        public final static String COLUMN_IMPERATIF_PRESENT_VOUS = "IMPERATIF_PRESENT_VOUS";
+        public final static String COLUMN_IMPERATIF_PASSE_TU = "IMPERATIF_PASSE_TU";
+        public final static String COLUMN_IMPERATIF_PASSE_NOUS = "IMPERATIF_PASSE_NOUS";
+        public final static String COLUMN_IMPERATIF_PASSE_VOUS = "IMPERATIF_PASSE_VOUS";
+
+        public final static String COLUMN_INDICATIF_PRESENT_JE = "INDICATIF_PRESENT_JE";
+        public final static String COLUMN_INDICATIF_PRESENT_TU = "INDICATIF_PRESENT_TU";
+        public final static String COLUMN_INDICATIF_PRESENT_IL = "INDICATIF_PRESENT_IL";
+        public final static String COLUMN_INDICATIF_PRESENT_NOUS = "INDICATIF_PRESENT_NOUS";
+        public final static String COLUMN_INDICATIF_PRESENT_VOUS = "INDICATIF_PRESENT_VOUS";
+        public final static String COLUMN_INDICATIF_PRESENT_ILS = "INDICATIF_PRESENT_ILS";
+        public final static String COLUMN_INDICATIF_PASSE_COMPOSE_JE = "INDICATIF_PASSE_COMPOSE_JE";
+        public final static String COLUMN_INDICATIF_PASSE_COMPOSE_TU = "INDICATIF_PASSE_COMPOSE_TU";
+        public final static String COLUMN_INDICATIF_PASSE_COMPOSE_IL = "INDICATIF_PASSE_COMPOSE_IL";
+        public final static String COLUMN_INDICATIF_PASSE_COMPOSE_NOUS = "INDICATIF_PASSE_COMPOSE_NOUS";
+        public final static String COLUMN_INDICATIF_PASSE_COMPOSE_VOUS = "INDICATIF_PASSE_COMPOSE_VOUS";
+        public final static String COLUMN_INDICATIF_PASSE_COMPOSE_ILS = "INDICATIF_PASSE_COMPOSE_ILS";
+        public final static String COLUMN_INDICATIF_IMPERFAIT_JE = "INDICATIF_IMPERFAIT_JE";
+        public final static String COLUMN_INDICATIF_IMPERFAIT_TU = "INDICATIF_IMPERFAIT_TU";
+        public final static String COLUMN_INDICATIF_IMPERFAIT_IL = "INDICATIF_IMPERFAIT_IL";
+        public final static String COLUMN_INDICATIF_IMPERFAIT_NOUS = "INDICATIF_IMPERFAIT_NOUS";
+        public final static String COLUMN_INDICATIF_IMPERFAIT_VOUS = "INDICATIF_IMPERFAIT_VOUS";
+        public final static String COLUMN_INDICATIF_IMPERFAIT_ILS = "INDICATIF_IMPERFAIT_ILS";
+        public final static String COLUMN_INDICATIF_PLUS_QUE_PARFAIT_JE = "INDICATIF_PLUS_QUE_PARFAIT_JE";
+        public final static String COLUMN_INDICATIF_PLUS_QUE_PARFAIT_TU = "INDICATIF_PLUS_QUE_PARFAIT_TU";
+        public final static String COLUMN_INDICATIF_PLUS_QUE_PARFAIT_IL = "INDICATIF_PLUS_QUE_PARFAIT_IL";
+        public final static String COLUMN_INDICATIF_PLUS_QUE_PARFAIT_NOUS = "INDICATIF_PLUS_QUE_PARFAIT_NOUS";
+        public final static String COLUMN_INDICATIF_PLUS_QUE_PARFAIT_VOUS = "INDICATIF_PLUS_QUE_PARFAIT_VOUS";
+        public final static String COLUMN_INDICATIF_PLUS_QUE_PARFAIT_ILS = "INDICATIF_PLUS_QUE_PARFAIT_ILS";
+        public final static String COLUMN_INDICATIF_PASSE_SIMPLE_JE = "INDICATIF_PASSE_SIMPLE_JE";
+        public final static String COLUMN_INDICATIF_PASSE_SIMPLE_TU = "INDICATIF_PASSE_SIMPLE_TU";
+        public final static String COLUMN_INDICATIF_PASSE_SIMPLE_IL = "INDICATIF_PASSE_SIMPLE_IL";
+        public final static String COLUMN_INDICATIF_PASSE_SIMPLE_NOUS = "INDICATIF_PASSE_SIMPLE_NOUS";
+        public final static String COLUMN_INDICATIF_PASSE_SIMPLE_VOUS = "INDICATIF_PASSE_SIMPLE_VOUS";
+        public final static String COLUMN_INDICATIF_PASSE_SIMPLE_ILS = "INDICATIF_PASSE_SIMPLE_ILS";
+        public final static String COLUMN_INDICATIF_PASSE_ANTERIEUR_JE = "INDICATIF_PASSE_ANTERIEUR_JE";
+        public final static String COLUMN_INDICATIF_PASSE_ANTERIEUR_TU = "INDICATIF_PASSE_ANTERIEUR_TU";
+        public final static String COLUMN_INDICATIF_PASSE_ANTERIEUR_IL = "INDICATIF_PASSE_ANTERIEUR_IL";
+        public final static String COLUMN_INDICATIF_PASSE_ANTERIEUR_NOUS = "INDICATIF_PASSE_ANTERIEUR_NOUS";
+        public final static String COLUMN_INDICATIF_PASSE_ANTERIEUR_VOUS = "INDICATIF_PASSE_ANTERIEUR_VOUS";
+        public final static String COLUMN_INDICATIF_PASSE_ANTERIEUR_ILS = "INDICATIF_PASSE_ANTERIEUR_ILS";
+        public final static String COLUMN_INDICATIF_FUTUR_SIMPLE_JE = "INDICATIF_FUTUR_SIMPLE_JE";
+        public final static String COLUMN_INDICATIF_FUTUR_SIMPLE_TU = "INDICATIF_FUTUR_SIMPLE_TU";
+        public final static String COLUMN_INDICATIF_FUTUR_SIMPLE_IL = "INDICATIF_FUTUR_SIMPLE_IL";
+        public final static String COLUMN_INDICATIF_FUTUR_SIMPLE_NOUS = "INDICATIF_FUTUR_SIMPLE_NOUS";
+        public final static String COLUMN_INDICATIF_FUTUR_SIMPLE_VOUS = "INDICATIF_FUTUR_SIMPLE_VOUS";
+        public final static String COLUMN_INDICATIF_FUTUR_SIMPLE_ILS = "INDICATIF_FUTUR_SIMPLE_ILS";
+        public final static String COLUMN_INDICATIF_FUTUR_ANTERIEUR_JE = "INDICATIF_FUTUR_ANTERIEUR_JE";
+        public final static String COLUMN_INDICATIF_FUTUR_ANTERIEUR_TU = "INDICATIF_FUTUR_ANTERIEUR_TU";
+        public final static String COLUMN_INDICATIF_FUTUR_ANTERIEUR_IL = "INDICATIF_FUTUR_ANTERIEUR_IL";
+        public final static String COLUMN_INDICATIF_FUTUR_ANTERIEUR_NOUS = "INDICATIF_FUTUR_ANTERIEUR_NOUS";
+        public final static String COLUMN_INDICATIF_FUTUR_ANTERIEUR_VOUS = "INDICATIF_FUTUR_ANTERIEUR_VOUS";
+        public final static String COLUMN_INDICATIF_FUTUR_ANTERIEUR_ILS = "INDICATIF_FUTUR_ANTERIEUR_ILS";
+
+        public final static String COLUMN_SUBJONTIF_PRESENT_JE = "SUBJONTIF_PRESENT_JE";
+        public final static String COLUMN_SUBJONTIF_PRESENT_TU = "SUBJONTIF_PRESENT_TU";
+        public final static String COLUMN_SUBJONTIF_PRESENT_IL = "SUBJONTIF_PRESENT_IL";
+        public final static String COLUMN_SUBJONTIF_PRESENT_NOUS = "SUBJONTIF_PRESENT_NOUS";
+        public final static String COLUMN_SUBJONTIF_PRESENT_VOUS = "SUBJONTIF_PRESENT_VOUS";
+        public final static String COLUMN_SUBJONTIF_PRESENT_ILS = "SUBJONTIF_PRESENT_ILS";
+        public final static String COLUMN_SUBJONTIF_PASSE_JE = "SUBJONTIF_PASSE_JE";
+        public final static String COLUMN_SUBJONTIF_PASSE_TU = "SUBJONTIF_PASSE_TU";
+        public final static String COLUMN_SUBJONTIF_PASSE_IL = "SUBJONTIF_PASSE_IL";
+        public final static String COLUMN_SUBJONTIF_PASSE_NOUS = "SUBJONTIF_PASSE_NOUS";
+        public final static String COLUMN_SUBJONTIF_PASSE_VOUS = "SUBJONTIF_PASSE_VOUS";
+        public final static String COLUMN_SUBJONTIF_PASSE_ILS = "SUBJONTIF_PASSE_ILS";
+        public final static String COLUMN_SUBJONTIF_IMPERFAIT_JE = "SUBJONTIF_IMPERFAIT_JE";
+        public final static String COLUMN_SUBJONTIF_IMPERFAIT_TU = "SUBJONTIF_IMPERFAIT_TU";
+        public final static String COLUMN_SUBJONTIF_IMPERFAIT_IL = "SUBJONTIF_IMPERFAIT_IL";
+        public final static String COLUMN_SUBJONTIF_IMPERFAIT_NOUS = "SUBJONTIF_IMPERFAIT_NOUS";
+        public final static String COLUMN_SUBJONTIF_IMPERFAIT_VOUS = "SUBJONTIF_IMPERFAIT_VOUS";
+        public final static String COLUMN_SUBJONTIF_IMPERFAIT_ILS = "SUBJONTIF_IMPERFAIT_ILS";
+        public final static String COLUMN_SUBJONTIF_PLUS_QUE_PARFAIT_JE = "SUBJONTIF_PLUS_QUE_PARFAIT_JE";
+        public final static String COLUMN_SUBJONTIF_PLUS_QUE_PARFAIT_TU = "SUBJONTIF_PLUS_QUE_PARFAIT_TU";
+        public final static String COLUMN_SUBJONTIF_PLUS_QUE_PARFAIT_IL = "SUBJONTIF_PLUS_QUE_PARFAIT_IL";
+        public final static String COLUMN_SUBJONTIF_PLUS_QUE_PARFAIT_NOUS = "SUBJONTIF_PLUS_QUE_PARFAIT_NOUS";
+        public final static String COLUMN_SUBJONTIF_PLUS_QUE_PARFAIT_VOUS = "SUBJONTIF_PLUS_QUE_PARFAIT_VOUS";
+        public final static String COLUMN_SUBJONTIF_PLUS_QUE_PARFAIT_ILS = "SUBJONTIF_PLUS_QUE_PARFAIT_ILS";
+
+        public final static String COLUMN_CONDITIONNEL_PRESENT_JE = "CONDITIONNEL_PRESENT_JE";
+        public final static String COLUMN_CONDITIONNEL_PRESENT_TU = "CONDITIONNEL_PRESENT_TU";
+        public final static String COLUMN_CONDITIONNEL_PRESENT_IL = "CONDITIONNEL_PRESENT_IL";
+        public final static String COLUMN_CONDITIONNEL_PRESENT_NOUS = "CONDITIONNEL_PRESENT_NOUS";
+        public final static String COLUMN_CONDITIONNEL_PRESENT_VOUS = "CONDITIONNEL_PRESENT_VOUS";
+        public final static String COLUMN_CONDITIONNEL_PRESENT_ILS = "CONDITIONNEL_PRESENT_ILS";
+        public final static String COLUMN_CONDITIONNEL_PASSE_JE = "CONDITIONNEL_PASSE_JE";
+        public final static String COLUMN_CONDITIONNEL_PASSE_TU = "CONDITIONNEL_PASSE_TU";
+        public final static String COLUMN_CONDITIONNEL_PASSE_IL = "CONDITIONNEL_PASSE_IL";
+        public final static String COLUMN_CONDITIONNEL_PASSE_NOUS = "CONDITIONNEL_PASSE_NOUS";
+        public final static String COLUMN_CONDITIONNEL_PASSE_VOUS = "CONDITIONNEL_PASSE_VOUS";
     }
 
 }
