@@ -35,6 +35,7 @@
     <string name="group1">1st group</string>
     <string name="group2">2nd group</string>
     <string name="group3">3rd group</string>
+
     <string name="select_type_of_sort">Sort by</string>
     <string name="alphabet">Alphabet</string>
     <string name="color">Color</string>
@@ -54,6 +55,24 @@
     <string name="details">Details</string>
     <string name="favorites_add_message">Add to Favorites</string>
     <string name="favorites_del_message">Remove from Favorites</string>
+
+    <!-- Verb Conjugation Titles in French -->
+    <string name="infinitif" translatable="false">Infinitif</string>
+    <string name="participe" translatable="false">Participe</string>
+    <string name="gerondif" translatable="false">Gérondif</string>
+    <string name="imperatif" translatable="false">Impératif</string>
+    <string name="indicatif" translatable="false">Indicatif</string>
+    <string name="conditionnel" translatable="false">Conditionnel</string>
+    <string name="subjonctif" translatable="false">Subjonctif</string>
+    <string name="present" translatable="false">Présent</string>
+    <string name="passe" translatable="false">Passé</string>
+    <string name="passe_compose" translatable="false">Passé composé</string>
+    <string name="imperfait" translatable="false">Imparfait</string>
+    <string name="plus_que_parfait" translatable="false">Plus-que-parfait</string>
+    <string name="passe_simple" translatable="false">Passé simple</string>
+    <string name="passe_anterieur" translatable="false">Passé antérieur</string>
+    <string name="futur_simple" translatable="false">Futur simple</string>
+    <string name="futur_anterieur" translatable="false">Futur antérieur</string>
 
     <!-- error messages -->
     <string name="network_not_available_message">Network is not available!</string>

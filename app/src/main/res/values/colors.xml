@@ -36,6 +36,7 @@
     <color name="colorBrown">#795548</color>
     <color name="colorBlueGray">#607D8B</color>
     <color name="colorGray">#9E9E9E</color>
+    <color name="colorGray500">#F6F6F6</color>
     <color name="grey_850">#303030</color> <!-- 212121-->
     <color name="playColor">#E8EAF6</color>
 </resources>
