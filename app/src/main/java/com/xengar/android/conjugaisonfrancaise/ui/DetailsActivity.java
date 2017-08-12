@@ -37,7 +37,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -69,7 +68,7 @@ public class DetailsActivity extends AppCompatActivity implements
     private long verbID = -1;
     private Verb verb;
     private TextToSpeech tts;
-    private TextView infinitive, simplePast, pastParticiple;
+    private TextView infinitive, group, pastParticiple;
     private TextView pInfinitive, pSimplePast, pPastParticiple;
     private TextView definition, translation, sample1, sample2, sample3;
 
@@ -109,11 +108,7 @@ public class DetailsActivity extends AppCompatActivity implements
 
         //Text
         infinitive = (TextView) findViewById(R.id.infinitive);
-        simplePast = (TextView) findViewById(R.id.simple_past);
-        pastParticiple = (TextView) findViewById(R.id.past_participle);
-        pInfinitive = (TextView) findViewById(R.id.phonetic_infinitive);
-        pSimplePast = (TextView) findViewById(R.id.phonetic_simple_past);
-        pPastParticiple = (TextView) findViewById(R.id.phonetic_past_participle);
+        group = (TextView) findViewById(R.id.groupe);
         definition = (TextView) findViewById(R.id.definition);
         translation = (TextView) findViewById(R.id.translation);
         sample1 = (TextView) findViewById(R.id.sample1);
@@ -122,10 +117,6 @@ public class DetailsActivity extends AppCompatActivity implements
 
         // define click listeners
         LinearLayout header = (LinearLayout) findViewById(R.id.play_infinitive);
-        header.setOnClickListener(this);
-        header = (LinearLayout) findViewById(R.id.play_simple_past);
-        header.setOnClickListener(this);
-        header = (LinearLayout) findViewById(R.id.play_past_participle);
         header.setOnClickListener(this);
         header = (LinearLayout) findViewById(R.id.play_definition);
         header.setOnClickListener(this);
@@ -436,6 +427,17 @@ public class DetailsActivity extends AppCompatActivity implements
     private void fillVerbDetails(Verb verb) {
         // Update the views on the screen with the values from the database
         infinitive.setText(verb.getInfinitive());
+        switch (verb.getGroup()) {
+            case 1:
+                group.setText(getString(R.string.group1));
+                break;
+            case 2:
+                group.setText(getString(R.string.group2));
+                break;
+            case 3:
+                group.setText(getString(R.string.group3));
+                break;
+        }
 
         definition.setText(verb.getDefinition());
         sample1.setText(verb.getSample1());

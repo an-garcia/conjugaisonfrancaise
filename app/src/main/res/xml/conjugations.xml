@@ -118,7 +118,6 @@
             co_pa_n     = Conditionnel Passe nous
             co_pa_v     = Conditionnel Passe vous
             co_pa_ils   = Conditionnel Passe ils
-                   
         -->
 
     <conjugation
@@ -456,7 +455,7 @@
         in_pc_j     = "me suis méfié(e)"
         in_pc_t     = "t’ es méfié(e)"
         in_pc_il    = "s’ est méfié(e)"
-        in_pc_n     = "nous	sommes méfié(e)s"
+        in_pc_n     = "nous sommes méfié(e)s"
         in_pc_v     = "vous êtes méfié(e)s"
         in_pc_ils   = "se sont méfié(e)s"
         in_im_j     = "me méfiais"
