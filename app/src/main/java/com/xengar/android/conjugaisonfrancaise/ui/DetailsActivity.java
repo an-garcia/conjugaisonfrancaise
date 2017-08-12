@@ -453,6 +453,8 @@ public class DetailsActivity extends AppCompatActivity implements
 
         ActivityUtils.setTranslation(getApplicationContext(), translation, verb);
 
+        changeTextFontInConjugation(fontSize);
+
         // Try to put the verb image
         //ImageView imageVerb = (ImageView) findViewById(R.id.verb_image);
         //int imageId = getResources().getIdentifier(VERB  + verb.getInfinitive() , DRAWABLE,
@@ -463,6 +465,115 @@ public class DetailsActivity extends AppCompatActivity implements
 
         //ActivityUtils.firebaseAnalyticsLogEventViewItem(
         //        mFirebaseAnalytics, "" + verbID, verb.getInfinitive(), VERBS);
+    }
+
+    /**
+     * Changes text font size.
+     * @param fontSize
+     */
+    private void changeTextFontInConjugation(int fontSize) {
+        int unit = TypedValue.COMPLEX_UNIT_SP;
+        ((TextView)findViewById(R.id.indicative_present_je)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.indicative_present_tu)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.indicative_present_il)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.indicative_present_nous)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.indicative_present_vous)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.indicative_present_ils)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.indicative_passe_compose_je)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.indicative_passe_compose_tu)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.indicative_passe_compose_il)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.indicative_passe_compose_nous)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.indicative_passe_compose_vous)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.indicative_passe_compose_ils)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.indicative_imperfait_je)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.indicative_imperfait_tu)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.indicative_imperfait_il)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.indicative_imperfait_nous)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.indicative_imperfait_vous)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.indicative_imperfait_ils)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.indicative_plus_que_parfait_je)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.indicative_plus_que_parfait_tu)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.indicative_plus_que_parfait_il)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.indicative_plus_que_parfait_nous)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.indicative_plus_que_parfait_vous)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.indicative_plus_que_parfait_ils)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.indicative_passe_simple_je)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.indicative_passe_simple_tu)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.indicative_passe_simple_il)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.indicative_passe_simple_nous)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.indicative_passe_simple_vous)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.indicative_passe_simple_ils)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.indicative_passe_anterieur_je)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.indicative_passe_anterieur_tu)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.indicative_passe_anterieur_il)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.indicative_passe_anterieur_nous)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.indicative_passe_anterieur_vous)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.indicative_passe_anterieur_ils)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.indicative_futur_simple_je)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.indicative_futur_simple_tu)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.indicative_futur_simple_il)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.indicative_futur_simple_nous)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.indicative_futur_simple_vous)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.indicative_futur_simple_ils)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.indicative_futur_anterieur_je)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.indicative_futur_anterieur_tu)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.indicative_futur_anterieur_il)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.indicative_futur_anterieur_nous)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.indicative_futur_anterieur_vous)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.indicative_futur_anterieur_ils)).setTextSize(unit, fontSize);
+
+        ((TextView)findViewById(R.id.conditionnel_present_je)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.conditionnel_present_tu)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.conditionnel_present_il)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.conditionnel_present_nous)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.conditionnel_present_vous)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.conditionnel_present_ils)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.conditionnel_passe_je)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.conditionnel_passe_tu)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.conditionnel_passe_il)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.conditionnel_passe_nous)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.conditionnel_passe_vous)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.conditionnel_passe_ils)).setTextSize(unit, fontSize);
+
+        ((TextView)findViewById(R.id.subjonctif_present_je)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.subjonctif_present_tu)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.subjonctif_present_il)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.subjonctif_present_nous)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.subjonctif_present_vous)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.subjonctif_present_ils)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.subjonctif_passe_je)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.subjonctif_passe_tu)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.subjonctif_passe_il)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.subjonctif_passe_nous)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.subjonctif_passe_vous)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.subjonctif_passe_ils)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.subjonctif_imperfait_je)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.subjonctif_imperfait_tu)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.subjonctif_imperfait_il)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.subjonctif_imperfait_nous)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.subjonctif_imperfait_vous)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.subjonctif_imperfait_ils)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.subjonctif_plus_que_parfait_je)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.subjonctif_plus_que_parfait_tu)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.subjonctif_plus_que_parfait_il)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.subjonctif_plus_que_parfait_nous)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.subjonctif_plus_que_parfait_vous)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.subjonctif_plus_que_parfait_ils)).setTextSize(unit, fontSize);
+
+        ((TextView)findViewById(R.id.imperatif_present_tu)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.imperatif_present_nous)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.imperatif_present_vous)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.imperatif_passe_tu)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.imperatif_passe_nous)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.imperatif_passe_vous)).setTextSize(unit, fontSize);
+
+        ((TextView)findViewById(R.id.infinitive_present)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.infinitive_passe)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.participe_present)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.participe_passe1)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.participe_passe2)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.gerondif_present)).setTextSize(unit, fontSize);
+        ((TextView)findViewById(R.id.gerondif_passe)).setTextSize(unit, fontSize);
     }
 
     /**

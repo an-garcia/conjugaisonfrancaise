@@ -50,7 +50,7 @@ public class VerbAdapter extends RecyclerView.Adapter<VerbHolder> {
         // TODO: Have card mode.
         // View v = inflater.inflate(
         //        (layoutType.contentEquals(LIST))? R.layout.verbs_list_item
-        //                : R.layout.verbs_card_item, parent, false);
+        //                : R.layout.card_content_definition, parent, false);
         View v = inflater.inflate(R.layout.verbs_list_item, parent, false);
         return new VerbHolder(v);
     }

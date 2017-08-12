@@ -32,9 +32,9 @@
     <string name="share">Share</string>
 
     <string name="select_show_verbs">Show verbs</string>
-    <string name="group1">1st group</string>
-    <string name="group2">2nd group</string>
-    <string name="group3">3rd group</string>
+    <string name="group1" translatable="false">1er groupe</string>
+    <string name="group2" translatable="false">2e groupe</string>
+    <string name="group3" translatable="false">3e groupe</string>
 
     <string name="select_type_of_sort">Sort by</string>
     <string name="alphabet">Alphabet</string>

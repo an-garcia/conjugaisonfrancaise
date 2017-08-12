@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2016 The Android Open Source Project
+<!-- Copyright (C) 2017 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -24,7 +24,7 @@
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
     android:paddingStart="16dp"
-    android:paddingTop="8dp"
+    android:paddingTop="4dp"
     android:background="@color/backgroundColorWhite">
 
     <LinearLayout
@@ -42,9 +42,9 @@
             <TextView
                 android:id="@+id/infinitive"
                 android:layout_width="0dp"
-                android:layout_weight="1"
-                android:gravity="center"
                 android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="start"
                 android:ellipsize="end"
                 android:maxLines="1"
                 android:textColor="@color/colorBlack"
@@ -55,9 +55,10 @@
 
             <TextView
                 android:id="@+id/translation"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
+                android:layout_weight="1"
+                android:gravity="start"
                 android:ellipsize="end"
                 android:maxLines="1"
                 android:textColor="@color/colorIndigo"
