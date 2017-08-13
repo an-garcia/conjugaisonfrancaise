@@ -18,7 +18,7 @@ Pre-requisites
 
 References
 ----------
-- http://bescherelle.com/conjugueur.php?term=trouver
+- http://bescherelle.com/conjugueur.php?term=couvrir
 - http://www.conjugaison.com/grammaire/conjugaison.html
 - http://monsu.desiderio.free.fr/atelier/freqverb.html
 - http://dictionnaire.reverso.net/francais-portugais/ouvrir
