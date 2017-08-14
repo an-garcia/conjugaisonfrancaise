@@ -61,7 +61,7 @@
         trpt="ter" />
     <verb
         id="2"
-        ta=""
+        ta="67"
         in="faire"
         s1="Deux et deux font quatre."
         s2="Elle faisait celle qui n’entend pas."
@@ -75,7 +75,7 @@
         trpt="fazer" />
     <verb
         id="3"
-        ta=""
+        ta="84"
         in="dire"
         s1="Je vous dis merci."
         s2="Elle me dit de venir."
@@ -89,7 +89,7 @@
         trpt="dizer" />
     <verb
         id="4"
-        ta=""
+        ta="45"
         in="pouvoir"
         s1="C’est formidable, Fanny peut dessiner à l’ordinateur! Si tu le peux, viens me voir."
         s2="La directrice peut décider de fermer l’école s’il y a une tempête de neige."
@@ -103,7 +103,7 @@
         trpt="poder" />
     <verb
         id="5"
-        ta=""
+        ta="23"
         in="aller"
         s1="Nous allons au parc."
         s2="Comment ça va? Je vais mieux depuis que je suis en vacances."
@@ -117,7 +117,7 @@
         trpt="ir" />
     <verb
         id="6"
-        ta=""
+        ta="41"
         in="voir"
         s1="Je vois que tu travailles fort."
         s2="Elle ne peut plus la voir, elle est si désagréable."
@@ -131,7 +131,7 @@
         trpt="ver" />
     <verb
         id="7"
-        ta=""
+        ta="43"
         in="savoir"
         s1="Elle sait répartir les tâches, tu sais écouter."
         s2="Il sait une petite clairière dans la forêt."
@@ -145,7 +145,7 @@
         trpt="saber" />
     <verb
         id="8"
-        ta=""
+        ta="50"
         in="vouloir"
         s1="Acceptez-vous de prendre Tristan comme époux? – Oui, je le veux."
         s2="Combien voulez-vous pour ce voilier?"
@@ -159,7 +159,7 @@
         trpt="querer" />
     <verb
         id="9"
-        ta=""
+        ta="24"
         in="venir"
         s1="Elle viendra nous voir demain."
         s2="Ces belles pivoines viennent de la campagne."
@@ -173,7 +173,7 @@
         trpt="vir" />
     <verb
         id="10"
-        ta=""
+        ta="48"
         in="falloir"
         s1="Il faut que tu viennes nous voir."
         s2="Il s’en faut de 100 $ pour que l’objectif soit atteint."
@@ -187,7 +187,7 @@
         trpt="ter que" />
     <verb
         id="11"
-        ta=""
+        ta="44"
         in="devoir"
         s1="Il lui doit sa situation."
         s2="Ils doivent la vérité à leurs parents."
@@ -201,7 +201,7 @@
         trpt="dever" />
     <verb
         id="12"
-        ta=""
+        ta="74"
         in="croire"
         s1="Je la crois compétente et remplie d’initiative."
         s2="Croyez-vous aux fantômes? « Parmi mon désespoir je croyais encore à l’espérance »"
@@ -215,7 +215,7 @@
         trpt="acreditar" />
     <verb
         id="13"
-        ta=""
+        ta="7"
         in="trouver"
         s1="J’ai trouvé un travail intéressant."
         s2="Ils ont trouvé ce film très amusant."
@@ -229,7 +229,7 @@
         trpt="encontrar" />
     <verb
         id="14"
-        ta=""
+        ta="7"
         in="donner"
         s1="Les analyses n’ont rien donné."
         s2="Vous m’avez donné bien du plaisir."
@@ -243,7 +243,7 @@
         trpt="dar" />
     <verb
         id="15"
-        ta=""
+        ta="59"
         in="prendre"
         s1="Prendre quelqu’un pour un fou."
         s2="Prends la crème glacée aux pistaches, elle est très bonne."
@@ -257,7 +257,7 @@
         trpt="tomar" />
     <verb
         id="16"
-        ta=""
+        ta="7"
         in="parler"
         s1="Marie-Ève parle avec ses amis tous les soirs."
         s2="Les chiffres parlent d’eux-mêmes (et non *par eux-mêmes)."
@@ -271,7 +271,7 @@
         trpt="conversar" />
     <verb
         id="17"
-        ta=""
+        ta="7"
         in="aimer"
         s1="Il l’aime à la folie."
         s2="Aimer la lecture."
@@ -285,7 +285,7 @@
         trpt="amor, gostar" />
     <verb
         id="18"
-        ta=""
+        ta="7"
         in="passer"
         s1="Je passerai mon examen de français le 20 mai."
         s2="Julien a passé l’été à la campagne."
@@ -299,7 +299,7 @@
         trpt="passar" />
     <verb
         id="19"
-        ta=""
+        ta="61"
         in="mettre"
         s1="Il a mis son argent à la banque."
         s2="Il s’est mis à chanter."
@@ -313,7 +313,7 @@
         trpt="colocar" />
     <verb
         id="20"
-        ta=""
+        ta="7"
         in="demander"
         s1="Combien demandez-vous (et non *chargez-vous)?"
         s2="« Quand la fête a-t-elle lieu? » demanda Antoine ."
@@ -327,7 +327,7 @@
         trpt="perguntar" />
     <verb
         id="21"
-        ta=""
+        ta="24"
         in="tenir"
         s1="Cet acteur a bien tenu son rôle ."
         s2="L’ombre de cet arbre tient la maison au frais."
@@ -341,7 +341,7 @@
         trpt="manter" />
     <verb
         id="22"
-        ta=""
+        ta="7"
         in="sembler"
         s1="Il me semble avoir entendu cela."
         s2="Il semble qu’il fera beau demain."
@@ -355,7 +355,7 @@
         trpt="soar" />
     <verb
         id="23"
-        ta=""
+        ta="7"
         in="laisser"
         s1="J’ai laissé ma bicyclette et j’ai préféré marcher."
         s2="Il a laissé sa fortune à ses petits-enfants."
@@ -369,7 +369,7 @@
         trpt="deixar" />
     <verb
         id="24"
-        ta=""
+        ta="7"
         in="rester"
         s1="Ils sont partis, elle est restée."
         s2="Les paroles s’envolent, les écrits restent."
@@ -385,7 +385,7 @@
     <!-- TOP 50 -->
     <verb
         id="25"
-        ta=""
+        ta="7"
         in="penser"
         s1="Je pense voyager sous peu."
         s2="Elle pense qu’il viendra, elle ne pense pas qu’il vienne."
@@ -399,7 +399,7 @@
         trpt="pensar" />
     <verb
         id="26"
-        ta=""
+        ta="58"
         in="entendre"
         s1="J’entends bien être présente."
         s2="Parlez plus fort, je ne vous entends pas bien."
@@ -413,7 +413,7 @@
         trpt="ouvir" />
     <verb
         id="27"
-        ta=""
+        ta="7"
         in="regarder"
         s1="Nous allons regarder cette question."
         s2="Cette décision ne vous regarde pas."
@@ -427,7 +427,7 @@
         trpt="olhar" />
     <verb
         id="28"
-        ta=""
+        ta="58"
         in="répondre"
         s1="Je réponds de cette personne, elle est fiable."
         s2="Elle a répondu « oui »."
@@ -441,7 +441,7 @@
         trpt="resposta" />
     <verb
         id="29"
-        ta=""
+        ta="58"
         in="rendre"
         s1="Elle lui a rendu ce qu’elle lui avait emprunté."
         s2="Cette décision le rendit fou de rage."
@@ -455,7 +455,7 @@
         trpt="fazer" />
     <verb
         id="30"
-        ta=""
+        ta="69"
         in="connaître"
         s1="Il connaît la région comme le fond de sa poche."
         s2="Tu connais ce champion de tennis?"
@@ -469,7 +469,7 @@
         trpt="saber" />
     <verb
         id="31"
-        ta=""
+        ta="69"
         in="paraître"
         s1="Martine a paru contente."
         s2="Éloi ne paraît pas ses 50 ans."
@@ -483,7 +483,7 @@
         trpt="olhar" />
     <verb
         id="32"
-        ta=""
+        ta="7"
         in="arriver"
         s1="Joël est arrivé à la maison."
         s2="La récréation arrive dans quelques minutes."
@@ -497,7 +497,7 @@
         trpt="obter" />
     <verb
         id="33"
-        ta=""
+        ta="26"
         in="sentir"
         s1="La cuisine sent le brûlé."
         s2="Elle sent une douleur lancinante à une jambe."
@@ -511,7 +511,7 @@
         trpt="sentir" />
     <verb
         id="34"
-        ta=""
+        ta="58"
         in="attendre"
         s1="Attends, réfléchis un peu avant de répondre."
         s2="Il attend un appel téléphonique."
@@ -525,7 +525,7 @@
         trpt="esperar" />
     <verb
         id="35"
-        ta=""
+        ta="82"
         in="vivre"
         s1="Les inquiétudes qu’il a vécues."
         s2="Ils vivent à la campagne."
@@ -539,7 +539,7 @@
         trpt="viver" />
     <verb
         id="36"
-        ta=""
+        ta="7"
         in="chercher"
         s1="Il cherche à tromper son ennui."
         s2="Cherche-t-il des ennuis?"
@@ -553,7 +553,7 @@
         trpt="procurar" />
     <verb
         id="37"
-        ta=""
+        ta="26"
         in="sentir"
         s1="La cuisine sent le brûlé."
         s2="Elle sent une douleur lancinante à une jambe."
@@ -567,7 +567,7 @@
         trpt="sentir" />
     <verb
         id="38"
-        ta=""
+        ta="59"
         in="comprendre"
         s1="Je dois donc comprendre que vous ne reviendrez plus."
         s2="Je comprends que vous soyez inquiète."
@@ -581,7 +581,7 @@
         trpt="entender" />
     <verb
         id="39"
-        ta=""
+        ta="7"
         in="porter"
         s1="Saviez-vous que l'obligation de porter secours ou assistance existe."
         s2="Les professionnels de la santé ont répété plusieurs fois que ce n'est pas bon pour les enfants de porter des cartables très lourds."
@@ -595,7 +595,7 @@
         trpt="levar" />
     <verb
         id="40"
-        ta=""
+        ta="24"
         in="devenir"
         s1="Ils sont devenus des adultes maintenant."
         s2="La jeune femme devient animatrice sur NRJ12."
@@ -609,7 +609,7 @@
         trpt="tornar-se" />
     <verb
         id="41"
-        ta=""
+        ta="7"
         in="entrer"
         s1="Entrer une aiguille dans une veine, une clé dans une serrure."
         s2="Il entre en action."
@@ -623,7 +623,7 @@
         trpt="entrar" />
     <verb
         id="42"
-        ta=""
+        ta="24"
         in="retenir"
         s1="Elle a retenu son visage, son nom."
         s2="Elle retient un enfant pour qu’il ne tombe pas."
@@ -637,7 +637,7 @@
         trpt="reter" />
     <verb
         id="43"
-        ta=""
+        ta="86"
         in="écrire"
         s1="Il m’a écrit qu’il viendrait."
         s2="Comment écris-tu ce nom? Son nom s’écrit avec deux l."
@@ -651,7 +651,7 @@
         trpt="escrever" />
     <verb
         id="44"
-        ta=""
+        ta="12"
         in="appeler"
         s1="Appelez-moi ce soir."
         s2="Cette décision appelle des frais considérables."
@@ -665,7 +665,7 @@
         trpt="chamada" />
     <verb
         id="45"
-        ta=""
+        ta="7"
         in="tomber"
         s1="La petite fille est tombée de la balançoire."
         s2="Il est tombé amoureux de Céline"
@@ -679,7 +679,7 @@
         trpt="cair" />
     <verb
         id="46"
-        ta=""
+        ta="59"
         in="reprendre"
         s1="Je vous prie de m’excuser, mais je dois reprendre mon travail."
         s2="Il existe plusieurs moyens d'aider votre enfant lorsqu'on lui annonce qu'il devra reprendre son année."
@@ -693,7 +693,7 @@
         trpt="resumo" />
     <verb
         id="47"
-        ta=""
+        ta="8"
         in="commencer"
         s1="Il commence ses devoirs à 16 heures."
         s2="Le paragraphe qui commence le chapitre."
@@ -707,7 +707,7 @@
         trpt="começar" />
     <verb
         id="48"
-        ta=""
+        ta="81"
         in="suivre"
         s1="Elle suit les variations de la Bourse."
         s2="La rentrée aura lieu le jeudi qui suit la fête du Travail."
@@ -721,7 +721,7 @@
         trpt="seguir" />
     <verb
         id="49"
-        ta=""
+        ta="7"
         in="montrer"
         s1="Elle ne voulait pas lui montrer sa déception."
         s2="Il lui montre comment programmer."
@@ -737,7 +737,7 @@
     <!-- TOP 100 -->
     <verb
         id="50"
-        ta=""
+        ta="26"
         in="partir"
         s1="Partiras-tu à la campagne cet été? Elle est partie en voyage."
         s2="« Rien ne sert de courir : il faut partir à point »"
