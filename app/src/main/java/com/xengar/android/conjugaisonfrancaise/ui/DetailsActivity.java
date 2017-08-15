@@ -442,7 +442,12 @@ public class DetailsActivity extends AppCompatActivity implements
             case CONJUGATION_LOADER:
                 if (cursor.moveToFirst()) {
                     conjugation = ActivityUtils.conjugationFromCursor(cursor);
-                    conjugateVerb(conjugation, verbName);
+                    if (!conjugation.getInfinitivePresent().isEmpty()
+                            && !conjugation.getInfinitivePresent().contentEquals(verbName)) {
+                        // if we need, conjugate the verb model.
+                        conjugateVerb(conjugation, verbName);
+                    }
+                    addPronoms(conjugation);
                     fillConjugationDetails(conjugation);
                 }
                 break;
@@ -533,7 +538,6 @@ public class DetailsActivity extends AppCompatActivity implements
             }
             replaceRadicals(c, modelRadicals, verbRadicals);
         }
-        addPronoms(c);
     }
 
     /**
