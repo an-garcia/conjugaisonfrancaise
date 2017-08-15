@@ -17,7 +17,7 @@
 <verbs>
     <!--
         id = id
-        ta = conjugation of conjugation number (1, 2, ...)
+        ta = table of conjugation model (1, 2, ...)
         in = infinitive
         s1 = sample1
         s2 = sample2

@@ -54,8 +54,17 @@ import java.util.Locale;
 import static com.xengar.android.conjugaisonfrancaise.data.VerbContract.VerbEntry.COLUMN_ID;
 import static com.xengar.android.conjugaisonfrancaise.utils.Constants.CONJUGATION_ID;
 import static com.xengar.android.conjugaisonfrancaise.utils.Constants.DEMO_MODE;
+import static com.xengar.android.conjugaisonfrancaise.utils.Constants.IL;
+import static com.xengar.android.conjugaisonfrancaise.utils.Constants.ILS;
+import static com.xengar.android.conjugaisonfrancaise.utils.Constants.JE;
+import static com.xengar.android.conjugaisonfrancaise.utils.Constants.JEA;
 import static com.xengar.android.conjugaisonfrancaise.utils.Constants.LOG;
+import static com.xengar.android.conjugaisonfrancaise.utils.Constants.NOUS;
+import static com.xengar.android.conjugaisonfrancaise.utils.Constants.QUE;
+import static com.xengar.android.conjugaisonfrancaise.utils.Constants.QUEA;
+import static com.xengar.android.conjugaisonfrancaise.utils.Constants.TU;
 import static com.xengar.android.conjugaisonfrancaise.utils.Constants.VERB_ID;
+import static com.xengar.android.conjugaisonfrancaise.utils.Constants.VOUS;
 
 /**
  * DetailsActivity
@@ -427,7 +436,7 @@ public class DetailsActivity extends AppCompatActivity implements
             case CONJUGATION_LOADER:
                 if (cursor.moveToFirst()) {
                     conjugation = ActivityUtils.conjugationFromCursor(cursor);
-                    // TODO: Figure out how to conjugate verb using model
+                    conjugateVerb(conjugation, verb);
                     fillConjugationDetails(conjugation);
                 }
                 break;
@@ -498,14 +507,238 @@ public class DetailsActivity extends AppCompatActivity implements
         //        mFirebaseAnalytics, "" + verbID, verb.getInfinitive(), VERBS);
     }
 
-    private void fillConjugationDetails(Conjugation conjugation) {
+    /**
+     * Conjugates the verb according to the model.
+     * @param c Conjugation conjugation
+     * @param verb Verb
+     */
+    private void conjugateVerb(Conjugation c, Verb verb) {
+        // TODO: Figure out how to conjugate verb using model
+
+        // Add pronoms
+        String text = c.getIndicatifPresentJe();
+        c.setIndicatifPresentJe((ActivityUtils.useApostrophe(text))? JEA + text : JE + text);
+        c.setIndicatifPresentTu(TU + c.getIndicatifPresentTu());
+        c.setIndicatifPresentIl(IL + c.getIndicatifPresentIl());
+        c.setIndicatifPresentNous(NOUS + c.getIndicatifPresentNous());
+        c.setIndicatifPresentVous(VOUS + c.getIndicatifPresentVous());
+        c.setIndicatifPresentIls(ILS + c.getIndicatifPresentIls());
+
+        text = c.getIndicatifPasseComposeJe();
+        c.setIndicatifPasseComposeJe((ActivityUtils.useApostrophe(text))? JEA + text : JE + text);
+        c.setIndicatifPasseComposeTu(TU + c.getIndicatifPasseComposeTu());
+        c.setIndicatifPasseComposeIl(IL + c.getIndicatifPasseComposeIl());
+        c.setIndicatifPasseComposeNous(NOUS + c.getIndicatifPasseComposeNous());
+        c.setIndicatifPasseComposeVous(VOUS + c.getIndicatifPasseComposeVous());
+        c.setIndicatifPasseComposeIls(ILS + c.getIndicatifPasseComposeIls());
+
+        text = c.getIndicatifImperfaitJe();
+        c.setIndicatifImperfaitJe((ActivityUtils.useApostrophe(text))? JEA + text : JE + text);
+        c.setIndicatifImperfaitTu(TU + c.getIndicatifImperfaitTu());
+        c.setIndicatifImperfaitIl(IL + c.getIndicatifImperfaitIl());
+        c.setIndicatifImperfaitNous(NOUS + c.getIndicatifImperfaitNous());
+        c.setIndicatifImperfaitVous(VOUS + c.getIndicatifImperfaitVous());
+        c.setIndicatifImperfaitIls(ILS + c.getIndicatifImperfaitIls());
+
+        text = c.getIndicatifPlusQueParfaitJe();
+        c.setIndicatifPlusQueParfaitJe((ActivityUtils.useApostrophe(text))? JEA + text : JE + text);
+        c.setIndicatifPlusQueParfaitTu(TU + c.getIndicatifPlusQueParfaitTu());
+        c.setIndicatifPlusQueParfaitIl(IL + c.getIndicatifPlusQueParfaitIl());
+        c.setIndicatifPlusQueParfaitNous(NOUS + c.getIndicatifPlusQueParfaitNous());
+        c.setIndicatifPlusQueParfaitVous(VOUS + c.getIndicatifPlusQueParfaitVous());
+        c.setIndicatifPlusQueParfaitIls(ILS + c.getIndicatifPlusQueParfaitIls());
+
+        text = c.getIndicatifPasseSimpleJe();
+        c.setIndicatifPasseSimpleJe((ActivityUtils.useApostrophe(text))? JEA + text : JE + text);
+        c.setIndicatifPasseSimpleTu(TU + c.getIndicatifPasseSimpleTu());
+        c.setIndicatifPasseSimpleIl(IL + c.getIndicatifPasseSimpleIl());
+        c.setIndicatifPasseSimpleNous(NOUS + c.getIndicatifPasseSimpleNous());
+        c.setIndicatifPasseSimpleVous(VOUS + c.getIndicatifPasseSimpleVous());
+        c.setIndicatifPasseSimpleIls(ILS + c.getIndicatifPasseSimpleIls());
+
+        text = c.getIndicatifPasseAnterieurJe();
+        c.setIndicatifPasseAnterieurJe((ActivityUtils.useApostrophe(text))? JEA + text : JE + text);
+        c.setIndicatifPasseAnterieurTu(TU + c.getIndicatifPasseAnterieurTu());
+        c.setIndicatifPasseAnterieurIl(IL + c.getIndicatifPasseAnterieurIl());
+        c.setIndicatifPasseAnterieurNous(NOUS + c.getIndicatifPasseAnterieurNous());
+        c.setIndicatifPasseAnterieurVous(VOUS + c.getIndicatifPasseAnterieurVous());
+        c.setIndicatifPasseAnterieurIls(ILS + c.getIndicatifPasseAnterieurIls());
+
+        text = c.getIndicatifFuturSimpleJe();
+        c.setIndicatifFuturSimpleJe((ActivityUtils.useApostrophe(text))? JEA + text : JE + text);
+        c.setIndicatifFuturSimpleTu(TU + c.getIndicatifFuturSimpleTu());
+        c.setIndicatifFuturSimpleIl(IL + c.getIndicatifFuturSimpleIl());
+        c.setIndicatifFuturSimpleNous(NOUS + c.getIndicatifFuturSimpleNous());
+        c.setIndicatifFuturSimpleVous(VOUS + c.getIndicatifFuturSimpleVous());
+        c.setIndicatifFuturSimpleIls(ILS + c.getIndicatifFuturSimpleIls());
+
+        text = c.getIndicatifFuturAnterieurJe();
+        c.setIndicatifFuturAnterieurJe((ActivityUtils.useApostrophe(text))? JEA + text : JE + text);
+        c.setIndicatifFuturAnterieurTu(TU + c.getIndicatifFuturAnterieurTu());
+        c.setIndicatifFuturAnterieurIl(IL + c.getIndicatifFuturAnterieurIl());
+        c.setIndicatifFuturAnterieurNous(NOUS + c.getIndicatifFuturAnterieurNous());
+        c.setIndicatifFuturAnterieurVous(VOUS + c.getIndicatifFuturAnterieurVous());
+        c.setIndicatifFuturAnterieurIls(ILS + c.getIndicatifFuturAnterieurIls());
+
+        text = c.getConditionnelPresentJe();
+        c.setConditionnelPresentJe((ActivityUtils.useApostrophe(text))? JEA + text : JE + text);
+        c.setConditionnelPresentTu(TU + c.getConditionnelPresentTu());
+        c.setConditionnelPresentIl(IL + c.getConditionnelPresentIl());
+        c.setConditionnelPresentNous(NOUS + c.getConditionnelPresentNous());
+        c.setConditionnelPresentVous(VOUS + c.getConditionnelPresentVous());
+        c.setConditionnelPresentIls(ILS + c.getConditionnelPresentIls());
+
+        text = c.getConditionnelPasseJe();
+        c.setConditionnelPasseJe((ActivityUtils.useApostrophe(text))? JEA + text : JE + text);
+        c.setConditionnelPasseTu(TU + c.getConditionnelPasseTu());
+        c.setConditionnelPasseIl(IL + c.getConditionnelPasseIl());
+        c.setConditionnelPasseNous(NOUS + c.getConditionnelPasseNous());
+        c.setConditionnelPasseVous(VOUS + c.getConditionnelPasseVous());
+        c.setConditionnelPasseIls(ILS + c.getConditionnelPasseIls());
+
+        text = c.getSubjonctifPresentJe();
+        c.setSubjonctifPresentJe((ActivityUtils.useApostrophe(text))? QUE + JEA + text : QUE + JE + text);
+        c.setSubjonctifPresentTu(QUE + TU + c.getSubjonctifPresentTu());
+        c.setSubjonctifPresentIl(QUEA + IL + c.getSubjonctifPresentIl());
+        c.setSubjonctifPresentNous(QUE + NOUS + c.getSubjonctifPresentNous());
+        c.setSubjonctifPresentVous(QUE + VOUS + c.getSubjonctifPresentVous());
+        c.setSubjonctifPresentIls(QUE + ILS + c.getSubjonctifPresentIls());
+
+        text = c.getSubjonctifPasseJe();
+        c.setSubjonctifPasseJe((ActivityUtils.useApostrophe(text))? QUE + JEA + text : QUE + JE + text);
+        c.setSubjonctifPasseTu(QUE + TU + c.getSubjonctifPasseTu());
+        c.setSubjonctifPasseIl(QUEA + IL + c.getSubjonctifPasseIl());
+        c.setSubjonctifPasseNous(QUE + NOUS + c.getSubjonctifPasseNous());
+        c.setSubjonctifPasseVous(QUE + VOUS + c.getSubjonctifPasseVous());
+        c.setSubjonctifPasseIls(QUE + ILS + c.getSubjonctifPasseIls());
+
+        text = c.getSubjonctifImperfaitJe();
+        c.setSubjonctifImperfaitJe((ActivityUtils.useApostrophe(text))? QUE + JEA + text : QUE + JE + text);
+        c.setSubjonctifImperfaitTu(QUE + TU + c.getSubjonctifImperfaitTu());
+        c.setSubjonctifImperfaitIl(QUEA + IL + c.getSubjonctifImperfaitIl());
+        c.setSubjonctifImperfaitNous(QUE + NOUS + c.getSubjonctifImperfaitNous());
+        c.setSubjonctifImperfaitVous(QUE + VOUS + c.getSubjonctifImperfaitVous());
+        c.setSubjonctifImperfaitIls(QUE + ILS + c.getSubjonctifImperfaitIls());
+
+        text = c.getSubjonctifPlusQueParfaitJe();
+        c.setSubjonctifPlusQueParfaitJe((ActivityUtils.useApostrophe(text))? QUE + JEA + text : QUE + JE + text);
+        c.setSubjonctifPlusQueParfaitTu(QUE + TU + c.getSubjonctifPlusQueParfaitTu());
+        c.setSubjonctifPlusQueParfaitIl(QUEA + IL + c.getSubjonctifPlusQueParfaitIl());
+        c.setSubjonctifPlusQueParfaitNous(QUE + NOUS + c.getSubjonctifPlusQueParfaitNous());
+        c.setSubjonctifPlusQueParfaitVous(QUE + VOUS + c.getSubjonctifPlusQueParfaitVous());
+        c.setSubjonctifPlusQueParfaitIls(QUE + ILS + c.getSubjonctifPlusQueParfaitIls());
+    }
+
+
+    /**
+     * Fills the conjugation section.
+     * @param c Conjugation ready to display
+     */
+    private void fillConjugationDetails(Conjugation c) {
         int fontSize = Integer.parseInt(ActivityUtils.getPreferenceFontSize(getApplicationContext()));
         changeTextFontInConjugation(fontSize);
 
-        // TODO update content
-        ((TextView)findViewById(R.id.infinitive_present)).setText(conjugation.getInfinitivePresent());
-        ((TextView)findViewById(R.id.infinitive_passe)).setText(conjugation.getInfinitivePasse());
+        ((TextView)findViewById(R.id.infinitive_present)).setText(c.getInfinitivePresent());
+        ((TextView)findViewById(R.id.infinitive_passe)).setText(c.getInfinitivePasse());
+        ((TextView)findViewById(R.id.participe_present)).setText(c.getParticipePresent());
+        ((TextView)findViewById(R.id.participe_passe1)).setText(c.getParticipePasse1());
+        ((TextView)findViewById(R.id.participe_passe2)).setText(c.getParticipePasse2());
+        ((TextView)findViewById(R.id.gerondif_present)).setText(c.getGerondifPresent());
+        ((TextView)findViewById(R.id.gerondif_passe)).setText(c.getGerondifPasse());
 
+        ((TextView)findViewById(R.id.imperatif_present_tu)).setText(c.getImperatifPresentTu());
+        ((TextView)findViewById(R.id.imperatif_present_nous)).setText(c.getImperatifPasseNous());
+        ((TextView)findViewById(R.id.imperatif_present_vous)).setText(c.getImperatifPresentVous());
+        ((TextView)findViewById(R.id.imperatif_passe_tu)).setText(c.getImperatifPasseTu());
+        ((TextView)findViewById(R.id.imperatif_passe_nous)).setText(c.getImperatifPasseNous());
+        ((TextView)findViewById(R.id.imperatif_passe_vous)).setText(c.getImperatifPasseVous());
+
+        ((TextView)findViewById(R.id.indicative_present_je)).setText(c.getIndicatifPresentJe());
+        ((TextView)findViewById(R.id.indicative_present_tu)).setText(c.getIndicatifPresentTu());
+        ((TextView)findViewById(R.id.indicative_present_il)).setText(c.getIndicatifPresentIl());
+        ((TextView)findViewById(R.id.indicative_present_nous)).setText(c.getIndicatifPresentNous());
+        ((TextView)findViewById(R.id.indicative_present_vous)).setText(c.getIndicatifPresentVous());
+        ((TextView)findViewById(R.id.indicative_present_ils)).setText(c.getIndicatifPresentIls());
+        ((TextView)findViewById(R.id.indicative_passe_compose_je)).setText(c.getIndicatifPasseComposeJe());
+        ((TextView)findViewById(R.id.indicative_passe_compose_tu)).setText(c.getIndicatifPasseComposeTu());
+        ((TextView)findViewById(R.id.indicative_passe_compose_il)).setText(c.getIndicatifPasseComposeIl());
+        ((TextView)findViewById(R.id.indicative_passe_compose_nous)).setText(c.getIndicatifPasseComposeNous());
+        ((TextView)findViewById(R.id.indicative_passe_compose_vous)).setText(c.getIndicatifPasseComposeVous());
+        ((TextView)findViewById(R.id.indicative_passe_compose_ils)).setText(c.getIndicatifPasseComposeIls());
+        ((TextView)findViewById(R.id.indicative_imperfait_je)).setText(c.getIndicatifImperfaitJe());
+        ((TextView)findViewById(R.id.indicative_imperfait_tu)).setText(c.getIndicatifImperfaitTu());
+        ((TextView)findViewById(R.id.indicative_imperfait_il)).setText(c.getIndicatifImperfaitIl());
+        ((TextView)findViewById(R.id.indicative_imperfait_nous)).setText(c.getIndicatifImperfaitNous());
+        ((TextView)findViewById(R.id.indicative_imperfait_vous)).setText(c.getIndicatifImperfaitVous());
+        ((TextView)findViewById(R.id.indicative_imperfait_ils)).setText(c.getIndicatifImperfaitIls());
+        ((TextView)findViewById(R.id.indicative_plus_que_parfait_je)).setText(c.getIndicatifPlusQueParfaitJe());
+        ((TextView)findViewById(R.id.indicative_plus_que_parfait_tu)).setText(c.getIndicatifPlusQueParfaitTu());
+        ((TextView)findViewById(R.id.indicative_plus_que_parfait_il)).setText(c.getIndicatifPlusQueParfaitIl());
+        ((TextView)findViewById(R.id.indicative_plus_que_parfait_nous)).setText(c.getIndicatifPlusQueParfaitNous());
+        ((TextView)findViewById(R.id.indicative_plus_que_parfait_vous)).setText(c.getIndicatifPlusQueParfaitVous());
+        ((TextView)findViewById(R.id.indicative_plus_que_parfait_ils)).setText(c.getIndicatifPlusQueParfaitIls());
+        ((TextView)findViewById(R.id.indicative_passe_simple_je)).setText(c.getIndicatifPasseSimpleJe());
+        ((TextView)findViewById(R.id.indicative_passe_simple_tu)).setText(c.getIndicatifPasseSimpleTu());
+        ((TextView)findViewById(R.id.indicative_passe_simple_il)).setText(c.getIndicatifPasseSimpleIl());
+        ((TextView)findViewById(R.id.indicative_passe_simple_nous)).setText(c.getIndicatifPasseSimpleNous());
+        ((TextView)findViewById(R.id.indicative_passe_simple_vous)).setText(c.getIndicatifPasseSimpleVous());
+        ((TextView)findViewById(R.id.indicative_passe_simple_ils)).setText(c.getIndicatifPasseSimpleIls());
+        ((TextView)findViewById(R.id.indicative_passe_anterieur_je)).setText(c.getIndicatifPasseAnterieurJe());
+        ((TextView)findViewById(R.id.indicative_passe_anterieur_tu)).setText(c.getIndicatifPasseAnterieurTu());
+        ((TextView)findViewById(R.id.indicative_passe_anterieur_il)).setText(c.getIndicatifPasseAnterieurIl());
+        ((TextView)findViewById(R.id.indicative_passe_anterieur_nous)).setText(c.getIndicatifPasseAnterieurNous());
+        ((TextView)findViewById(R.id.indicative_passe_anterieur_vous)).setText(c.getIndicatifPasseAnterieurVous());
+        ((TextView)findViewById(R.id.indicative_passe_anterieur_ils)).setText(c.getIndicatifPasseAnterieurIls());
+        ((TextView)findViewById(R.id.indicative_futur_simple_je)).setText(c.getIndicatifFuturSimpleJe());
+        ((TextView)findViewById(R.id.indicative_futur_simple_tu)).setText(c.getIndicatifFuturSimpleTu());
+        ((TextView)findViewById(R.id.indicative_futur_simple_il)).setText(c.getIndicatifFuturSimpleIl());
+        ((TextView)findViewById(R.id.indicative_futur_simple_nous)).setText(c.getIndicatifFuturSimpleNous());
+        ((TextView)findViewById(R.id.indicative_futur_simple_vous)).setText(c.getIndicatifFuturSimpleVous());
+        ((TextView)findViewById(R.id.indicative_futur_simple_ils)).setText(c.getIndicatifFuturSimpleIls());
+        ((TextView)findViewById(R.id.indicative_futur_anterieur_je)).setText(c.getIndicatifFuturAnterieurJe());
+        ((TextView)findViewById(R.id.indicative_futur_anterieur_tu)).setText(c.getIndicatifFuturAnterieurTu());
+        ((TextView)findViewById(R.id.indicative_futur_anterieur_il)).setText(c.getIndicatifFuturAnterieurIl());
+        ((TextView)findViewById(R.id.indicative_futur_anterieur_nous)).setText(c.getIndicatifFuturAnterieurNous());
+        ((TextView)findViewById(R.id.indicative_futur_anterieur_vous)).setText(c.getIndicatifFuturAnterieurVous());
+        ((TextView)findViewById(R.id.indicative_futur_anterieur_ils)).setText(c.getIndicatifFuturAnterieurIls());
+
+        ((TextView)findViewById(R.id.conditionnel_present_je)).setText(c.getConditionnelPresentJe());
+        ((TextView)findViewById(R.id.conditionnel_present_tu)).setText(c.getConditionnelPresentTu());
+        ((TextView)findViewById(R.id.conditionnel_present_il)).setText(c.getConditionnelPresentIl());
+        ((TextView)findViewById(R.id.conditionnel_present_nous)).setText(c.getConditionnelPresentNous());
+        ((TextView)findViewById(R.id.conditionnel_present_vous)).setText(c.getConditionnelPresentVous());
+        ((TextView)findViewById(R.id.conditionnel_present_ils)).setText(c.getConditionnelPresentIls());
+        ((TextView)findViewById(R.id.conditionnel_passe_je)).setText(c.getConditionnelPasseJe());
+        ((TextView)findViewById(R.id.conditionnel_passe_tu)).setText(c.getConditionnelPasseTu());
+        ((TextView)findViewById(R.id.conditionnel_passe_il)).setText(c.getConditionnelPasseIl());
+        ((TextView)findViewById(R.id.conditionnel_passe_nous)).setText(c.getConditionnelPasseNous());
+        ((TextView)findViewById(R.id.conditionnel_passe_vous)).setText(c.getConditionnelPasseVous());
+        ((TextView)findViewById(R.id.conditionnel_passe_ils)).setText(c.getConditionnelPasseIls());
+
+        ((TextView)findViewById(R.id.subjonctif_present_je)).setText(c.getSubjonctifPresentJe());
+        ((TextView)findViewById(R.id.subjonctif_present_tu)).setText(c.getSubjonctifPresentTu());
+        ((TextView)findViewById(R.id.subjonctif_present_il)).setText(c.getSubjonctifPresentIl());
+        ((TextView)findViewById(R.id.subjonctif_present_nous)).setText(c.getSubjonctifPresentNous());
+        ((TextView)findViewById(R.id.subjonctif_present_vous)).setText(c.getSubjonctifPresentVous());
+        ((TextView)findViewById(R.id.subjonctif_present_ils)).setText(c.getSubjonctifPresentIls());
+        ((TextView)findViewById(R.id.subjonctif_passe_je)).setText(c.getSubjonctifPasseJe());
+        ((TextView)findViewById(R.id.subjonctif_passe_tu)).setText(c.getSubjonctifPasseTu());
+        ((TextView)findViewById(R.id.subjonctif_passe_il)).setText(c.getSubjonctifPasseIl());
+        ((TextView)findViewById(R.id.subjonctif_passe_nous)).setText(c.getSubjonctifPasseNous());
+        ((TextView)findViewById(R.id.subjonctif_passe_vous)).setText(c.getSubjonctifPasseVous());
+        ((TextView)findViewById(R.id.subjonctif_passe_ils)).setText(c.getSubjonctifPasseIls());
+        ((TextView)findViewById(R.id.subjonctif_imperfait_je)).setText(c.getSubjonctifImperfaitJe());
+        ((TextView)findViewById(R.id.subjonctif_imperfait_tu)).setText(c.getSubjonctifImperfaitTu());
+        ((TextView)findViewById(R.id.subjonctif_imperfait_il)).setText(c.getSubjonctifImperfaitIl());
+        ((TextView)findViewById(R.id.subjonctif_imperfait_nous)).setText(c.getSubjonctifImperfaitNous());
+        ((TextView)findViewById(R.id.subjonctif_imperfait_vous)).setText(c.getSubjonctifImperfaitVous());
+        ((TextView)findViewById(R.id.subjonctif_imperfait_ils)).setText(c.getSubjonctifImperfaitIls());
+        ((TextView)findViewById(R.id.subjonctif_plus_que_parfait_je)).setText(c.getSubjonctifPlusQueParfaitJe());
+        ((TextView)findViewById(R.id.subjonctif_plus_que_parfait_tu)).setText(c.getSubjonctifPlusQueParfaitTu());
+        ((TextView)findViewById(R.id.subjonctif_plus_que_parfait_il)).setText(c.getSubjonctifPlusQueParfaitIl());
+        ((TextView)findViewById(R.id.subjonctif_plus_que_parfait_nous)).setText(c.getSubjonctifPlusQueParfaitNous());
+        ((TextView)findViewById(R.id.subjonctif_plus_que_parfait_vous)).setText(c.getSubjonctifPlusQueParfaitVous());
+        ((TextView)findViewById(R.id.subjonctif_plus_que_parfait_ils)).setText(c.getSubjonctifPlusQueParfaitIls());
     }
 
 

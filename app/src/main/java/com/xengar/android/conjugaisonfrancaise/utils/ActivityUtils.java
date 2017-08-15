@@ -642,6 +642,18 @@ public class ActivityUtils {
     }
 
     /**
+     * Checks if we should replace the letter with apostrophe.
+     * @param text String
+     * @return true or false
+     */
+    public static boolean useApostrophe(String text) {
+        // L'apostrophe ( ' ) est un signe qui remplace une des voyelles ( a, e, i )
+        // quand le mot qui suit commence lui-même par une voyelle ou un h muet.
+        return (text.startsWith("a") || text.startsWith("e") || text.startsWith("i")
+                || text.startsWith("o") || text.startsWith("u") || text.startsWith("h"));
+    }
+
+    /**
      * Sets the image id into the view.
      * @param context context
      * @param view imageView

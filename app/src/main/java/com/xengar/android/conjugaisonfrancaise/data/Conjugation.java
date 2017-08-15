@@ -60,7 +60,7 @@ public class Conjugation {
     private String indicatifPlusQueParfaitNous = "";
     private String indicatifPlusQueParfaitVous = "";
     private String indicatifPlusQueParfaitIls = "";
-    private String indicatifPasseSimplJe = "";
+    private String indicatifPasseSimpleJe = "";
     private String indicatifPasseSimpleTu = "";
     private String indicatifPasseSimpleIl = "";
     private String indicatifPasseSimpleNous = "";
@@ -85,30 +85,30 @@ public class Conjugation {
     private String indicatifFuturAnterieurVous = "";
     private String indicatifFuturAnterieurIls = "";
 
-    private String subjontifPresentJe = "";
-    private String subjontifPresentTu = "";
-    private String subjontifPresentIl = "";
-    private String subjontifPresentNous = "";
-    private String subjontifPresentVous = "";
-    private String subjontifPresentIls = "";
-    private String subjontifPasseJe = "";
-    private String subjontifPasseTu = "";
-    private String subjontifPasseIl = "";
-    private String subjontifPasseNous = "";
-    private String subjontifPasseVous = "";
-    private String subjontifPasseIls = "";
-    private String subjontifImperfaitJe = "";
-    private String subjontifImperfaitTu = "";
-    private String subjontifImperfaitIl = "";
-    private String subjontifImperfaitNous = "";
-    private String subjontifImperfaitVous = "";
-    private String subjontifImperfaitIls = "";
-    private String subjontifPlusQueParfaitJe = "";
-    private String subjontifPlusQueParfaitTu = "";
-    private String subjontifPlusQueParfaitIl = "";
-    private String subjontifPlusQueParfaitNous = "";
-    private String subjontifPlusQueParfaitVous = "";
-    private String subjontifPlusQueParfaitIls = "";
+    private String subjonctifPresentJe = "";
+    private String subjonctifPresentTu = "";
+    private String subjonctifPresentIl = "";
+    private String subjonctifPresentNous = "";
+    private String subjonctifPresentVous = "";
+    private String subjonctifPresentIls = "";
+    private String subjonctifPasseJe = "";
+    private String subjonctifPasseTu = "";
+    private String subjonctifPasseIl = "";
+    private String subjonctifPasseNous = "";
+    private String subjonctifPasseVous = "";
+    private String subjonctifPasseIls = "";
+    private String subjonctifImperfaitJe = "";
+    private String subjonctifImperfaitTu = "";
+    private String subjonctifImperfaitIl = "";
+    private String subjonctifImperfaitNous = "";
+    private String subjonctifImperfaitVous = "";
+    private String subjonctifImperfaitIls = "";
+    private String subjonctifPlusQueParfaitJe = "";
+    private String subjonctifPlusQueParfaitTu = "";
+    private String subjonctifPlusQueParfaitIl = "";
+    private String subjonctifPlusQueParfaitNous = "";
+    private String subjonctifPlusQueParfaitVous = "";
+    private String subjonctifPlusQueParfaitIls = "";
 
     private String conditionnelPresentJe = "";
     private String conditionnelPresentTu = "";
@@ -150,7 +150,7 @@ public class Conjugation {
             String indicatifPlusQueParfaitNous,
             String indicatifPlusQueParfaitVous,
             String indicatifPlusQueParfaitIls,
-            String indicatifPasseSimplJe,
+            String indicatifPasseSimpleJe,
             String indicatifPasseSimpleTu,
             String indicatifPasseSimpleIl,
             String indicatifPasseSimpleNous,
@@ -175,30 +175,30 @@ public class Conjugation {
             String indicatifFuturAnterieurVous,
             String indicatifFuturAnterieurIls,
 
-            String subjontifPresentJe,
-            String subjontifPresentTu,
-            String subjontifPresentIl,
-            String subjontifPresentNous,
-            String subjontifPresentVous,
-            String subjontifPresentIls,
-            String subjontifPasseJe,
-            String subjontifPasseTu,
-            String subjontifPasseIl,
-            String subjontifPasseNous,
-            String subjontifPasseVous,
-            String subjontifPasseIls,
-            String subjontifImperfaitJe,
-            String subjontifImperfaitTu,
-            String subjontifImperfaitIl,
-            String subjontifImperfaitNous,
-            String subjontifImperfaitVous,
-            String subjontifImperfaitIls,
-            String subjontifPlusQueParfaitJe,
-            String subjontifPlusQueParfaitTu,
-            String subjontifPlusQueParfaitIl,
-            String subjontifPlusQueParfaitNous,
-            String subjontifPlusQueParfaitVous,
-            String subjontifPlusQueParfaitIls,
+            String subjonctifPresentJe,
+            String subjonctifPresentTu,
+            String subjonctifPresentIl,
+            String subjonctifPresentNous,
+            String subjonctifPresentVous,
+            String subjonctifPresentIls,
+            String subjonctifPasseJe,
+            String subjonctifPasseTu,
+            String subjonctifPasseIl,
+            String subjonctifPasseNous,
+            String subjonctifPasseVous,
+            String subjonctifPasseIls,
+            String subjonctifImperfaitJe,
+            String subjonctifImperfaitTu,
+            String subjonctifImperfaitIl,
+            String subjonctifImperfaitNous,
+            String subjonctifImperfaitVous,
+            String subjonctifImperfaitIls,
+            String subjonctifPlusQueParfaitJe,
+            String subjonctifPlusQueParfaitTu,
+            String subjonctifPlusQueParfaitIl,
+            String subjonctifPlusQueParfaitNous,
+            String subjonctifPlusQueParfaitVous,
+            String subjonctifPlusQueParfaitIls,
 
             String conditionnelPresentJe,
             String conditionnelPresentTu,
@@ -252,7 +252,7 @@ public class Conjugation {
         this.indicatifPlusQueParfaitNous = indicatifPlusQueParfaitNous;
         this.indicatifPlusQueParfaitVous = indicatifPlusQueParfaitVous;
         this.indicatifPlusQueParfaitIls = indicatifPlusQueParfaitIls;
-        this.indicatifPasseSimplJe = indicatifPasseSimplJe;
+        this.indicatifPasseSimpleJe = indicatifPasseSimpleJe;
         this.indicatifPasseSimpleTu = indicatifPasseSimpleTu;
         this.indicatifPasseSimpleIl = indicatifPasseSimpleIl;
         this.indicatifPasseSimpleNous = indicatifPasseSimpleNous;
@@ -277,30 +277,30 @@ public class Conjugation {
         this.indicatifFuturAnterieurVous = indicatifFuturAnterieurVous;
         this.indicatifFuturAnterieurIls = indicatifFuturAnterieurIls;
 
-        this.subjontifPresentJe = subjontifPresentJe;
-        this.subjontifPresentTu = subjontifPresentTu;
-        this.subjontifPresentIl = subjontifPresentIl;
-        this.subjontifPresentNous = subjontifPresentNous;
-        this.subjontifPresentVous = subjontifPresentVous;
-        this.subjontifPresentIls = subjontifPresentIls;
-        this.subjontifPasseJe = subjontifPasseJe;
-        this.subjontifPasseTu = subjontifPasseTu;
-        this.subjontifPasseIl = subjontifPasseIl;
-        this.subjontifPasseNous = subjontifPasseNous;
-        this.subjontifPasseVous = subjontifPasseVous;
-        this.subjontifPasseIls = subjontifPasseIls;
-        this.subjontifImperfaitJe = subjontifImperfaitJe;
-        this.subjontifImperfaitTu = subjontifImperfaitTu;
-        this.subjontifImperfaitIl = subjontifImperfaitIl;
-        this.subjontifImperfaitNous = subjontifImperfaitNous;
-        this.subjontifImperfaitVous = subjontifImperfaitVous;
-        this.subjontifImperfaitIls = subjontifImperfaitIls;
-        this.subjontifPlusQueParfaitJe = subjontifPlusQueParfaitJe;
-        this.subjontifPlusQueParfaitTu = subjontifPlusQueParfaitTu;
-        this.subjontifPlusQueParfaitIl = subjontifPlusQueParfaitIl;
-        this.subjontifPlusQueParfaitNous = subjontifPlusQueParfaitNous;
-        this.subjontifPlusQueParfaitVous = subjontifPlusQueParfaitVous;
-        this.subjontifPlusQueParfaitIls = subjontifPlusQueParfaitIls;
+        this.subjonctifPresentJe = subjonctifPresentJe;
+        this.subjonctifPresentTu = subjonctifPresentTu;
+        this.subjonctifPresentIl = subjonctifPresentIl;
+        this.subjonctifPresentNous = subjonctifPresentNous;
+        this.subjonctifPresentVous = subjonctifPresentVous;
+        this.subjonctifPresentIls = subjonctifPresentIls;
+        this.subjonctifPasseJe = subjonctifPasseJe;
+        this.subjonctifPasseTu = subjonctifPasseTu;
+        this.subjonctifPasseIl = subjonctifPasseIl;
+        this.subjonctifPasseNous = subjonctifPasseNous;
+        this.subjonctifPasseVous = subjonctifPasseVous;
+        this.subjonctifPasseIls = subjonctifPasseIls;
+        this.subjonctifImperfaitJe = subjonctifImperfaitJe;
+        this.subjonctifImperfaitTu = subjonctifImperfaitTu;
+        this.subjonctifImperfaitIl = subjonctifImperfaitIl;
+        this.subjonctifImperfaitNous = subjonctifImperfaitNous;
+        this.subjonctifImperfaitVous = subjonctifImperfaitVous;
+        this.subjonctifImperfaitIls = subjonctifImperfaitIls;
+        this.subjonctifPlusQueParfaitJe = subjonctifPlusQueParfaitJe;
+        this.subjonctifPlusQueParfaitTu = subjonctifPlusQueParfaitTu;
+        this.subjonctifPlusQueParfaitIl = subjonctifPlusQueParfaitIl;
+        this.subjonctifPlusQueParfaitNous = subjonctifPlusQueParfaitNous;
+        this.subjonctifPlusQueParfaitVous = subjonctifPlusQueParfaitVous;
+        this.subjonctifPlusQueParfaitIls = subjonctifPlusQueParfaitIls;
 
         this.conditionnelPresentJe = conditionnelPresentJe;
         this.conditionnelPresentTu = conditionnelPresentTu;
@@ -582,11 +582,11 @@ public class Conjugation {
         this.indicatifPlusQueParfaitIls = indicatifPlusQueParfaitIls;
     }
 
-    public String getIndicatifPasseSimplJe() {
-        return indicatifPasseSimplJe;
+    public String getIndicatifPasseSimpleJe() {
+        return indicatifPasseSimpleJe;
     }
-    public void setIndicatifPasseSimplJe(String indicatifPasseSimplJe) {
-        this.indicatifPasseSimplJe = indicatifPasseSimplJe;
+    public void setIndicatifPasseSimpleJe(String indicatifPasseSimpleJe) {
+        this.indicatifPasseSimpleJe = indicatifPasseSimpleJe;
     }
 
     public String getIndicatifPasseSimpleTu() {
@@ -751,172 +751,172 @@ public class Conjugation {
         this.indicatifFuturAnterieurIls = indicatifFuturAnterieurIls;
     }
 
-    public String getSubjontifPresentJe() {
-        return subjontifPresentJe;
+    public String getSubjonctifPresentJe() {
+        return subjonctifPresentJe;
     }
-    public void setSubjontifPresentJe(String subjontifPresentJe) {
-        this.subjontifPresentJe = subjontifPresentJe;
-    }
-
-    public String getSubjontifPresentTu() {
-        return subjontifPresentTu;
-    }
-    public void setSubjontifPresentTu(String subjontifPresentTu) {
-        this.subjontifPresentTu = subjontifPresentTu;
+    public void setSubjonctifPresentJe(String subjonctifPresentJe) {
+        this.subjonctifPresentJe = subjonctifPresentJe;
     }
 
-    public String getSubjontifPresentIl() {
-        return subjontifPresentIl;
+    public String getSubjonctifPresentTu() {
+        return subjonctifPresentTu;
     }
-    public void setSubjontifPresentIl(String subjontifPresentIl) {
-        this.subjontifPresentIl = subjontifPresentIl;
-    }
-
-    public String getSubjontifPresentNous() {
-        return subjontifPresentNous;
-    }
-    public void setSubjontifPresentNous(String subjontifPresentNous) {
-        this.subjontifPresentNous = subjontifPresentNous;
+    public void setSubjonctifPresentTu(String subjonctifPresentTu) {
+        this.subjonctifPresentTu = subjonctifPresentTu;
     }
 
-    public String getSubjontifPresentVous() {
-        return subjontifPresentVous;
+    public String getSubjonctifPresentIl() {
+        return subjonctifPresentIl;
     }
-    public void setSubjontifPresentVous(String subjontifPresentVous) {
-        this.subjontifPresentVous = subjontifPresentVous;
-    }
-
-    public String getSubjontifPresentIls() {
-        return subjontifPresentIls;
-    }
-    public void setSubjontifPresentIls(String subjontifPresentIls) {
-        this.subjontifPresentIls = subjontifPresentIls;
+    public void setSubjonctifPresentIl(String subjonctifPresentIl) {
+        this.subjonctifPresentIl = subjonctifPresentIl;
     }
 
-    public String getSubjontifPasseJe() {
-        return subjontifPasseJe;
+    public String getSubjonctifPresentNous() {
+        return subjonctifPresentNous;
     }
-    public void setSubjontifPasseJe(String subjontifPasseJe) {
-        this.subjontifPasseJe = subjontifPasseJe;
-    }
-
-    public String getSubjontifPasseTu() {
-        return subjontifPasseTu;
-    }
-    public void setSubjontifPasseTu(String subjontifPasseTu) {
-        this.subjontifPasseTu = subjontifPasseTu;
+    public void setSubjonctifPresentNous(String subjonctifPresentNous) {
+        this.subjonctifPresentNous = subjonctifPresentNous;
     }
 
-    public String getSubjontifPasseIl() {
-        return subjontifPasseIl;
+    public String getSubjonctifPresentVous() {
+        return subjonctifPresentVous;
     }
-    public void setSubjontifPasseIl(String subjontifPasseIl) {
-        this.subjontifPasseIl = subjontifPasseIl;
-    }
-
-    public String getSubjontifPasseNous() {
-        return subjontifPasseNous;
-    }
-    public void setSubjontifPasseNous(String subjontifPasseNous) {
-        this.subjontifPasseNous = subjontifPasseNous;
+    public void setSubjonctifPresentVous(String subjonctifPresentVous) {
+        this.subjonctifPresentVous = subjonctifPresentVous;
     }
 
-    public String getSubjontifPasseVous() {
-        return subjontifPasseVous;
+    public String getSubjonctifPresentIls() {
+        return subjonctifPresentIls;
     }
-    public void setSubjontifPasseVous(String subjontifPasseVous) {
-        this.subjontifPasseVous = subjontifPasseVous;
-    }
-
-    public String getSubjontifPasseIls() {
-        return subjontifPasseIls;
-    }
-    public void setSubjontifPasseIls(String subjontifPasseIls) {
-        this.subjontifPasseIls = subjontifPasseIls;
+    public void setSubjonctifPresentIls(String subjonctifPresentIls) {
+        this.subjonctifPresentIls = subjonctifPresentIls;
     }
 
-    public String getSubjontifImperfaitJe() {
-        return subjontifImperfaitJe;
+    public String getSubjonctifPasseJe() {
+        return subjonctifPasseJe;
     }
-    public void setSubjontifImperfaitJe(String subjontifImperfaitJe) {
-        this.subjontifImperfaitJe = subjontifImperfaitJe;
-    }
-
-    public String getSubjontifImperfaitTu() {
-        return subjontifImperfaitTu;
-    }
-    public void setSubjontifImperfaitTu(String subjontifImperfaitTu) {
-        this.subjontifImperfaitTu = subjontifImperfaitTu;
+    public void setSubjonctifPasseJe(String subjonctifPasseJe) {
+        this.subjonctifPasseJe = subjonctifPasseJe;
     }
 
-    public String getSubjontifImperfaitIl() {
-        return subjontifImperfaitIl;
+    public String getSubjonctifPasseTu() {
+        return subjonctifPasseTu;
     }
-    public void setSubjontifImperfaitIl(String subjontifImperfaitIl) {
-        this.subjontifImperfaitIl = subjontifImperfaitIl;
-    }
-
-    public String getSubjontifImperfaitNous() {
-        return subjontifImperfaitNous;
-    }
-    public void setSubjontifImperfaitNous(String subjontifImperfaitNous) {
-        this.subjontifImperfaitNous = subjontifImperfaitNous;
+    public void setSubjonctifPasseTu(String subjonctifPasseTu) {
+        this.subjonctifPasseTu = subjonctifPasseTu;
     }
 
-    public String getSubjontifImperfaitVous() {
-        return subjontifImperfaitVous;
+    public String getSubjonctifPasseIl() {
+        return subjonctifPasseIl;
     }
-    public void setSubjontifImperfaitVous(String subjontifImperfaitVous) {
-        this.subjontifImperfaitVous = subjontifImperfaitVous;
-    }
-
-    public String getSubjontifImperfaitIls() {
-        return subjontifImperfaitIls;
-    }
-    public void setSubjontifImperfaitIls(String subjontifImperfaitIls) {
-        this.subjontifImperfaitIls = subjontifImperfaitIls;
+    public void setSubjonctifPasseIl(String subjonctifPasseIl) {
+        this.subjonctifPasseIl = subjonctifPasseIl;
     }
 
-    public String getSubjontifPlusQueParfaitJe() {
-        return subjontifPlusQueParfaitJe;
+    public String getSubjonctifPasseNous() {
+        return subjonctifPasseNous;
     }
-    public void setSubjontifPlusQueParfaitJe(String subjontifPlusQueParfaitJe) {
-        this.subjontifPlusQueParfaitJe = subjontifPlusQueParfaitJe;
-    }
-
-    public String getSubjontifPlusQueParfaitTu() {
-        return subjontifPlusQueParfaitTu;
-    }
-    public void setSubjontifPlusQueParfaitTu(String subjontifPlusQueParfaitTu) {
-        this.subjontifPlusQueParfaitTu = subjontifPlusQueParfaitTu;
+    public void setSubjonctifPasseNous(String subjonctifPasseNous) {
+        this.subjonctifPasseNous = subjonctifPasseNous;
     }
 
-    public String getSubjontifPlusQueParfaitIl() {
-        return subjontifPlusQueParfaitIl;
+    public String getSubjonctifPasseVous() {
+        return subjonctifPasseVous;
     }
-    public void setSubjontifPlusQueParfaitIl(String subjontifPlusQueParfaitIl) {
-        this.subjontifPlusQueParfaitIl = subjontifPlusQueParfaitIl;
-    }
-
-    public String getSubjontifPlusQueParfaitNous() {
-        return subjontifPlusQueParfaitNous;
-    }
-    public void setSubjontifPlusQueParfaitNous(String subjontifPlusQueParfaitNous) {
-        this.subjontifPlusQueParfaitNous = subjontifPlusQueParfaitNous;
+    public void setSubjonctifPasseVous(String subjonctifPasseVous) {
+        this.subjonctifPasseVous = subjonctifPasseVous;
     }
 
-    public String getSubjontifPlusQueParfaitVous() {
-        return subjontifPlusQueParfaitVous;
+    public String getSubjonctifPasseIls() {
+        return subjonctifPasseIls;
     }
-    public void setSubjontifPlusQueParfaitVous(String subjontifPlusQueParfaitVous) {
-        this.subjontifPlusQueParfaitVous = subjontifPlusQueParfaitVous;
+    public void setSubjonctifPasseIls(String subjonctifPasseIls) {
+        this.subjonctifPasseIls = subjonctifPasseIls;
     }
 
-    public String getSubjontifPlusQueParfaitIls() {
-        return subjontifPlusQueParfaitIls;
+    public String getSubjonctifImperfaitJe() {
+        return subjonctifImperfaitJe;
     }
-    public void setSubjontifPlusQueParfaitIls(String subjontifPlusQueParfaitIls) {
-        this.subjontifPlusQueParfaitIls = subjontifPlusQueParfaitIls;
+    public void setSubjonctifImperfaitJe(String subjonctifImperfaitJe) {
+        this.subjonctifImperfaitJe = subjonctifImperfaitJe;
+    }
+
+    public String getSubjonctifImperfaitTu() {
+        return subjonctifImperfaitTu;
+    }
+    public void setSubjonctifImperfaitTu(String subjonctifImperfaitTu) {
+        this.subjonctifImperfaitTu = subjonctifImperfaitTu;
+    }
+
+    public String getSubjonctifImperfaitIl() {
+        return subjonctifImperfaitIl;
+    }
+    public void setSubjonctifImperfaitIl(String subjonctifImperfaitIl) {
+        this.subjonctifImperfaitIl = subjonctifImperfaitIl;
+    }
+
+    public String getSubjonctifImperfaitNous() {
+        return subjonctifImperfaitNous;
+    }
+    public void setSubjonctifImperfaitNous(String subjonctifImperfaitNous) {
+        this.subjonctifImperfaitNous = subjonctifImperfaitNous;
+    }
+
+    public String getSubjonctifImperfaitVous() {
+        return subjonctifImperfaitVous;
+    }
+    public void setSubjonctifImperfaitVous(String subjonctifImperfaitVous) {
+        this.subjonctifImperfaitVous = subjonctifImperfaitVous;
+    }
+
+    public String getSubjonctifImperfaitIls() {
+        return subjonctifImperfaitIls;
+    }
+    public void setSubjonctifImperfaitIls(String subjonctifImperfaitIls) {
+        this.subjonctifImperfaitIls = subjonctifImperfaitIls;
+    }
+
+    public String getSubjonctifPlusQueParfaitJe() {
+        return subjonctifPlusQueParfaitJe;
+    }
+    public void setSubjonctifPlusQueParfaitJe(String subjonctifPlusQueParfaitJe) {
+        this.subjonctifPlusQueParfaitJe = subjonctifPlusQueParfaitJe;
+    }
+
+    public String getSubjonctifPlusQueParfaitTu() {
+        return subjonctifPlusQueParfaitTu;
+    }
+    public void setSubjonctifPlusQueParfaitTu(String subjonctifPlusQueParfaitTu) {
+        this.subjonctifPlusQueParfaitTu = subjonctifPlusQueParfaitTu;
+    }
+
+    public String getSubjonctifPlusQueParfaitIl() {
+        return subjonctifPlusQueParfaitIl;
+    }
+    public void setSubjonctifPlusQueParfaitIl(String subjonctifPlusQueParfaitIl) {
+        this.subjonctifPlusQueParfaitIl = subjonctifPlusQueParfaitIl;
+    }
+
+    public String getSubjonctifPlusQueParfaitNous() {
+        return subjonctifPlusQueParfaitNous;
+    }
+    public void setSubjonctifPlusQueParfaitNous(String subjonctifPlusQueParfaitNous) {
+        this.subjonctifPlusQueParfaitNous = subjonctifPlusQueParfaitNous;
+    }
+
+    public String getSubjonctifPlusQueParfaitVous() {
+        return subjonctifPlusQueParfaitVous;
+    }
+    public void setSubjonctifPlusQueParfaitVous(String subjonctifPlusQueParfaitVous) {
+        this.subjonctifPlusQueParfaitVous = subjonctifPlusQueParfaitVous;
+    }
+
+    public String getSubjonctifPlusQueParfaitIls() {
+        return subjonctifPlusQueParfaitIls;
+    }
+    public void setSubjonctifPlusQueParfaitIls(String subjonctifPlusQueParfaitIls) {
+        this.subjonctifPlusQueParfaitIls = subjonctifPlusQueParfaitIls;
     }
 
     public String getConditionnelPresentJe() {

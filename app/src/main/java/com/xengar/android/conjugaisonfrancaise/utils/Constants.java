@@ -65,6 +65,17 @@ public final class Constants {
     public static final String NOTIFICATION_VERB_ID = "notification_verb_id";
     public static final String PREF_VERSION_CODE_KEY = "version_code";
 
+    // Pronoms personnels
+    public static final String JEA = "j'";
+    public static final String JE = "je ";
+    public static final String TU = "tu ";
+    public static final String IL = "il ";
+    public static final String NOUS = "nous ";
+    public static final String VOUS = "vous ";
+    public static final String ILS = "ils ";
+    public static final String QUE = "que ";
+    public static final String QUEA = "qu'";
+
     // Translation languages
     public static final String NONE = "None";
     public static final String ENGLISH = "en";
