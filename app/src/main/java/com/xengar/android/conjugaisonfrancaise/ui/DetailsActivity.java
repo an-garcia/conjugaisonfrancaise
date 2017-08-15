@@ -551,9 +551,11 @@ public class DetailsActivity extends AppCompatActivity implements
         String verbR = infinitive;
         if (verbR.endsWith("er")) {
             verbR = verbR.replace("er", "");
+        } else if (verbR.endsWith("ir")) {
+            verbR = verbR.replace("ir", "");
         }
 
-        // TODO: Check all models (88)
+        // TODO: Check all models, check reflechi
         // know models
         switch (id) {
             case 8:
@@ -625,6 +627,25 @@ public class DetailsActivity extends AppCompatActivity implements
                     verbR = infinitive.endsWith("avoyer")? infinitive.replace("avoyer", "avoier") : verbR;
                 }
                 break;
+            case 21:
+                // haïr est le seul verbe
+                if (modelR.contains("ha")) {
+                    verbR = infinitive.endsWith("haïr")? infinitive.replace("haïr", "ha") : verbR;
+                }
+                break;
+            case 24:
+                // tenir, tiens, tinsse, tînt : verbes -enir
+                if (modelR.contains("ten")) {
+                    verbR = infinitive.endsWith("enir")? infinitive.replace("enir", "en") : verbR;
+                } else if (modelR.contains("tien")) {
+                    verbR = infinitive.endsWith("enir")? infinitive.replace("enir", "ien") : verbR;
+                } else if (modelR.contains("tin")) {
+                    verbR = infinitive.endsWith("enir")? infinitive.replace("enir", "in") : verbR;
+                } else if (modelR.contains("tîn")) {
+                    verbR = infinitive.endsWith("enir")? infinitive.replace("enir", "în") : verbR;
+                }
+                break;
+
         }
         return verbR;
     }

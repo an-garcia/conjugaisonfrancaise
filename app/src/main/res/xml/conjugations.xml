@@ -1891,7 +1891,7 @@
     <conjugation
         id          = "20"
         term        = "ir"
-        radicals    = ""
+        radicals    = "fin"
         inf_pr      = "finir"
         inf_pa      = "avoir fini"
         pa_pr       = "finissant"
@@ -1995,7 +1995,7 @@
     <conjugation
         id          = "21"
         term        = ""
-        radicals    = ""
+        radicals    = "ha"
         inf_pr      = "haïr"
         inf_pa      = "avoir haï"
         pa_pr       = "haïssant"
@@ -2203,7 +2203,7 @@
     <conjugation
         id          = "24"
         term        = "enir"
-        radicals    = ""
+        radicals    = "ten, tien, tin, tîn"
         inf_pr      = "tenir"
         inf_pa      = "avoir tenu"
         pa_pr       = "tenant"
