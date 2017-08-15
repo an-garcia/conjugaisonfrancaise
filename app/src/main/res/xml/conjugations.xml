@@ -1683,7 +1683,7 @@
     <conjugation
         id          = "18"
         term        = "oyer, uyer"
-        radicals    = ""
+        radicals    = "broy, broi"
         inf_pr      = "broyer"
         inf_pa      = "avoir broyé"
         pa_pr       = "broyant"
@@ -1787,7 +1787,7 @@
     <conjugation
         id          = "19"
         term        = ""
-        radicals    = ""
+        radicals    = "envoy, envoi, enverr"
         inf_pr      = "envoyer"
         inf_pa      = "avoir envoyé"
         pa_pr       = "envoyant"

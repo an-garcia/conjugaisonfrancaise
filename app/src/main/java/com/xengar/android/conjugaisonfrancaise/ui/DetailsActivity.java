@@ -608,6 +608,23 @@ public class DetailsActivity extends AppCompatActivity implements
                     verbR = infinitive.endsWith("ayer")? infinitive.replace("ayer", "ai") : verbR;
                 }
                 break;
+            case 18:
+                // broyer, broie : verbes en -oyer, -uyer
+                if (modelR.contains("i")) {
+                    verbR = infinitive.endsWith("oyer")? infinitive.replace("oyer", "oi") : verbR;
+                    verbR = infinitive.endsWith("uyer")? infinitive.replace("uyer", "ui") : verbR;
+                }
+                break;
+            case 19:
+                // envoyer, envoie, enverra : all verbes, envoyer, renvoyer, s'envoyer, se renvoyer, avoyer
+                if (modelR.contains("i")) {
+                    verbR = infinitive.endsWith("yer")? infinitive.replace("yer", "i") : verbR;
+                } else if (modelR.contains("enverr")) {
+                    // 2 special cases for enverr
+                    verbR = infinitive.endsWith("envoyer")? infinitive.replace("envoyer", "enverr") : verbR;
+                    verbR = infinitive.endsWith("avoyer")? infinitive.replace("avoyer", "avoier") : verbR;
+                }
+                break;
         }
         return verbR;
     }
