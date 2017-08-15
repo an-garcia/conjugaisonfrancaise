@@ -539,7 +539,7 @@
     <conjugation
         id          = "7"
         term        = "er"
-        radicals    = ""
+        radicals    = "aim"
         inf_pr      = "aimer"
         inf_pa      = "avoir aimé"
         pa_pr       = "aimant"
@@ -643,7 +643,7 @@
     <conjugation
         id          = "8"
         term        = "cer"
-        radicals    = ""
+        radicals    = "plac, plaç"
         inf_pr      = "placer"
         inf_pa      = "avoir placé"
         pa_pr       = "plaçant"

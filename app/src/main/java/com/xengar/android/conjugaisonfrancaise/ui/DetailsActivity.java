@@ -556,6 +556,11 @@ public class DetailsActivity extends AppCompatActivity implements
         // TODO: Check all models (88)
         // know models
         switch (id) {
+            case 8:
+                // placer, plaçer : verbes en -cer
+                if (modelR.contains("ç")) {
+                    verbR = infinitive.endsWith("cer")? infinitive.replace("cer", "ç") : verbR;
+                }
             case 12:
                 // jeter, jetter : verbes en -eler ou -eter, doublant 1 ou t devant e muet
                 if (modelR.contains("tt")) {
