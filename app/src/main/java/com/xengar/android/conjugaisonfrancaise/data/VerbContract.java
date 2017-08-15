@@ -34,6 +34,7 @@ public final class VerbContract {
     public static final Uri BASE_CONTENT_URI = Uri.parse("content://" + CONTENT_AUTHORITY);
 
     public static final String PATH_VERBS = "verbs";
+    public static final String PATH_CONJUGATIONS = "conjugations";
     public static final String PATH_FAVORITES = "favorites";
     public static final String PATH_FAVORITE_VERBS = "favorite_verbs";
 
@@ -44,6 +45,7 @@ public final class VerbContract {
     public static final class VerbEntry implements BaseColumns {
         /** The content URI to access the verb data in the provider */
         public static final Uri CONTENT_VERBS_URI = Uri.withAppendedPath(BASE_CONTENT_URI, PATH_VERBS);
+        public static final Uri CONTENT_CONJUGATIONS_URI = Uri.withAppendedPath(BASE_CONTENT_URI, PATH_CONJUGATIONS);
 
         public static final Uri CONTENT_FAVORITES_URI = Uri.withAppendedPath(BASE_CONTENT_URI,
                 PATH_FAVORITES);
@@ -53,12 +55,16 @@ public final class VerbContract {
         /** The MIME type of the {@link #CONTENT_VERBS_URI} for a list of verbs. */
         public static final String CONTENT_LIST_TYPE_VERB =
                 ContentResolver.CURSOR_DIR_BASE_TYPE + "/" + CONTENT_AUTHORITY + "/" + PATH_VERBS;
+        public static final String CONTENT_LIST_TYPE_CONJUGATION =
+                ContentResolver.CURSOR_DIR_BASE_TYPE + "/" + CONTENT_AUTHORITY + "/" + PATH_CONJUGATIONS;
         public static final String CONTENT_LIST_TYPE_FAVORITE =
                 ContentResolver.CURSOR_DIR_BASE_TYPE + "/" + CONTENT_AUTHORITY + "/" + PATH_FAVORITES;
 
         /** The MIME type of the {@link #CONTENT_VERBS_URI} for a single verb. */
         public static final String CONTENT_ITEM_TYPE_VERB =
                 ContentResolver.CURSOR_ITEM_BASE_TYPE + "/" + CONTENT_AUTHORITY + "/" + PATH_VERBS;
+        public static final String CONTENT_ITEM_TYPE_CONJUGATION =
+                ContentResolver.CURSOR_ITEM_BASE_TYPE + "/" + CONTENT_AUTHORITY + "/" + PATH_CONJUGATIONS;
         public static final String CONTENT_ITEM_TYPE_FAVORITE =
                 ContentResolver.CURSOR_ITEM_BASE_TYPE + "/" + CONTENT_AUTHORITY + "/" + PATH_FAVORITES;
 

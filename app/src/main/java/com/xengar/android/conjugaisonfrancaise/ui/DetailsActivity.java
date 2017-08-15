@@ -44,6 +44,7 @@ import android.widget.Toast;
 import com.android.colorpicker.ColorPickerPalette;
 import com.android.colorpicker.ColorPickerSwatch;
 import com.xengar.android.conjugaisonfrancaise.R;
+import com.xengar.android.conjugaisonfrancaise.data.Conjugation;
 import com.xengar.android.conjugaisonfrancaise.data.Verb;
 import com.xengar.android.conjugaisonfrancaise.data.VerbContract;
 import com.xengar.android.conjugaisonfrancaise.utils.ActivityUtils;
@@ -51,6 +52,7 @@ import com.xengar.android.conjugaisonfrancaise.utils.ActivityUtils;
 import java.util.Locale;
 
 import static com.xengar.android.conjugaisonfrancaise.data.VerbContract.VerbEntry.COLUMN_ID;
+import static com.xengar.android.conjugaisonfrancaise.utils.Constants.CONJUGATION_ID;
 import static com.xengar.android.conjugaisonfrancaise.utils.Constants.DEMO_MODE;
 import static com.xengar.android.conjugaisonfrancaise.utils.Constants.LOG;
 import static com.xengar.android.conjugaisonfrancaise.utils.Constants.VERB_ID;
@@ -62,14 +64,16 @@ public class DetailsActivity extends AppCompatActivity implements
         LoaderManager.LoaderCallbacks<Cursor>, View.OnClickListener {
 
     private static final String TAG = DetailsActivity.class.getSimpleName();
+    private static final int VERB_LOADER = 0;
+    private static final int CONJUGATION_LOADER = 1;
 
-    private static final int EXISTING_VERB_LOADER = 0;
     private FloatingActionButton fabAdd, fabDel;
     private long verbID = -1;
+    private long conjugationID = -1;
     private Verb verb;
+    private Conjugation conjugation;
     private TextToSpeech tts;
-    private TextView infinitive, group, pastParticiple;
-    private TextView pInfinitive, pSimplePast, pPastParticiple;
+    private TextView infinitive, group;
     private TextView definition, translation, sample1, sample2, sample3;
 
     //private FirebaseAnalytics mFirebaseAnalytics;
@@ -100,6 +104,7 @@ public class DetailsActivity extends AppCompatActivity implements
         if (bundle != null) {
             demo = bundle.getBoolean(DEMO_MODE, false);
             verbID = bundle.getLong(VERB_ID, -1);
+            conjugationID = bundle.getLong(CONJUGATION_ID, -1);
         } else {
             if (LOG) {
                 Log.e(TAG, "bundle is null! This should not happen. verbId needed");
@@ -148,7 +153,8 @@ public class DetailsActivity extends AppCompatActivity implements
         });
 
         // Initialize a loader to read the verb data from the database and display it
-        getLoaderManager().initLoader(EXISTING_VERB_LOADER, null, this);
+        getLoaderManager().initLoader(VERB_LOADER, null, this);
+        getLoaderManager().initLoader(CONJUGATION_LOADER, null, this);
         showFavoriteButtons();
 
         // Obtain the FirebaseAnalytics instance.
@@ -385,33 +391,60 @@ public class DetailsActivity extends AppCompatActivity implements
 
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
-        String[] projection = ActivityUtils.allVerbColumns();
+        CursorLoader cursorLoader = null;
+        switch (id) {
+            case CONJUGATION_LOADER:
+                cursorLoader = new CursorLoader(this,
+                        VerbContract.VerbEntry.CONTENT_CONJUGATIONS_URI,
+                        ActivityUtils.allConjugationColumns(), // Columns in the resulting Cursor
+                        COLUMN_ID + " = ?",     // selection clause
+                        new String[]{Long.toString(conjugationID)}, // selection arguments
+                        null);                  // Default sort order
+                break;
 
-        return new CursorLoader(this,   // Parent activity context
-                VerbContract.VerbEntry.CONTENT_VERBS_URI,
-                projection,             // Columns to include in the resulting Cursor
-                COLUMN_ID + " = ?",     // selection clause
-                new String[]{Long.toString(verbID)}, // selection arguments
-                null);                  // Default sort order
+            case VERB_LOADER:
+            default:
+                cursorLoader = new CursorLoader(this,   // Parent activity context
+                        VerbContract.VerbEntry.CONTENT_VERBS_URI,
+                        ActivityUtils.allVerbColumns(), // Columns in the resulting Cursor
+                        COLUMN_ID + " = ?",     // selection clause
+                        new String[]{Long.toString(verbID)}, // selection arguments
+                        null);                  // Default sort order
+                break;
+        }
+        return cursorLoader;
     }
 
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor cursor) {
         // Bail early if the cursor is null or there is less than 1 row in the cursor
         if (cursor == null || cursor.getCount() < 1) {
-            finish(); // the verb doesn't exist, this should not happen.
+            finish(); // the verb or conjugation doesn't exist, this should not happen.
             return;
         }
 
-        // Proceed with moving to the first row of the cursor and reading data from it
-        // (This should be the only row in the cursor)
-        if (cursor.moveToFirst()) {
-            verb = ActivityUtils.verbFromCursor(cursor);
-            //noinspection ConstantConditions
-            getSupportActionBar().setTitle(verb.getInfinitive());
-            setVerbColor(verb.getColor());
-            fillVerbDetails(verb);
-            defineClickFavoriteButtons();
+        switch (loader.getId()) {
+            case CONJUGATION_LOADER:
+                if (cursor.moveToFirst()) {
+                    conjugation = ActivityUtils.conjugationFromCursor(cursor);
+                    // TODO: Figure out how to conjugate verb using model
+                    fillConjugationDetails(conjugation);
+                }
+                break;
+
+            case VERB_LOADER:
+            default:
+                // Proceed with moving to the first row of the cursor and reading data from it
+                // (This should be the only row in the cursor)
+                if (cursor.moveToFirst()) {
+                    verb = ActivityUtils.verbFromCursor(cursor);
+                    //noinspection ConstantConditions
+                    getSupportActionBar().setTitle(verb.getInfinitive());
+                    setVerbColor(verb.getColor());
+                    fillVerbDetails(verb);
+                    defineClickFavoriteButtons();
+                }
+                break;
         }
     }
 
@@ -453,8 +486,6 @@ public class DetailsActivity extends AppCompatActivity implements
 
         ActivityUtils.setTranslation(getApplicationContext(), translation, verb);
 
-        changeTextFontInConjugation(fontSize);
-
         // Try to put the verb image
         //ImageView imageVerb = (ImageView) findViewById(R.id.verb_image);
         //int imageId = getResources().getIdentifier(VERB  + verb.getInfinitive() , DRAWABLE,
@@ -466,6 +497,17 @@ public class DetailsActivity extends AppCompatActivity implements
         //ActivityUtils.firebaseAnalyticsLogEventViewItem(
         //        mFirebaseAnalytics, "" + verbID, verb.getInfinitive(), VERBS);
     }
+
+    private void fillConjugationDetails(Conjugation conjugation) {
+        int fontSize = Integer.parseInt(ActivityUtils.getPreferenceFontSize(getApplicationContext()));
+        changeTextFontInConjugation(fontSize);
+
+        // TODO update content
+        ((TextView)findViewById(R.id.infinitive_present)).setText(conjugation.getInfinitivePresent());
+        ((TextView)findViewById(R.id.infinitive_passe)).setText(conjugation.getInfinitivePasse());
+
+    }
+
 
     /**
      * Changes text font size.

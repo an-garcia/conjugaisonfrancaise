@@ -56,6 +56,7 @@ public final class Constants {
     public static final String DEFAULT_FONT_SIZE = "14";
 
     public static final String VERB_ID = "verb_id";
+    public static final String CONJUGATION_ID = "conjugation_id";
     public static final String VERB_NAME = "verb_name";
     public static final String DEMO_MODE = "demo_mode";
     public static final String DISPLAY_VERB_TYPE = "display_verb_type";

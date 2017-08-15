@@ -1,3 +1,18 @@
+/*
+ * Copyright (C) 2017 Angel Garcia
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package com.xengar.android.conjugaisonfrancaise.data;
 
 /**
@@ -6,7 +21,7 @@ package com.xengar.android.conjugaisonfrancaise.data;
 public class Verb {
 
     private long id = 0;
-    private int table = 0;      // Conjugation table
+    private int conjugation = 0;      // Conjugation id
     private String infinitive = "";
     private String definition = "";
     private String sample1 = "";
@@ -22,13 +37,13 @@ public class Verb {
     private String translationPT = "";
 
     /*** Constructor */
-    public Verb(long id, int table, String infinitive, String definition,
+    public Verb(long id, int conjugation, String infinitive, String definition,
                 String sample1, String sample2, String sample3,
-                int common, int group,  int color, int score,
+                int common, int group, int color, int score,
                 String notes,
                 String translationEN, String translationES, String translationPT) {
         this.id = id;
-        this.table = table;
+        this.conjugation = conjugation;
         this.infinitive = infinitive;
         this.definition = definition;
         this.sample1 = sample1;
@@ -64,8 +79,8 @@ public class Verb {
     public int getGroup() { return group; }
     public void setGroup(int group) { this.group = group; }
 
-    public int getTable() { return table; }
-    public void setTable(int table) { this.table = table; }
+    public int getConjugation() { return conjugation; }
+    public void setConjugation(int conjugation) { this.conjugation = conjugation; }
 
     public int getCommon() { return common; }
     public void setCommon(int common) { this.common = common; }

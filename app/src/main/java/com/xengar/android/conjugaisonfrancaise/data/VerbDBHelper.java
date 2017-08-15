@@ -282,8 +282,8 @@ public class VerbDBHelper extends SQLiteOpenHelper {
             // Loop through the XML data
             while (eventType != XmlPullParser.END_DOCUMENT){
                 if(eventType == XmlResourceParser.START_TAG){
-                    String verbValue = parser.getName();
-                    if (verbValue.equals("verb")){
+                    String item = parser.getName();
+                    if (item.equals("verb")){
                         values.put("_id", i);
                         verbId = parser.getAttributeValue(null, "id");
                         verbName = parser.getAttributeValue(null, "in");
@@ -332,14 +332,14 @@ public class VerbDBHelper extends SQLiteOpenHelper {
 
         // Initialize a XmlResourceParser instance
         XmlResourceParser parser = context.getResources().getXml(R.xml.conjugations);
-        int eventType = -1, i = 0;
+        int eventType = -1, i = 1;
         String verbName, conjugationId;
         try{
             // Loop through the XML data
             while (eventType != XmlPullParser.END_DOCUMENT){
                 if(eventType == XmlResourceParser.START_TAG){
-                    String verbValue = parser.getName();
-                    if (verbValue.equals("verb")){
+                    String item = parser.getName();
+                    if (item.equals("conjugation")){
                         values.put("_id", i);
                         conjugationId = parser.getAttributeValue(null, "id");
                         verbName = parser.getAttributeValue(null, "inf_pr");
@@ -448,7 +448,7 @@ public class VerbDBHelper extends SQLiteOpenHelper {
                         values.put(VerbEntry.COLUMN_CONDITIONNEL_PASSE_ILS, parser.getAttributeValue(null, "co_pa_ils"));
 
                         try {
-                            db.insertWithOnConflict(VerbEntry.VERBS_TBL, null, values, CONFLICT_REPLACE);
+                            db.insertWithOnConflict(VerbEntry.CONJUGATION_TBL, null, values, CONFLICT_REPLACE);
                         } catch (Exception e){
                             if (LOG){
                                 Log.e(TAG, "Error inserting conjugation: " + conjugationId + " " + verbName );

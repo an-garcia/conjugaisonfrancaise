@@ -36,6 +36,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.xengar.android.conjugaisonfrancaise.R;
+import com.xengar.android.conjugaisonfrancaise.data.Conjugation;
 import com.xengar.android.conjugaisonfrancaise.data.Verb;
 import com.xengar.android.conjugaisonfrancaise.data.VerbContract.VerbEntry;
 import com.xengar.android.conjugaisonfrancaise.ui.DetailsActivity;
@@ -44,6 +45,7 @@ import com.xengar.android.conjugaisonfrancaise.ui.SearchActivity;
 import com.xengar.android.conjugaisonfrancaise.ui.SettingsActivity;
 
 import static android.content.Context.MODE_PRIVATE;
+import static com.xengar.android.conjugaisonfrancaise.utils.Constants.CONJUGATION_ID;
 import static com.xengar.android.conjugaisonfrancaise.utils.Constants.DEFAULT_FONT_SIZE;
 import static com.xengar.android.conjugaisonfrancaise.utils.Constants.DEMO_MODE;
 import static com.xengar.android.conjugaisonfrancaise.utils.Constants.ENGLISH;
@@ -121,15 +123,17 @@ public class ActivityUtils {
      * Launches Details Activity.
      * @param context context
      * @param id verb id
+     * @param cId conjugation id
      * @param demoMode demo
      */
-    public static void launchDetailsActivity(final Context context, final long id,
+    public static void launchDetailsActivity(final Context context, final long id, final long cId,
                                              final boolean demoMode) {
         Intent intent = new Intent(context, DetailsActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
         Bundle bundle = new Bundle();
         bundle.putLong(VERB_ID, id);
+        bundle.putLong(CONJUGATION_ID, cId);
         bundle.putBoolean(DEMO_MODE, demoMode);
         intent.putExtras(bundle);
 
@@ -389,6 +393,119 @@ public class ActivityUtils {
     }
 
     /**
+     * Generate all table conjugation columns.
+     * @return String[]
+     */
+    public static String[] allConjugationColumns(){
+        return new String[]{
+                VerbEntry.COLUMN_ID,
+                VerbEntry.COLUMN_TERMINATION,
+                VerbEntry.COLUMN_INFINITIVE_PRESENT,
+                VerbEntry.COLUMN_INFINITIVE_PASSE,
+                VerbEntry.COLUMN_PARTICIPE_PRESENT,
+                VerbEntry.COLUMN_PARTICIPE_PASSE_1,
+                VerbEntry.COLUMN_PARTICIPE_PASSE_2,
+                VerbEntry.COLUMN_GERONDIF_PRESENT,
+                VerbEntry.COLUMN_GERONDIF_PASSE,
+
+                VerbEntry.COLUMN_IMPERATIF_PRESENT_TU,
+                VerbEntry.COLUMN_IMPERATIF_PRESENT_NOUS,
+                VerbEntry.COLUMN_IMPERATIF_PRESENT_VOUS,
+                VerbEntry.COLUMN_IMPERATIF_PASSE_TU,
+                VerbEntry.COLUMN_IMPERATIF_PASSE_NOUS,
+                VerbEntry.COLUMN_IMPERATIF_PASSE_VOUS,
+
+                VerbEntry.COLUMN_INDICATIF_PRESENT_JE,
+                VerbEntry.COLUMN_INDICATIF_PRESENT_TU,
+                VerbEntry.COLUMN_INDICATIF_PRESENT_IL,
+                VerbEntry.COLUMN_INDICATIF_PRESENT_NOUS,
+                VerbEntry.COLUMN_INDICATIF_PRESENT_VOUS,
+                VerbEntry.COLUMN_INDICATIF_PRESENT_ILS,
+                VerbEntry.COLUMN_INDICATIF_PASSE_COMPOSE_JE,
+                VerbEntry.COLUMN_INDICATIF_PASSE_COMPOSE_TU,
+                VerbEntry.COLUMN_INDICATIF_PASSE_COMPOSE_IL,
+                VerbEntry.COLUMN_INDICATIF_PASSE_COMPOSE_NOUS,
+                VerbEntry.COLUMN_INDICATIF_PASSE_COMPOSE_VOUS,
+                VerbEntry.COLUMN_INDICATIF_PASSE_COMPOSE_ILS,
+                VerbEntry.COLUMN_INDICATIF_IMPERFAIT_JE,
+                VerbEntry.COLUMN_INDICATIF_IMPERFAIT_TU,
+                VerbEntry.COLUMN_INDICATIF_IMPERFAIT_IL,
+                VerbEntry.COLUMN_INDICATIF_IMPERFAIT_NOUS,
+                VerbEntry.COLUMN_INDICATIF_IMPERFAIT_VOUS,
+                VerbEntry.COLUMN_INDICATIF_IMPERFAIT_ILS,
+                VerbEntry.COLUMN_INDICATIF_PLUS_QUE_PARFAIT_JE,
+                VerbEntry.COLUMN_INDICATIF_PLUS_QUE_PARFAIT_TU,
+                VerbEntry.COLUMN_INDICATIF_PLUS_QUE_PARFAIT_IL,
+                VerbEntry.COLUMN_INDICATIF_PLUS_QUE_PARFAIT_NOUS,
+                VerbEntry.COLUMN_INDICATIF_PLUS_QUE_PARFAIT_VOUS,
+                VerbEntry.COLUMN_INDICATIF_PLUS_QUE_PARFAIT_ILS,
+                VerbEntry.COLUMN_INDICATIF_PASSE_SIMPLE_JE,
+                VerbEntry.COLUMN_INDICATIF_PASSE_SIMPLE_TU,
+                VerbEntry.COLUMN_INDICATIF_PASSE_SIMPLE_IL,
+                VerbEntry.COLUMN_INDICATIF_PASSE_SIMPLE_NOUS,
+                VerbEntry.COLUMN_INDICATIF_PASSE_SIMPLE_VOUS,
+                VerbEntry.COLUMN_INDICATIF_PASSE_SIMPLE_ILS,
+                VerbEntry.COLUMN_INDICATIF_PASSE_ANTERIEUR_JE,
+                VerbEntry.COLUMN_INDICATIF_PASSE_ANTERIEUR_TU,
+                VerbEntry.COLUMN_INDICATIF_PASSE_ANTERIEUR_IL,
+                VerbEntry.COLUMN_INDICATIF_PASSE_ANTERIEUR_NOUS,
+                VerbEntry.COLUMN_INDICATIF_PASSE_ANTERIEUR_VOUS,
+                VerbEntry.COLUMN_INDICATIF_PASSE_ANTERIEUR_ILS,
+                VerbEntry.COLUMN_INDICATIF_FUTUR_SIMPLE_JE,
+                VerbEntry.COLUMN_INDICATIF_FUTUR_SIMPLE_TU,
+                VerbEntry.COLUMN_INDICATIF_FUTUR_SIMPLE_IL,
+                VerbEntry.COLUMN_INDICATIF_FUTUR_SIMPLE_NOUS,
+                VerbEntry.COLUMN_INDICATIF_FUTUR_SIMPLE_VOUS,
+                VerbEntry.COLUMN_INDICATIF_FUTUR_SIMPLE_ILS,
+                VerbEntry.COLUMN_INDICATIF_FUTUR_ANTERIEUR_JE,
+                VerbEntry.COLUMN_INDICATIF_FUTUR_ANTERIEUR_TU,
+                VerbEntry.COLUMN_INDICATIF_FUTUR_ANTERIEUR_IL,
+                VerbEntry.COLUMN_INDICATIF_FUTUR_ANTERIEUR_NOUS,
+                VerbEntry.COLUMN_INDICATIF_FUTUR_ANTERIEUR_VOUS,
+                VerbEntry.COLUMN_INDICATIF_FUTUR_ANTERIEUR_ILS,
+
+                VerbEntry.COLUMN_SUBJONTIF_PRESENT_JE,
+                VerbEntry.COLUMN_SUBJONTIF_PRESENT_TU,
+                VerbEntry.COLUMN_SUBJONTIF_PRESENT_IL,
+                VerbEntry.COLUMN_SUBJONTIF_PRESENT_NOUS,
+                VerbEntry.COLUMN_SUBJONTIF_PRESENT_VOUS,
+                VerbEntry.COLUMN_SUBJONTIF_PRESENT_ILS,
+                VerbEntry.COLUMN_SUBJONTIF_PASSE_JE,
+                VerbEntry.COLUMN_SUBJONTIF_PASSE_TU,
+                VerbEntry.COLUMN_SUBJONTIF_PASSE_IL,
+                VerbEntry.COLUMN_SUBJONTIF_PASSE_NOUS,
+                VerbEntry.COLUMN_SUBJONTIF_PASSE_VOUS,
+                VerbEntry.COLUMN_SUBJONTIF_PASSE_ILS,
+                VerbEntry.COLUMN_SUBJONTIF_IMPERFAIT_JE,
+                VerbEntry.COLUMN_SUBJONTIF_IMPERFAIT_TU,
+                VerbEntry.COLUMN_SUBJONTIF_IMPERFAIT_IL,
+                VerbEntry.COLUMN_SUBJONTIF_IMPERFAIT_NOUS,
+                VerbEntry.COLUMN_SUBJONTIF_IMPERFAIT_VOUS,
+                VerbEntry.COLUMN_SUBJONTIF_IMPERFAIT_ILS,
+                VerbEntry.COLUMN_SUBJONTIF_PLUS_QUE_PARFAIT_JE,
+                VerbEntry.COLUMN_SUBJONTIF_PLUS_QUE_PARFAIT_TU,
+                VerbEntry.COLUMN_SUBJONTIF_PLUS_QUE_PARFAIT_IL,
+                VerbEntry.COLUMN_SUBJONTIF_PLUS_QUE_PARFAIT_NOUS,
+                VerbEntry.COLUMN_SUBJONTIF_PLUS_QUE_PARFAIT_VOUS,
+                VerbEntry.COLUMN_SUBJONTIF_PLUS_QUE_PARFAIT_ILS,
+
+                VerbEntry.COLUMN_CONDITIONNEL_PRESENT_JE,
+                VerbEntry.COLUMN_CONDITIONNEL_PRESENT_TU,
+                VerbEntry.COLUMN_CONDITIONNEL_PRESENT_IL,
+                VerbEntry.COLUMN_CONDITIONNEL_PRESENT_NOUS,
+                VerbEntry.COLUMN_CONDITIONNEL_PRESENT_VOUS,
+                VerbEntry.COLUMN_CONDITIONNEL_PRESENT_ILS,
+                VerbEntry.COLUMN_CONDITIONNEL_PASSE_JE,
+                VerbEntry.COLUMN_CONDITIONNEL_PASSE_TU,
+                VerbEntry.COLUMN_CONDITIONNEL_PASSE_IL,
+                VerbEntry.COLUMN_CONDITIONNEL_PASSE_NOUS,
+                VerbEntry.COLUMN_CONDITIONNEL_PASSE_VOUS,
+                VerbEntry.COLUMN_CONDITIONNEL_PASSE_ILS,
+        };
+    }
+
+
+    /**
      * Create a Verb from the current cursor position.
      * Note: columns must exist.
      * @param cursor Cursor
@@ -410,6 +527,118 @@ public class ActivityUtils {
                 cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_TRANSLATION_EN)),
                 cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_TRANSLATION_ES)),
                 cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_TRANSLATION_PT)) );
+    }
+
+    /**
+     * Create a Conjugation from the current cursor position.
+     * Note: columns must exist.
+     * @param cursor Cursor
+     * @return Conjugation
+     */
+    public static Conjugation conjugationFromCursor(final Cursor cursor) {
+        return new Conjugation(cursor.getLong(cursor.getColumnIndex(VerbEntry.COLUMN_ID)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_TERMINATION)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_INFINITIVE_PRESENT)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_INFINITIVE_PASSE)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_PARTICIPE_PRESENT)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_PARTICIPE_PASSE_1)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_PARTICIPE_PASSE_2)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_GERONDIF_PRESENT)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_GERONDIF_PASSE)),
+
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_IMPERATIF_PRESENT_TU)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_IMPERATIF_PRESENT_NOUS)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_IMPERATIF_PRESENT_VOUS)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_IMPERATIF_PASSE_TU)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_IMPERATIF_PASSE_NOUS)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_IMPERATIF_PASSE_VOUS)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_INDICATIF_PRESENT_JE)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_INDICATIF_PRESENT_TU)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_INDICATIF_PRESENT_IL)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_INDICATIF_PRESENT_NOUS)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_INDICATIF_PRESENT_VOUS)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_INDICATIF_PRESENT_ILS)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_INDICATIF_PASSE_COMPOSE_JE)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_INDICATIF_PASSE_COMPOSE_TU)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_INDICATIF_PASSE_COMPOSE_IL)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_INDICATIF_PASSE_COMPOSE_NOUS)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_INDICATIF_PASSE_COMPOSE_VOUS)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_INDICATIF_PASSE_COMPOSE_ILS)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_INDICATIF_IMPERFAIT_JE)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_INDICATIF_IMPERFAIT_TU)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_INDICATIF_IMPERFAIT_IL)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_INDICATIF_IMPERFAIT_NOUS)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_INDICATIF_IMPERFAIT_VOUS)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_INDICATIF_IMPERFAIT_ILS)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_INDICATIF_PLUS_QUE_PARFAIT_JE)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_INDICATIF_PLUS_QUE_PARFAIT_TU)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_INDICATIF_PLUS_QUE_PARFAIT_IL)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_INDICATIF_PLUS_QUE_PARFAIT_NOUS)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_INDICATIF_PLUS_QUE_PARFAIT_VOUS)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_INDICATIF_PLUS_QUE_PARFAIT_ILS)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_INDICATIF_PASSE_SIMPLE_JE)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_INDICATIF_PASSE_SIMPLE_TU)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_INDICATIF_PASSE_SIMPLE_IL)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_INDICATIF_PASSE_SIMPLE_NOUS)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_INDICATIF_PASSE_SIMPLE_VOUS)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_INDICATIF_PASSE_SIMPLE_ILS)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_INDICATIF_PASSE_ANTERIEUR_JE)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_INDICATIF_PASSE_ANTERIEUR_TU)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_INDICATIF_PASSE_ANTERIEUR_IL)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_INDICATIF_PASSE_ANTERIEUR_NOUS)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_INDICATIF_PASSE_ANTERIEUR_VOUS)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_INDICATIF_PASSE_ANTERIEUR_ILS)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_INDICATIF_FUTUR_SIMPLE_JE)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_INDICATIF_FUTUR_SIMPLE_TU)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_INDICATIF_FUTUR_SIMPLE_IL)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_INDICATIF_FUTUR_SIMPLE_NOUS)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_INDICATIF_FUTUR_SIMPLE_VOUS)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_INDICATIF_FUTUR_SIMPLE_ILS)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_INDICATIF_FUTUR_ANTERIEUR_JE)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_INDICATIF_FUTUR_ANTERIEUR_TU)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_INDICATIF_FUTUR_ANTERIEUR_IL)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_INDICATIF_FUTUR_ANTERIEUR_NOUS)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_INDICATIF_FUTUR_ANTERIEUR_VOUS)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_INDICATIF_FUTUR_ANTERIEUR_ILS)),
+
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_SUBJONTIF_PRESENT_JE)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_SUBJONTIF_PRESENT_TU)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_SUBJONTIF_PRESENT_IL)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_SUBJONTIF_PRESENT_NOUS)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_SUBJONTIF_PRESENT_VOUS)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_SUBJONTIF_PRESENT_ILS)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_SUBJONTIF_PASSE_JE)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_SUBJONTIF_PASSE_TU)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_SUBJONTIF_PASSE_IL)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_SUBJONTIF_PASSE_NOUS)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_SUBJONTIF_PASSE_VOUS)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_SUBJONTIF_PASSE_ILS)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_SUBJONTIF_IMPERFAIT_JE)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_SUBJONTIF_IMPERFAIT_TU)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_SUBJONTIF_IMPERFAIT_IL)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_SUBJONTIF_IMPERFAIT_NOUS)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_SUBJONTIF_IMPERFAIT_VOUS)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_SUBJONTIF_IMPERFAIT_ILS)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_SUBJONTIF_PLUS_QUE_PARFAIT_JE)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_SUBJONTIF_PLUS_QUE_PARFAIT_TU)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_SUBJONTIF_PLUS_QUE_PARFAIT_IL)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_SUBJONTIF_PLUS_QUE_PARFAIT_NOUS)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_SUBJONTIF_PLUS_QUE_PARFAIT_VOUS)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_SUBJONTIF_PLUS_QUE_PARFAIT_ILS)),
+
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_CONDITIONNEL_PRESENT_JE)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_CONDITIONNEL_PRESENT_TU)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_CONDITIONNEL_PRESENT_IL)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_CONDITIONNEL_PRESENT_NOUS)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_CONDITIONNEL_PRESENT_VOUS)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_CONDITIONNEL_PRESENT_ILS)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_CONDITIONNEL_PASSE_JE)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_CONDITIONNEL_PASSE_TU)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_CONDITIONNEL_PASSE_IL)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_CONDITIONNEL_PASSE_NOUS)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_CONDITIONNEL_PASSE_VOUS)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_CONDITIONNEL_PASSE_ILS))
+        );
     }
 
     /**

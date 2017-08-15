@@ -22,7 +22,6 @@ import android.util.TypedValue;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.xengar.android.conjugaisonfrancaise.R;
 import com.xengar.android.conjugaisonfrancaise.data.Verb;
@@ -99,7 +98,8 @@ public class VerbHolder extends RecyclerView.ViewHolder implements View.OnClickL
         switch(view.getId()) {
             default:
                 if (verb != null) {
-                    ActivityUtils.launchDetailsActivity(context, verb.getId(), false);
+                    ActivityUtils.launchDetailsActivity(
+                            context, verb.getId(), verb.getConjugation(), false);
                     //Toast.makeText(context, verb.getInfinitive(), Toast.LENGTH_SHORT).show();
                 }
                 break;

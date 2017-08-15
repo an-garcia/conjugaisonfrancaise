@@ -51,6 +51,9 @@ public class VerbProvider extends ContentProvider{
     private static final int FAVORITES = 200;
     private static final int FAVORITE_ID = 201;
 
+    private static final int CONJUGATIONS = 300;
+    private static final int CONJUGATION_ID = 301;
+
 
 
     /**
@@ -83,6 +86,9 @@ public class VerbProvider extends ContentProvider{
         // "content://com.xengar.android.englishverbs/verbs" (without a number at the end) doesn't.
         sUriMatcher.addURI(VerbContract.CONTENT_AUTHORITY, VerbContract.PATH_VERBS + "/#", VERB_ID);
         sUriMatcher.addURI(VerbContract.CONTENT_AUTHORITY, VerbContract.PATH_FAVORITES + "/#", FAVORITE_ID);
+
+        sUriMatcher.addURI(VerbContract.CONTENT_AUTHORITY, VerbContract.PATH_CONJUGATIONS, CONJUGATIONS);
+        sUriMatcher.addURI(VerbContract.CONTENT_AUTHORITY, VerbContract.PATH_CONJUGATIONS + "/#", CONJUGATION_ID);
     }
 
     /** Database helper object */
@@ -116,6 +122,11 @@ public class VerbProvider extends ContentProvider{
                         null, null, sortOrder);
                 break;
 
+            case CONJUGATIONS:
+                cursor = database.query(VerbEntry.CONJUGATION_TBL, projection, selection, selectionArgs,
+                        null, null, sortOrder);
+                break;
+
             case FAVORITES:
                 cursor = database.query(VerbEntry.FAVORITES_TBL, projection, selection, selectionArgs,
                         null, null, sortOrder);
@@ -136,6 +147,13 @@ public class VerbProvider extends ContentProvider{
                 // This will perform a query on the verbs table where the COLUMN_ID equals 3 to return a
                 // Cursor containing that row of the table.
                 cursor = database.query(VerbEntry.VERBS_TBL, projection, selection, selectionArgs,
+                        null, null, sortOrder);
+                break;
+
+            case CONJUGATION_ID:
+                selection = VerbEntry.COLUMN_ID + "=?";
+                selectionArgs = new String[] { String.valueOf(ContentUris.parseId(uri)) };
+                cursor = database.query(VerbEntry.CONJUGATION_TBL, projection, selection, selectionArgs,
                         null, null, sortOrder);
                 break;
 
@@ -181,8 +199,12 @@ public class VerbProvider extends ContentProvider{
             case VERBS:
             case FAVORITE_VERBS:
                 return VerbEntry.CONTENT_LIST_TYPE_VERB;
+            case CONJUGATIONS:
+                return VerbEntry.CONTENT_LIST_TYPE_CONJUGATION;
             case VERB_ID:
                 return VerbEntry.CONTENT_ITEM_TYPE_VERB;
+            case CONJUGATION_ID:
+                return VerbEntry.CONTENT_ITEM_TYPE_CONJUGATION;
             case FAVORITES:
                 return VerbEntry.CONTENT_LIST_TYPE_FAVORITE;
             case FAVORITE_ID:
