@@ -561,6 +561,15 @@ public class DetailsActivity extends AppCompatActivity implements
                 if (modelR.contains("ç")) {
                     verbR = infinitive.endsWith("cer")? infinitive.replace("cer", "ç") : verbR;
                 }
+            case 10:
+                // peser, pèser : verbes ayant un e muet à l'avant dèrniere syllabe de l'infinitif: verbes en e(.)er
+                if (modelR.contains("è")) {
+                    int last = verbR.contains("e")? verbR.lastIndexOf("e") : -1;
+                    if (last > -1) {
+                        verbR = verbR.substring(0, last) + "è" + verbR.substring(last + 1, verbR.length());
+                    }
+                }
+                break;
             case 12:
                 // jeter, jetter : verbes en -eler ou -eter, doublant 1 ou t devant e muet
                 if (modelR.contains("tt")) {

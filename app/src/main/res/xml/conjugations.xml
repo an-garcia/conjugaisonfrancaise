@@ -747,7 +747,7 @@
     <conjugation
         id          = "9"
         term        = "ger"
-        radicals    = ""
+        radicals    = "mang"
         inf_pr      = "manger"
         inf_pa      = "avoir mangé"
         pa_pr       = "mangeant"
@@ -851,7 +851,7 @@
     <conjugation
         id          = "10"
         term        = "er"
-        radicals    = ""
+        radicals    = "pes, pès"
         inf_pr      = "peser"
         inf_pa      = "avoir pesé"
         pa_pr       = "pesant"
