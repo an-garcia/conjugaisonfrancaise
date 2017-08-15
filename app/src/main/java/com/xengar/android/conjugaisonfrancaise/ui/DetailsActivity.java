@@ -49,6 +49,8 @@ import com.xengar.android.conjugaisonfrancaise.data.Verb;
 import com.xengar.android.conjugaisonfrancaise.data.VerbContract;
 import com.xengar.android.conjugaisonfrancaise.utils.ActivityUtils;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 import static com.xengar.android.conjugaisonfrancaise.data.VerbContract.VerbEntry.COLUMN_ID;
@@ -64,6 +66,7 @@ import static com.xengar.android.conjugaisonfrancaise.utils.Constants.QUE;
 import static com.xengar.android.conjugaisonfrancaise.utils.Constants.QUEA;
 import static com.xengar.android.conjugaisonfrancaise.utils.Constants.TU;
 import static com.xengar.android.conjugaisonfrancaise.utils.Constants.VERB_ID;
+import static com.xengar.android.conjugaisonfrancaise.utils.Constants.VERB_NAME;
 import static com.xengar.android.conjugaisonfrancaise.utils.Constants.VOUS;
 
 /**
@@ -77,6 +80,7 @@ public class DetailsActivity extends AppCompatActivity implements
     private static final int CONJUGATION_LOADER = 1;
 
     private FloatingActionButton fabAdd, fabDel;
+    private String verbName = "";
     private long verbID = -1;
     private long conjugationID = -1;
     private Verb verb;
@@ -112,6 +116,7 @@ public class DetailsActivity extends AppCompatActivity implements
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
             demo = bundle.getBoolean(DEMO_MODE, false);
+            verbName = bundle.getString(VERB_NAME, "");
             verbID = bundle.getLong(VERB_ID, -1);
             conjugationID = bundle.getLong(CONJUGATION_ID, -1);
         } else {
@@ -412,13 +417,14 @@ public class DetailsActivity extends AppCompatActivity implements
                 break;
 
             case VERB_LOADER:
-            default:
                 cursorLoader = new CursorLoader(this,   // Parent activity context
                         VerbContract.VerbEntry.CONTENT_VERBS_URI,
                         ActivityUtils.allVerbColumns(), // Columns in the resulting Cursor
                         COLUMN_ID + " = ?",     // selection clause
                         new String[]{Long.toString(verbID)}, // selection arguments
                         null);                  // Default sort order
+                break;
+            default:
                 break;
         }
         return cursorLoader;
@@ -436,13 +442,12 @@ public class DetailsActivity extends AppCompatActivity implements
             case CONJUGATION_LOADER:
                 if (cursor.moveToFirst()) {
                     conjugation = ActivityUtils.conjugationFromCursor(cursor);
-                    conjugateVerb(conjugation, verb);
+                    conjugateVerb(conjugation, verbName);
                     fillConjugationDetails(conjugation);
                 }
                 break;
 
             case VERB_LOADER:
-            default:
                 // Proceed with moving to the first row of the cursor and reading data from it
                 // (This should be the only row in the cursor)
                 if (cursor.moveToFirst()) {
@@ -453,6 +458,8 @@ public class DetailsActivity extends AppCompatActivity implements
                     fillVerbDetails(verb);
                     defineClickFavoriteButtons();
                 }
+                break;
+            default:
                 break;
         }
     }
@@ -510,12 +517,210 @@ public class DetailsActivity extends AppCompatActivity implements
     /**
      * Conjugates the verb according to the model.
      * @param c Conjugation conjugation
-     * @param verb Verb
+     * @param verbInfinitive String
      */
-    private void conjugateVerb(Conjugation c, Verb verb) {
-        // TODO: Figure out how to conjugate verb using model
+    private void conjugateVerb(Conjugation c, String verbInfinitive) {
+        // Generate verb radicals for each time and person based on the radical's model.
+        List<String> modelRadicals = new ArrayList<>();
+        List<String> verbRadicals = new ArrayList<>();
+        String modelRs = c.getRadicals();
+        if (modelRs != null && !modelRs.isEmpty()) {
+            String[] arrayModelRs = modelRs.split(", ");
+            for (String modelR : arrayModelRs) {
+                modelRadicals.add(modelR);
+                String verbR = generateRadical(verbInfinitive, modelR, (int)c.getId());
+                verbRadicals.add(verbR);
+            }
+            replaceRadicals(c, modelRadicals, verbRadicals);
+        }
+        addPronoms(c);
+    }
 
+    /**
+     * Generates the verb radical based on the model.
+     * @param infinitive String verb
+     * @param modelR String radical of the model
+     * @param id int model id
+     * @return list of radicals
+     */
+    private String generateRadical(String infinitive, String modelR, int id) {
+        String verbR = infinitive;
+        if (verbR.endsWith("er")) {
+            verbR = verbR.replace("er", "");
+        }
+
+        // TODO: Check all models (88)
+        // know models
+        switch (id) {
+            case 12:
+                // jeter, jetter : verbes en -eler ou -eter, doublant 1 ou t devant e muet
+                if (modelR.contains("tt")) {
+                    verbR = verbR.endsWith("l")? verbR + "l" : verbR;
+                    verbR = verbR.endsWith("t")? verbR + "t" : verbR;
+                }
+                break;
+            case 13:
+                // model, modèl : verbes en -eler ou -eter, changeant e en è devant syllabe muette
+                if (modelR.contains("è")) {
+                    verbR = infinitive.endsWith("eler")? infinitive.replace("eler", "èl") : verbR;
+                    verbR = infinitive.endsWith("eter")? infinitive.replace("eter", "èt") : verbR;
+                }
+        }
+        return verbR;
+    }
+
+    /**
+     * Replaces the radicals with the ones from the verb.
+     * @param c
+     * @param modelR  List of model radicals
+     * @param verbR  List of verb radicals
+     */
+    private void replaceRadicals(Conjugation c, List<String> modelR, List<String> verbR) {
+
+        c.setImperatifPresentTu(replaceRadical(c.getImperatifPresentTu(), modelR, verbR));
+        c.setImperatifPresentNous(replaceRadical(c.getImperatifPresentNous(), modelR, verbR));
+        c.setImperatifPresentVous(replaceRadical(c.getImperatifPresentVous(), modelR, verbR));
+        c.setImperatifPasseTu(replaceRadical(c.getImperatifPasseTu(), modelR, verbR));
+        c.setImperatifPasseNous(replaceRadical(c.getImperatifPasseNous(), modelR, verbR));
+        c.setImperatifPasseVous(replaceRadical(c.getImperatifPasseVous(), modelR, verbR));
+
+        c.setInfinitivePresent(verbName);
+        c.setInfinitivePasse(replaceRadical(c.getInfinitivePasse(), modelR, verbR));
+        c.setParticipePresent(replaceRadical(c.getParticipePresent(), modelR, verbR));
+        c.setParticipePasse1(replaceRadical(c.getParticipePasse1(), modelR, verbR));
+        c.setParticipePasse2(replaceRadical(c.getParticipePasse2(), modelR, verbR));
+        c.setGerondifPresent(replaceRadical(c.getGerondifPresent(), modelR, verbR));
+        c.setGerondifPasse(replaceRadical(c.getGerondifPasse(), modelR, verbR));
+
+        c.setIndicatifPresentJe(replaceRadical(c.getIndicatifPresentJe(), modelR, verbR));
+        c.setIndicatifPresentTu(replaceRadical(c.getIndicatifPresentTu(), modelR, verbR));
+        c.setIndicatifPresentIl(replaceRadical(c.getIndicatifPresentIl(), modelR, verbR));
+        c.setIndicatifPresentNous(replaceRadical(c.getIndicatifPresentNous(), modelR, verbR));
+        c.setIndicatifPresentVous(replaceRadical(c.getIndicatifPresentVous(), modelR, verbR));
+        c.setIndicatifPresentIls(replaceRadical(c.getIndicatifPresentIls(), modelR, verbR));
+
+        c.setIndicatifPasseComposeJe(replaceRadical(c.getIndicatifPasseComposeJe(), modelR, verbR));
+        c.setIndicatifPasseComposeTu(replaceRadical(c.getIndicatifPasseComposeTu(), modelR, verbR));
+        c.setIndicatifPasseComposeIl(replaceRadical(c.getIndicatifPasseComposeIl(), modelR, verbR));
+        c.setIndicatifPasseComposeNous(replaceRadical(c.getIndicatifPasseComposeNous(), modelR, verbR));
+        c.setIndicatifPasseComposeVous(replaceRadical(c.getIndicatifPasseComposeVous(), modelR, verbR));
+        c.setIndicatifPasseComposeIls(replaceRadical(c.getIndicatifPasseComposeIls(), modelR, verbR));
+
+        c.setIndicatifImperfaitJe(replaceRadical(c.getIndicatifImperfaitJe(), modelR, verbR));
+        c.setIndicatifImperfaitTu(replaceRadical(c.getIndicatifImperfaitTu(), modelR, verbR));
+        c.setIndicatifImperfaitIl(replaceRadical(c.getIndicatifImperfaitIl(), modelR, verbR));
+        c.setIndicatifImperfaitNous(replaceRadical(c.getIndicatifImperfaitNous(), modelR, verbR));
+        c.setIndicatifImperfaitVous(replaceRadical(c.getIndicatifImperfaitVous(), modelR, verbR));
+        c.setIndicatifImperfaitIls(replaceRadical(c.getIndicatifImperfaitIls(), modelR, verbR));
+
+        c.setIndicatifPlusQueParfaitJe(replaceRadical(c.getIndicatifPlusQueParfaitJe(), modelR, verbR));
+        c.setIndicatifPlusQueParfaitTu(replaceRadical(c.getIndicatifPlusQueParfaitTu(), modelR, verbR));
+        c.setIndicatifPlusQueParfaitIl(replaceRadical(c.getIndicatifPlusQueParfaitIl(), modelR, verbR));
+        c.setIndicatifPlusQueParfaitNous(replaceRadical(c.getIndicatifPlusQueParfaitNous(), modelR, verbR));
+        c.setIndicatifPlusQueParfaitVous(replaceRadical(c.getIndicatifPlusQueParfaitVous(), modelR, verbR));
+        c.setIndicatifPlusQueParfaitIls(replaceRadical(c.getIndicatifPlusQueParfaitIls(), modelR, verbR));
+
+        c.setIndicatifPasseSimpleJe(replaceRadical(c.getIndicatifPasseSimpleJe(), modelR, verbR));
+        c.setIndicatifPasseSimpleTu(replaceRadical(c.getIndicatifPasseSimpleTu(), modelR, verbR));
+        c.setIndicatifPasseSimpleIl(replaceRadical(c.getIndicatifPasseSimpleIl(), modelR, verbR));
+        c.setIndicatifPasseSimpleNous(replaceRadical(c.getIndicatifPasseSimpleNous(), modelR, verbR));
+        c.setIndicatifPasseSimpleVous(replaceRadical(c.getIndicatifPasseSimpleVous(), modelR, verbR));
+        c.setIndicatifPasseSimpleIls(replaceRadical(c.getIndicatifPasseSimpleIls(), modelR, verbR));
+
+        c.setIndicatifPasseAnterieurJe(replaceRadical(c.getIndicatifPasseAnterieurJe(), modelR, verbR));
+        c.setIndicatifPasseAnterieurTu(replaceRadical(c.getIndicatifPasseAnterieurTu(), modelR, verbR));
+        c.setIndicatifPasseAnterieurIl(replaceRadical(c.getIndicatifPasseAnterieurIl(), modelR, verbR));
+        c.setIndicatifPasseAnterieurNous(replaceRadical(c.getIndicatifPasseAnterieurNous(), modelR, verbR));
+        c.setIndicatifPasseAnterieurVous(replaceRadical(c.getIndicatifPasseAnterieurVous(), modelR, verbR));
+        c.setIndicatifPasseAnterieurIls(replaceRadical(c.getIndicatifPasseAnterieurIls(), modelR, verbR));
+
+        c.setIndicatifFuturSimpleJe(replaceRadical(c.getIndicatifFuturSimpleJe(), modelR, verbR));
+        c.setIndicatifFuturSimpleTu(replaceRadical(c.getIndicatifFuturSimpleTu(), modelR, verbR));
+        c.setIndicatifFuturSimpleIl(replaceRadical(c.getIndicatifFuturSimpleIl(), modelR, verbR));
+        c.setIndicatifFuturSimpleNous(replaceRadical(c.getIndicatifFuturSimpleNous(), modelR, verbR));
+        c.setIndicatifFuturSimpleVous(replaceRadical(c.getIndicatifFuturSimpleVous(), modelR, verbR));
+        c.setIndicatifFuturSimpleIls(replaceRadical(c.getIndicatifFuturSimpleIls(), modelR, verbR));
+
+        c.setIndicatifFuturAnterieurJe(replaceRadical(c.getIndicatifFuturAnterieurJe(), modelR, verbR));
+        c.setIndicatifFuturAnterieurTu(replaceRadical(c.getIndicatifFuturAnterieurTu(), modelR, verbR));
+        c.setIndicatifFuturAnterieurIl(replaceRadical(c.getIndicatifFuturAnterieurIl(), modelR, verbR));
+        c.setIndicatifFuturAnterieurNous(replaceRadical(c.getIndicatifFuturAnterieurNous(), modelR, verbR));
+        c.setIndicatifFuturAnterieurVous(replaceRadical(c.getIndicatifFuturAnterieurVous(), modelR, verbR));
+        c.setIndicatifFuturAnterieurIls(replaceRadical(c.getIndicatifFuturAnterieurIls(), modelR, verbR));
+
+
+        c.setConditionnelPresentJe(replaceRadical(c.getConditionnelPresentJe(), modelR, verbR));
+        c.setConditionnelPresentTu(replaceRadical(c.getConditionnelPresentTu(), modelR, verbR));
+        c.setConditionnelPresentIl(replaceRadical(c.getConditionnelPresentIl(), modelR, verbR));
+        c.setConditionnelPresentNous(replaceRadical(c.getConditionnelPresentNous(), modelR, verbR));
+        c.setConditionnelPresentVous(replaceRadical(c.getConditionnelPresentVous(), modelR, verbR));
+        c.setConditionnelPresentIls(replaceRadical(c.getConditionnelPresentIls(), modelR, verbR));
+
+        c.setConditionnelPasseJe(replaceRadical(c.getConditionnelPasseJe(), modelR, verbR));
+        c.setConditionnelPasseTu(replaceRadical(c.getConditionnelPasseTu(), modelR, verbR));
+        c.setConditionnelPasseIl(replaceRadical(c.getConditionnelPasseIl(), modelR, verbR));
+        c.setConditionnelPasseNous(replaceRadical(c.getConditionnelPasseNous(), modelR, verbR));
+        c.setConditionnelPasseVous(replaceRadical(c.getConditionnelPasseVous(), modelR, verbR));
+        c.setConditionnelPasseIls(replaceRadical(c.getConditionnelPasseIls(), modelR, verbR));
+
+
+        c.setSubjonctifPresentJe(replaceRadical(c.getSubjonctifPresentJe(), modelR, verbR));
+        c.setSubjonctifPresentTu(replaceRadical(c.getSubjonctifPresentTu(), modelR, verbR));
+        c.setSubjonctifPresentIl(replaceRadical(c.getSubjonctifPresentIl(), modelR, verbR));
+        c.setSubjonctifPresentNous(replaceRadical(c.getSubjonctifPresentNous(), modelR, verbR));
+        c.setSubjonctifPresentVous(replaceRadical(c.getSubjonctifPresentVous(), modelR, verbR));
+        c.setSubjonctifPresentIls(replaceRadical(c.getSubjonctifPresentIls(), modelR, verbR));
+
+        c.setSubjonctifPasseJe(replaceRadical(c.getSubjonctifPasseJe(), modelR, verbR));
+        c.setSubjonctifPasseTu(replaceRadical(c.getSubjonctifPasseTu(), modelR, verbR));
+        c.setSubjonctifPasseIl(replaceRadical(c.getSubjonctifPasseIl(), modelR, verbR));
+        c.setSubjonctifPasseNous(replaceRadical(c.getSubjonctifPasseNous(), modelR, verbR));
+        c.setSubjonctifPasseVous(replaceRadical(c.getSubjonctifPasseVous(), modelR, verbR));
+        c.setSubjonctifPasseIls(replaceRadical(c.getSubjonctifPasseIls(), modelR, verbR));
+
+        c.setSubjonctifImperfaitJe(replaceRadical(c.getSubjonctifImperfaitJe(), modelR, verbR));
+        c.setSubjonctifImperfaitTu(replaceRadical(c.getSubjonctifImperfaitTu(), modelR, verbR));
+        c.setSubjonctifImperfaitIl(replaceRadical(c.getSubjonctifImperfaitIl(), modelR, verbR));
+        c.setSubjonctifImperfaitNous(replaceRadical(c.getSubjonctifImperfaitNous(), modelR, verbR));
+        c.setSubjonctifImperfaitVous(replaceRadical(c.getSubjonctifImperfaitVous(), modelR, verbR));
+        c.setSubjonctifImperfaitIls(replaceRadical(c.getSubjonctifImperfaitIls(), modelR, verbR));
+
+        c.setSubjonctifPlusQueParfaitJe(replaceRadical(c.getSubjonctifPlusQueParfaitJe(), modelR, verbR));
+        c.setSubjonctifPlusQueParfaitTu(replaceRadical(c.getSubjonctifPlusQueParfaitTu(), modelR, verbR));
+        c.setSubjonctifPlusQueParfaitIl(replaceRadical(c.getSubjonctifPlusQueParfaitIl(), modelR, verbR));
+        c.setSubjonctifPlusQueParfaitNous(replaceRadical(c.getSubjonctifPlusQueParfaitNous(), modelR, verbR));
+        c.setSubjonctifPlusQueParfaitVous(replaceRadical(c.getSubjonctifPlusQueParfaitVous(), modelR, verbR));
+        c.setSubjonctifPlusQueParfaitIls(replaceRadical(c.getSubjonctifPlusQueParfaitIls(), modelR, verbR));
+    }
+
+    /**
+     * Replaces the radical in the conjugation form.
+     * @param text  verb conjugation
+     * @param modelR List of model radicals
+     * @param verbR List of verb radicals
+     * @return
+     */
+    private String replaceRadical(String text, List<String> modelR, List<String> verbR) {
+        String newText = text;
+        String radicalM, radicalV;
+        for (int i = 0; i < modelR.size(); i++) {
+            radicalM = modelR.get(i);
+            radicalV = verbR.get(i);
+            if (!radicalM.isEmpty() && !radicalV.isEmpty() && text.contains(radicalM)) {
+                newText = newText.replace(radicalM, radicalV);
+                break;
+            }
+        }
+        return newText;
+    }
+
+    /**
+     * Ads the pronoms
+     * @param c Conjugation
+     */
+    private void addPronoms(Conjugation c) {
         // Add pronoms
+        // TODO: Show pronoms in different color
         String text = c.getIndicatifPresentJe();
         c.setIndicatifPresentJe((ActivityUtils.useApostrophe(text))? JEA + text : JE + text);
         c.setIndicatifPresentTu(TU + c.getIndicatifPresentTu());
@@ -602,7 +807,7 @@ public class DetailsActivity extends AppCompatActivity implements
         c.setSubjonctifPresentIl(QUEA + IL + c.getSubjonctifPresentIl());
         c.setSubjonctifPresentNous(QUE + NOUS + c.getSubjonctifPresentNous());
         c.setSubjonctifPresentVous(QUE + VOUS + c.getSubjonctifPresentVous());
-        c.setSubjonctifPresentIls(QUE + ILS + c.getSubjonctifPresentIls());
+        c.setSubjonctifPresentIls(QUEA + ILS + c.getSubjonctifPresentIls());
 
         text = c.getSubjonctifPasseJe();
         c.setSubjonctifPasseJe((ActivityUtils.useApostrophe(text))? QUE + JEA + text : QUE + JE + text);
@@ -610,7 +815,7 @@ public class DetailsActivity extends AppCompatActivity implements
         c.setSubjonctifPasseIl(QUEA + IL + c.getSubjonctifPasseIl());
         c.setSubjonctifPasseNous(QUE + NOUS + c.getSubjonctifPasseNous());
         c.setSubjonctifPasseVous(QUE + VOUS + c.getSubjonctifPasseVous());
-        c.setSubjonctifPasseIls(QUE + ILS + c.getSubjonctifPasseIls());
+        c.setSubjonctifPasseIls(QUEA + ILS + c.getSubjonctifPasseIls());
 
         text = c.getSubjonctifImperfaitJe();
         c.setSubjonctifImperfaitJe((ActivityUtils.useApostrophe(text))? QUE + JEA + text : QUE + JE + text);
@@ -618,7 +823,7 @@ public class DetailsActivity extends AppCompatActivity implements
         c.setSubjonctifImperfaitIl(QUEA + IL + c.getSubjonctifImperfaitIl());
         c.setSubjonctifImperfaitNous(QUE + NOUS + c.getSubjonctifImperfaitNous());
         c.setSubjonctifImperfaitVous(QUE + VOUS + c.getSubjonctifImperfaitVous());
-        c.setSubjonctifImperfaitIls(QUE + ILS + c.getSubjonctifImperfaitIls());
+        c.setSubjonctifImperfaitIls(QUEA + ILS + c.getSubjonctifImperfaitIls());
 
         text = c.getSubjonctifPlusQueParfaitJe();
         c.setSubjonctifPlusQueParfaitJe((ActivityUtils.useApostrophe(text))? QUE + JEA + text : QUE + JE + text);
@@ -626,7 +831,7 @@ public class DetailsActivity extends AppCompatActivity implements
         c.setSubjonctifPlusQueParfaitIl(QUEA + IL + c.getSubjonctifPlusQueParfaitIl());
         c.setSubjonctifPlusQueParfaitNous(QUE + NOUS + c.getSubjonctifPlusQueParfaitNous());
         c.setSubjonctifPlusQueParfaitVous(QUE + VOUS + c.getSubjonctifPlusQueParfaitVous());
-        c.setSubjonctifPlusQueParfaitIls(QUE + ILS + c.getSubjonctifPlusQueParfaitIls());
+        c.setSubjonctifPlusQueParfaitIls(QUEA + ILS + c.getSubjonctifPlusQueParfaitIls());
     }
 
 
@@ -647,7 +852,7 @@ public class DetailsActivity extends AppCompatActivity implements
         ((TextView)findViewById(R.id.gerondif_passe)).setText(c.getGerondifPasse());
 
         ((TextView)findViewById(R.id.imperatif_present_tu)).setText(c.getImperatifPresentTu());
-        ((TextView)findViewById(R.id.imperatif_present_nous)).setText(c.getImperatifPasseNous());
+        ((TextView)findViewById(R.id.imperatif_present_nous)).setText(c.getImperatifPresentNous());
         ((TextView)findViewById(R.id.imperatif_present_vous)).setText(c.getImperatifPresentVous());
         ((TextView)findViewById(R.id.imperatif_passe_tu)).setText(c.getImperatifPasseTu());
         ((TextView)findViewById(R.id.imperatif_passe_nous)).setText(c.getImperatifPasseNous());

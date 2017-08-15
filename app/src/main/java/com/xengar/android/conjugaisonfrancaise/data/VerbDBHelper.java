@@ -111,6 +111,7 @@ public class VerbDBHelper extends SQLiteOpenHelper {
                 + VerbEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + VerbEntry.COLUMN_ID + " INTEGER NOT NULL, "
                 + VerbEntry.COLUMN_TERMINATION + " TEXT, "
+                + VerbEntry.COLUMN_RADICALS + " TEXT, "
                 + VerbEntry.COLUMN_INFINITIVE_PRESENT + " TEXT NOT NULL, "
                 + VerbEntry.COLUMN_INFINITIVE_PASSE + " TEXT NOT NULL, "
                 + VerbEntry.COLUMN_PARTICIPE_PRESENT + " TEXT NOT NULL, "
@@ -345,6 +346,7 @@ public class VerbDBHelper extends SQLiteOpenHelper {
                         verbName = parser.getAttributeValue(null, "inf_pr");
                         values.put(VerbEntry.COLUMN_ID, conjugationId);
                         values.put(VerbEntry.COLUMN_TERMINATION, parser.getAttributeValue(null, "term"));
+                        values.put(VerbEntry.COLUMN_RADICALS, parser.getAttributeValue(null, "radicals"));
                         values.put(VerbEntry.COLUMN_INFINITIVE_PRESENT, verbName);
                         values.put(VerbEntry.COLUMN_INFINITIVE_PASSE, parser.getAttributeValue(null, "inf_pa"));
                         values.put(VerbEntry.COLUMN_PARTICIPE_PRESENT, parser.getAttributeValue(null, "pa_pr"));

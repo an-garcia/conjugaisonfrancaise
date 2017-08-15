@@ -151,6 +151,7 @@ public final class VerbContract {
          * Type: TEXT
          */
         public final static String COLUMN_TERMINATION = "TERMINATION";
+        public final static String COLUMN_RADICALS = "RADICALS";
         public final static String COLUMN_INFINITIVE_PRESENT = "INFINITIVE_PRESENT";
         public final static String COLUMN_INFINITIVE_PASSE = "INFINITIVE_PASSE";
         public final static String COLUMN_PARTICIPE_PRESENT = "PARTICIPE_PRESENT";

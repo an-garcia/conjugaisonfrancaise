@@ -123,6 +123,7 @@
     <conjugation
         id          = "1"
         term        = ""
+        radicals    = ""
         inf_pr      = "être"
         inf_pa      = "avoir été"
         pa_pr       = "étant"
@@ -226,6 +227,7 @@
     <conjugation
         id          = "2"
         term        = ""
+        radicals    = ""
         inf_pr      = "avoir"
         inf_pa      = "avoir eu"
         pa_pr       = "ayant"
@@ -329,6 +331,7 @@
     <conjugation
         id          = "4"
         term        = ""
+        radicals    = ""
         inf_pr      = "être aimé"
         inf_pa      = "avoir été aimé"
         pa_pr       = "étant aimé"
@@ -432,6 +435,7 @@
     <conjugation
         id          = "5"
         term        = ""
+        radicals    = ""
         inf_pr      = "se méfier"
         inf_pa      = "s’être méfié(e)(s)"
         pa_pr       = "se méfiant"
@@ -535,6 +539,7 @@
     <conjugation
         id          = "7"
         term        = "er"
+        radicals    = ""
         inf_pr      = "aimer"
         inf_pa      = "avoir aimé"
         pa_pr       = "aimant"
@@ -638,6 +643,7 @@
     <conjugation
         id          = "8"
         term        = "cer"
+        radicals    = ""
         inf_pr      = "placer"
         inf_pa      = "avoir placé"
         pa_pr       = "plaçant"
@@ -741,6 +747,7 @@
     <conjugation
         id          = "9"
         term        = "ger"
+        radicals    = ""
         inf_pr      = "manger"
         inf_pa      = "avoir mangé"
         pa_pr       = "mangeant"
@@ -844,6 +851,7 @@
     <conjugation
         id          = "10"
         term        = "er"
+        radicals    = ""
         inf_pr      = "peser"
         inf_pa      = "avoir pesé"
         pa_pr       = "pesant"
@@ -947,6 +955,7 @@
     <conjugation
         id          = "11"
         term        = "er"
+        radicals    = ""
         inf_pr      = "céder"
         inf_pa      = "avoir cédé"
         pa_pr       = "cédant"
@@ -1050,6 +1059,7 @@
     <conjugation
         id          = "12"
         term        = "eler, eter"
+        radicals    = "jett, jet"
         inf_pr      = "jeter"
         inf_pa      = "avoir jeté"
         pa_pr       = "jetant"
@@ -1152,7 +1162,8 @@
         co_pa_ils   = "auraient jeté" />
     <conjugation
         id          = "13"
-        term        = "eler, eter"
+        term        = "modèl, model"
+        radicals    = "jett, jet"
         inf_pr      = "modeler"
         inf_pa      = "avoir modelé"
         pa_pr       = "modelant"
@@ -1256,6 +1267,7 @@
     <conjugation
         id          = "14"
         term        = "éer"
+        radicals    = ""
         inf_pr      = "créer"
         inf_pa      = "avoir créé"
         pa_pr       = "créant"
@@ -1359,6 +1371,7 @@
     <conjugation
         id          = "15"
         term        = "éger"
+        radicals    = ""
         inf_pr      = "assiéger"
         inf_pa      = "avoir assiégé"
         pa_pr       = "assiégeant"
@@ -1462,6 +1475,7 @@
     <conjugation
         id          = "16"
         term        = "ier"
+        radicals    = ""
         inf_pr      = "apprécier"
         inf_pa      = "avoir apprécié"
         pa_pr       = "appréciant"
@@ -1565,6 +1579,7 @@
     <conjugation
         id          = "17"
         term        = "ayer"
+        radicals    = ""
         inf_pr      = "payer"
         inf_pa      = "avoir payé"
         pa_pr       = "payant"
@@ -1668,6 +1683,7 @@
     <conjugation
         id          = "18"
         term        = "oyer, uyer"
+        radicals    = ""
         inf_pr      = "broyer"
         inf_pa      = "avoir broyé"
         pa_pr       = "broyant"
@@ -1771,6 +1787,7 @@
     <conjugation
         id          = "19"
         term        = ""
+        radicals    = ""
         inf_pr      = "envoyer"
         inf_pa      = "avoir envoyé"
         pa_pr       = "envoyant"
@@ -1874,6 +1891,7 @@
     <conjugation
         id          = "20"
         term        = "ir"
+        radicals    = ""
         inf_pr      = "finir"
         inf_pa      = "avoir fini"
         pa_pr       = "finissant"
@@ -1977,6 +1995,7 @@
     <conjugation
         id          = "21"
         term        = ""
+        radicals    = ""
         inf_pr      = "haïr"
         inf_pa      = "avoir haï"
         pa_pr       = "haïssant"
@@ -2080,6 +2099,7 @@
     <conjugation
         id          = "23"
         term        = ""
+        radicals    = ""
         inf_pr      = "aller"
         inf_pa      = "être allé(e)(s)"
         pa_pr       = "allant"
@@ -2183,6 +2203,7 @@
     <conjugation
         id          = "24"
         term        = "enir"
+        radicals    = ""
         inf_pr      = "tenir"
         inf_pa      = "avoir tenu"
         pa_pr       = "tenant"
@@ -2286,6 +2307,7 @@
     <conjugation
         id          = "25"
         term        = "érir"
+        radicals    = ""
         inf_pr      = "acquérir"
         inf_pa      = "avoir acquis"
         pa_pr       = "acquérant"
@@ -2389,6 +2411,7 @@
     <conjugation
         id          = "26"
         term        = "tir"
+        radicals    = ""
         inf_pr      = "sentir"
         inf_pa      = "avoir senti"
         pa_pr       = "sentant"
@@ -2492,6 +2515,7 @@
     <conjugation
         id          = "27"
         term        = ""
+        radicals    = ""
         inf_pr      = "vêtir"
         inf_pa      = "avoir vêtu"
         pa_pr       = "vêtant"
@@ -2595,6 +2619,7 @@
     <conjugation
         id          = "28"
         term        = "vrir, frir"
+        radicals    = ""
         inf_pr      = "couvrir"
         inf_pa      = "avoir couvert"
         pa_pr       = "couvrant"
@@ -2698,6 +2723,7 @@
     <conjugation
         id          = "29"
         term        = ""
+        radicals    = ""
         inf_pr      = "cueillir"
         inf_pa      = "avoir cueilli"
         pa_pr       = "cueillant"
@@ -2801,6 +2827,7 @@
     <conjugation
         id          = "30"
         term        = "aillir"
+        radicals    = ""
         inf_pr      = "assaillir"
         inf_pa      = "avoir assailli"
         pa_pr       = "assaillant"
@@ -2904,6 +2931,7 @@
     <conjugation
         id          = "31"
         term        = ""
+        radicals    = ""
         inf_pr      = "faillir"
         inf_pa      = "avoir failli"
         pa_pr       = "faillant"
@@ -3007,6 +3035,7 @@
     <conjugation
         id          = "32"
         term        = ""
+        radicals    = ""
         inf_pr      = "bouillir"
         inf_pa      = "avoir bouilli"
         pa_pr       = "bouillant"
@@ -3110,6 +3139,7 @@
     <conjugation
         id          = "33"
         term        = ""
+        radicals    = ""
         inf_pr      = "dormir"
         inf_pa      = "avoir dormi"
         pa_pr       = "dormant"
@@ -3213,6 +3243,7 @@
     <conjugation
         id          = "34"
         term        = ""
+        radicals    = ""
         inf_pr      = "courir"
         inf_pa      = "avoir couru"
         pa_pr       = "courant"
@@ -3316,6 +3347,7 @@
     <conjugation
         id          = "35"
         term        = ""
+        radicals    = ""
         inf_pr      = "mourir"
         inf_pa      = "être mort(e)(s)"
         pa_pr       = "mourant"
@@ -3419,6 +3451,7 @@
     <conjugation
         id          = "36"
         term        = ""
+        radicals    = ""
         inf_pr      = "servir"
         inf_pa      = "avoir servi"
         pa_pr       = "servant"
@@ -3522,6 +3555,7 @@
     <conjugation
         id          = "37"
         term        = ""
+        radicals    = ""
         inf_pr      = "fuir"
         inf_pa      = "avoir fui"
         pa_pr       = "fuyant"
@@ -3625,6 +3659,7 @@
     <conjugation
         id          = "38"
         term        = ""
+        radicals    = ""
         inf_pr      = "ouïr"
         inf_pa      = "avoir ouï"
         pa_pr       = "oyant"
@@ -3728,6 +3763,7 @@
     <conjugation
         id          = "39"
         term        = ""
+        radicals    = ""
         inf_pr      = "gésir"
         inf_pa      = "-"
         pa_pr       = "gisant"
@@ -3831,6 +3867,7 @@
     <conjugation
         id          = "40"
         term        = "cevoir"
+        radicals    = ""
         inf_pr      = "recevoir"
         inf_pa      = "avoir reçu"
         pa_pr       = "recevant"
@@ -3934,6 +3971,7 @@
     <conjugation
         id          = "41"
         term        = ""
+        radicals    = ""
         inf_pr      = "voir"
         inf_pa      = "avoir vu"
         pa_pr       = "voyant"
@@ -4037,6 +4075,7 @@
     <conjugation
         id          = "42"
         term        = ""
+        radicals    = ""
         inf_pr      = "pourvoir"
         inf_pa      = "avoir pourvu"
         pa_pr       = "pourvoyant"
@@ -4140,6 +4179,7 @@
     <conjugation
         id          = "43"
         term        = ""
+        radicals    = ""
         inf_pr      = "savoir"
         inf_pa      = "avoir su"
         pa_pr       = "sachant"
@@ -4243,6 +4283,7 @@
     <conjugation
         id          = "44"
         term        = ""
+        radicals    = ""
         inf_pr      = "devoir"
         inf_pa      = "avoir dû"
         pa_pr       = "devant"
@@ -4346,6 +4387,7 @@
     <conjugation
         id          = "45"
         term        = ""
+        radicals    = ""
         inf_pr      = "pouvoir"
         inf_pa      = "avoir pu"
         pa_pr       = "pouvant"
@@ -4449,6 +4491,7 @@
     <conjugation
         id          = "46"
         term        = ""
+        radicals    = ""
         inf_pr      = "mouvoir"
         inf_pa      = "avoir mû"
         pa_pr       = "mouvant"
@@ -4552,6 +4595,7 @@
     <conjugation
         id          = "47"
         term        = ""
+        radicals    = ""
         inf_pr      = "pleuvoir"
         inf_pa      = "avoir plu"
         pa_pr       = "pleuvant"
@@ -4655,6 +4699,7 @@
     <conjugation
         id          = "48"
         term        = ""
+        radicals    = ""
         inf_pr      = "falloir"
         inf_pa      = "avoir fallu"
         pa_pr       = "-"
@@ -4758,6 +4803,7 @@
     <conjugation
         id          = "49"
         term        = ""
+        radicals    = ""
         inf_pr      = "valoir"
         inf_pa      = "avoir valu"
         pa_pr       = "valant"
@@ -4861,6 +4907,7 @@
     <conjugation
         id          = "50"
         term        = ""
+        radicals    = ""
         inf_pr      = "vouloir"
         inf_pa      = "avoir voulu"
         pa_pr       = "voulant"
@@ -4964,6 +5011,7 @@
     <conjugation
         id          = "51"
         term        = ""
+        radicals    = ""
         inf_pr      = "asseoir"
         inf_pa      = "avoir assis"
         pa_pr       = "asseyant"
@@ -5067,6 +5115,7 @@
     <conjugation
         id          = "52"
         term        = ""
+        radicals    = ""
         inf_pr      = "seoir"
         inf_pa      = "-"
         pa_pr       = "séant"
@@ -5170,6 +5219,7 @@
     <conjugation
         id          = "53"
         term        = ""
+        radicals    = ""
         inf_pr      = "messeoir"
         inf_pa      = "-"
         pa_pr       = "messéant"
@@ -5273,6 +5323,7 @@
     <conjugation
         id          = "54"
         term        = ""
+        radicals    = ""
         inf_pr      = "surseoir"
         inf_pa      = "avoir sursis"
         pa_pr       = "sursoyant"
@@ -5376,6 +5427,7 @@
     <conjugation
         id          = "55"
         term        = ""
+        radicals    = ""
         inf_pr      = "choir"
         inf_pa      = "avoir ou être chu(e)(s)"
         pa_pr       = "-"
@@ -5479,6 +5531,7 @@
     <conjugation
         id          = "56"
         term        = ""
+        radicals    = ""
         inf_pr      = "échoir"
         inf_pa      = "être échu(e)(s)"
         pa_pr       = "échéant"
@@ -5582,6 +5635,7 @@
     <conjugation
         id          = "57"
         term        = ""
+        radicals    = ""
         inf_pr      = "déchoir"
         inf_pa      = "avoir ou être déchu(e)(s)"
         pa_pr       = ""
@@ -5685,6 +5739,7 @@
     <conjugation
         id          = "58"
         term        = "andre, endre, ondre, erdre, ordre"
+        radicals    = ""
         inf_pr      = "rendre"
         inf_pa      = "avoir rendu"
         pa_pr       = "rendant"
@@ -5788,6 +5843,7 @@
     <conjugation
         id          = "59"
         term        = ""
+        radicals    = ""
         inf_pr      = "prendre"
         inf_pa      = "avoir pris"
         pa_pr       = "prenant"
@@ -5891,6 +5947,7 @@
     <conjugation
         id          = "60"
         term        = ""
+        radicals    = ""
         inf_pr      = "battre"
         inf_pa      = "avoir battu"
         pa_pr       = "battant"
@@ -5994,6 +6051,7 @@
     <conjugation
         id          = "61"
         term        = ""
+        radicals    = ""
         inf_pr      = "mettre"
         inf_pa      = "avoir mis"
         pa_pr       = "mettant"
@@ -6097,6 +6155,7 @@
     <conjugation
         id          = "62"
         term        = "eindre"
+        radicals    = ""
         inf_pr      = "peindre"
         inf_pa      = "avoir peint"
         pa_pr       = "peignant"
@@ -6200,6 +6259,7 @@
     <conjugation
         id          = "63"
         term        = "oindre"
+        radicals    = ""
         inf_pr      = "joindre"
         inf_pa      = "avoir joint"
         pa_pr       = "joignant"
@@ -6303,6 +6363,7 @@
     <conjugation
         id          = "64"
         term        = "aindre"
+        radicals    = ""
         inf_pr      = "craindre"
         inf_pa      = "avoir craint"
         pa_pr       = "craignant"
@@ -6406,6 +6467,7 @@
     <conjugation
         id          = "65"
         term        = ""
+        radicals    = ""
         inf_pr      = "vaincre"
         inf_pa      = "avoir vaincu"
         pa_pr       = "vainquant"
@@ -6509,6 +6571,7 @@
     <conjugation
         id          = "66"
         term        = ""
+        radicals    = ""
         inf_pr      = "traire"
         inf_pa      = "avoir trait"
         pa_pr       = "trayant"
@@ -6612,6 +6675,7 @@
     <conjugation
         id          = "67"
         term        = ""
+        radicals    = ""
         inf_pr      = "faire"
         inf_pa      = "avoir fait"
         pa_pr       = "faisant"
@@ -6715,6 +6779,7 @@
     <conjugation
         id          = "68"
         term        = ""
+        radicals    = ""
         inf_pr      = "plaire"
         inf_pa      = "avoir plu"
         pa_pr       = "plaisant"
@@ -6818,6 +6883,7 @@
     <conjugation
         id          = "69"
         term        = "aître"
+        radicals    = ""
         inf_pr      = "connaître"
         inf_pa      = "avoir connu"
         pa_pr       = "connaissant"
@@ -6921,6 +6987,7 @@
     <conjugation
         id          = "70"
         term        = ""
+        radicals    = ""
         inf_pr      = "naître"
         inf_pa      = "être né(e)(s)"
         pa_pr       = "naissant"
@@ -7024,6 +7091,7 @@
     <conjugation
         id          = "71"
         term        = ""
+        radicals    = ""
         inf_pr      = "paître"
         inf_pa      = "-"
         pa_pr       = "paissant"
@@ -7127,6 +7195,7 @@
     <conjugation
         id          = "72"
         term        = ""
+        radicals    = ""
         inf_pr      = "repaître"
         inf_pa      = "avoir repu"
         pa_pr       = "repaissant"
@@ -7230,6 +7299,7 @@
     <conjugation
         id          = "73"
         term        = "oître"
+        radicals    = ""
         inf_pr      = "croître"
         inf_pa      = "avoir crû"
         pa_pr       = "croissant"
@@ -7333,6 +7403,7 @@
     <conjugation
         id          = "74"
         term        = ""
+        radicals    = ""
         inf_pr      = "croire"
         inf_pa      = "avoir cru"
         pa_pr       = "croyant"
@@ -7436,6 +7507,7 @@
     <conjugation
         id          = "75"
         term        = ""
+        radicals    = ""
         inf_pr      = "boire"
         inf_pa      = "avoir bu"
         pa_pr       = "buvant"
@@ -7539,6 +7611,7 @@
     <conjugation
         id          = "76"
         term        = ""
+        radicals    = ""
         inf_pr      = "clore"
         inf_pa      = "avoir clos"
         pa_pr       = "closant"
@@ -7642,6 +7715,7 @@
     <conjugation
         id          = "77"
         term        = "clure"
+        radicals    = ""
         inf_pr      = "conclure"
         inf_pa      = "avoir conclu"
         pa_pr       = "concluant"
@@ -7745,6 +7819,7 @@
     <conjugation
         id          = "78"
         term        = "soudre"
+        radicals    = ""
         inf_pr      = "absoudre"
         inf_pa      = "avoir absous"
         pa_pr       = "absolvant"
@@ -7848,6 +7923,7 @@
     <conjugation
         id          = "79"
         term        = ""
+        radicals    = ""
         inf_pr      = "coudre"
         inf_pa      = "avoir cousu"
         pa_pr       = "cousant"
@@ -7951,6 +8027,7 @@
     <conjugation
         id          = "80"
         term        = ""
+        radicals    = ""
         inf_pr      = "moudre"
         inf_pa      = "avoir moulu"
         pa_pr       = "moulant"
@@ -8054,6 +8131,7 @@
     <conjugation
         id          = "81"
         term        = ""
+        radicals    = ""
         inf_pr      = "suivre"
         inf_pa      = "avoir suivi"
         pa_pr       = "suivant"
@@ -8157,6 +8235,7 @@
     <conjugation
         id          = "82"
         term        = ""
+        radicals    = ""
         inf_pr      = "vivre"
         inf_pa      = "avoir vécu"
         pa_pr       = "vivant"
@@ -8260,6 +8339,7 @@
     <conjugation
         id          = "83"
         term        = ""
+        radicals    = ""
         inf_pr      = "lire"
         inf_pa      = "avoir lu"
         pa_pr       = "lisant"
@@ -8363,6 +8443,7 @@
     <conjugation
         id          = "84"
         term        = ""
+        radicals    = ""
         inf_pr      = "dire"
         inf_pa      = "avoir dit"
         pa_pr       = "disant"
@@ -8466,6 +8547,7 @@
     <conjugation
         id          = "85"
         term        = ""
+        radicals    = ""
         inf_pr      = "rire"
         inf_pa      = "avoir ri"
         pa_pr       = "riant"
@@ -8569,6 +8651,7 @@
     <conjugation
         id          = "86"
         term        = ""
+        radicals    = ""
         inf_pr      = "écrire"
         inf_pa      = "avoir écrit"
         pa_pr       = "écrivant"
@@ -8672,6 +8755,7 @@
     <conjugation
         id          = "87"
         term        = ""
+        radicals    = ""
         inf_pr      = "confire"
         inf_pa      = "avoir confit"
         pa_pr       = "confisant"
@@ -8775,6 +8859,7 @@
     <conjugation
         id          = "88"
         term        = "uire"
+        radicals    = ""
         inf_pr      = "cuire"
         inf_pa      = "avoir cuit"
         pa_pr       = "cuisant"

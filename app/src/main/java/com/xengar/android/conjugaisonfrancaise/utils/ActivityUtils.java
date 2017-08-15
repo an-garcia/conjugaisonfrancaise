@@ -54,6 +54,7 @@ import static com.xengar.android.conjugaisonfrancaise.utils.Constants.PORTUGUESE
 import static com.xengar.android.conjugaisonfrancaise.utils.Constants.SHARED_PREF_NAME;
 import static com.xengar.android.conjugaisonfrancaise.utils.Constants.SPANISH;
 import static com.xengar.android.conjugaisonfrancaise.utils.Constants.VERB_ID;
+import static com.xengar.android.conjugaisonfrancaise.utils.Constants.VERB_NAME;
 
 
 /**
@@ -124,14 +125,16 @@ public class ActivityUtils {
      * @param context context
      * @param id verb id
      * @param cId conjugation id
+     * @param verb verb name
      * @param demoMode demo
      */
     public static void launchDetailsActivity(final Context context, final long id, final long cId,
-                                             final boolean demoMode) {
+                                             final String verb, final boolean demoMode) {
         Intent intent = new Intent(context, DetailsActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
         Bundle bundle = new Bundle();
+        bundle.putString(VERB_NAME, verb);
         bundle.putLong(VERB_ID, id);
         bundle.putLong(CONJUGATION_ID, cId);
         bundle.putBoolean(DEMO_MODE, demoMode);
@@ -400,6 +403,7 @@ public class ActivityUtils {
         return new String[]{
                 VerbEntry.COLUMN_ID,
                 VerbEntry.COLUMN_TERMINATION,
+                VerbEntry.COLUMN_RADICALS,
                 VerbEntry.COLUMN_INFINITIVE_PRESENT,
                 VerbEntry.COLUMN_INFINITIVE_PASSE,
                 VerbEntry.COLUMN_PARTICIPE_PRESENT,
@@ -538,6 +542,7 @@ public class ActivityUtils {
     public static Conjugation conjugationFromCursor(final Cursor cursor) {
         return new Conjugation(cursor.getLong(cursor.getColumnIndex(VerbEntry.COLUMN_ID)),
                 cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_TERMINATION)),
+                cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_RADICALS)),
                 cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_INFINITIVE_PRESENT)),
                 cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_INFINITIVE_PASSE)),
                 cursor.getString(cursor.getColumnIndex(VerbEntry.COLUMN_PARTICIPE_PRESENT)),
