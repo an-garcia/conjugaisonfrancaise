@@ -602,6 +602,12 @@ public class DetailsActivity extends AppCompatActivity implements
                     }
                 }
                 break;
+            case 17:
+                // paie / paye : verbes en -ayer
+                if (modelR.contains("i")) {
+                    verbR = infinitive.endsWith("ayer")? infinitive.replace("ayer", "ai") : verbR;
+                }
+                break;
         }
         return verbR;
     }
@@ -745,7 +751,10 @@ public class DetailsActivity extends AppCompatActivity implements
             radicalV = verbR.get(i);
             if (!radicalM.isEmpty() && !radicalV.isEmpty() && text.contains(radicalM)) {
                 newText = newText.replace(radicalM, radicalV);
-                break;
+                // if it's just one form, if it's a double form (like Je pay / paye) continue
+                if (!text.contains("/")) {
+                    break;
+                }
             }
         }
         return newText;

@@ -1475,7 +1475,7 @@
     <conjugation
         id          = "16"
         term        = "ier"
-        radicals    = ""
+        radicals    = "appréci"
         inf_pr      = "apprécier"
         inf_pa      = "avoir apprécié"
         pa_pr       = "appréciant"
@@ -1579,7 +1579,7 @@
     <conjugation
         id          = "17"
         term        = "ayer"
-        radicals    = ""
+        radicals    = "pai, pay"
         inf_pr      = "payer"
         inf_pa      = "avoir payé"
         pa_pr       = "payant"
