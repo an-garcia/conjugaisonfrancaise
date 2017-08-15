@@ -955,7 +955,7 @@
     <conjugation
         id          = "11"
         term        = "er"
-        radicals    = ""
+        radicals    = "cèd, céd"
         inf_pr      = "céder"
         inf_pa      = "avoir cédé"
         pa_pr       = "cédant"
@@ -1267,7 +1267,7 @@
     <conjugation
         id          = "14"
         term        = "éer"
-        radicals    = ""
+        radicals    = "cré"
         inf_pr      = "créer"
         inf_pa      = "avoir créé"
         pa_pr       = "créant"
@@ -1371,7 +1371,7 @@
     <conjugation
         id          = "15"
         term        = "éger"
-        radicals    = ""
+        radicals    = "assiég, assièg"
         inf_pr      = "assiéger"
         inf_pa      = "avoir assiégé"
         pa_pr       = "assiégeant"

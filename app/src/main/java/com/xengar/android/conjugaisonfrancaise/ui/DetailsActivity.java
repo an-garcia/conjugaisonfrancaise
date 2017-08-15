@@ -570,6 +570,15 @@ public class DetailsActivity extends AppCompatActivity implements
                     }
                 }
                 break;
+            case 11:
+                // céder, cède : verbes ayant un e muet à l'avant dèrniere syllabe de l'infinitif: verbes en é(.)er
+                if (modelR.contains("è")) {
+                    int last = verbR.contains("é")? verbR.lastIndexOf("é") : -1;
+                    if (last > -1) {
+                        verbR = verbR.substring(0, last) + "è" + verbR.substring(last + 1, verbR.length());
+                    }
+                }
+                break;
             case 12:
                 // jeter, jetter : verbes en -eler ou -eter, doublant 1 ou t devant e muet
                 if (modelR.contains("tt")) {
@@ -583,6 +592,16 @@ public class DetailsActivity extends AppCompatActivity implements
                     verbR = infinitive.endsWith("eler")? infinitive.replace("eler", "èl") : verbR;
                     verbR = infinitive.endsWith("eter")? infinitive.replace("eter", "èt") : verbR;
                 }
+                break;
+            case 15:
+                // assiéger, assiège : verbes en -éger
+                if (modelR.contains("è")) {
+                    int last = verbR.contains("é")? verbR.lastIndexOf("é") : -1;
+                    if (last > -1) {
+                        verbR = verbR.substring(0, last) + "è" + verbR.substring(last + 1, verbR.length());
+                    }
+                }
+                break;
         }
         return verbR;
     }
