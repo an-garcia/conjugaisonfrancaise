@@ -665,6 +665,18 @@ public class DetailsActivity extends AppCompatActivity implements
                     verbR = infinitive.endsWith("frir")? infinitive.replace("frir", "fe") : verbR;
                 }
                 break;
+            case 32:
+                // bouillir, bous : all verbes, known: bouillir, debouillir, racabouillir
+                if (modelR.contentEquals("bou")) {
+                    verbR = infinitive.endsWith("bouillir")? infinitive.replace("bouillir", "bou") : verbR;
+                }
+                break;
+            case 33:
+                // dormir, dors : all verbes, known: dormir, endormir, rendormir
+                if (modelR.contentEquals("dor")) {
+                    verbR = infinitive.endsWith("dormir")? infinitive.replace("dormir", "dor") : verbR;
+                }
+                break;
         }
         return verbR;
     }

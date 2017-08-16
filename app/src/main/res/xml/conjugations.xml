@@ -2931,7 +2931,7 @@
     <conjugation
         id          = "31"
         term        = ""
-        radicals    = ""
+        radicals    = "faill, fau"
         inf_pr      = "faillir"
         inf_pa      = "avoir failli"
         pa_pr       = "faillant"
@@ -3035,7 +3035,7 @@
     <conjugation
         id          = "32"
         term        = ""
-        radicals    = ""
+        radicals    = "bouill, bou"
         inf_pr      = "bouillir"
         inf_pa      = "avoir bouilli"
         pa_pr       = "bouillant"
@@ -3139,7 +3139,7 @@
     <conjugation
         id          = "33"
         term        = ""
-        radicals    = ""
+        radicals    = "dorm, dor"
         inf_pr      = "dormir"
         inf_pa      = "avoir dormi"
         pa_pr       = "dormant"
@@ -3243,7 +3243,7 @@
     <conjugation
         id          = "34"
         term        = ""
-        radicals    = ""
+        radicals    = "cour"
         inf_pr      = "courir"
         inf_pa      = "avoir couru"
         pa_pr       = "courant"
