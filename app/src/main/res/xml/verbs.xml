@@ -553,20 +553,6 @@
         trpt="procurar" />
     <verb
         id="37"
-        ta="26"
-        in="sentir"
-        s1="La cuisine sent le brûlé."
-        s2="Elle sent une douleur lancinante à une jambe."
-        s3="Tu sens que tu as raison, je sens qu’on me cache quelque chose."
-        gr="3"
-        co="2"
-        de="Percevoir par les sens. Avoir conscience. Répandre une odeur. Avoir une odeur désagréable. Avoir une certaine odeur. Éprouver un sentiment, une impression. Se sentir + infinitif. Avoir conscience de quelque chose."
-        no=""
-        tren="feel"
-        tres="sentir"
-        trpt="sentir" />
-    <verb
-        id="38"
         ta="59"
         in="comprendre"
         s1="Je dois donc comprendre que vous ne reviendrez plus."
@@ -580,7 +566,7 @@
         tres="entender"
         trpt="entender" />
     <verb
-        id="39"
+        id="38"
         ta="7"
         in="porter"
         s1="Saviez-vous que l'obligation de porter secours ou assistance existe."
@@ -594,7 +580,7 @@
         tres="llevar"
         trpt="levar" />
     <verb
-        id="40"
+        id="39"
         ta="24"
         in="devenir"
         s1="Ils sont devenus des adultes maintenant."
@@ -608,7 +594,7 @@
         tres="convertirse en"
         trpt="tornar-se" />
     <verb
-        id="41"
+        id="40"
         ta="7"
         in="entrer"
         s1="Entrer une aiguille dans une veine, une clé dans une serrure."
@@ -622,7 +608,7 @@
         tres="entrar"
         trpt="entrar" />
     <verb
-        id="42"
+        id="41"
         ta="24"
         in="retenir"
         s1="Elle a retenu son visage, son nom."
@@ -636,7 +622,7 @@
         tres="conservar"
         trpt="reter" />
     <verb
-        id="43"
+        id="42"
         ta="86"
         in="écrire"
         s1="Il m’a écrit qu’il viendrait."
@@ -650,7 +636,7 @@
         tres="escribir"
         trpt="escrever" />
     <verb
-        id="44"
+        id="43"
         ta="12"
         in="appeler"
         s1="Appelez-moi ce soir."
@@ -664,7 +650,7 @@
         tres="llamar"
         trpt="chamada" />
     <verb
-        id="45"
+        id="44"
         ta="7"
         in="tomber"
         s1="La petite fille est tombée de la balançoire."
@@ -678,7 +664,7 @@
         tres="caerse"
         trpt="cair" />
     <verb
-        id="46"
+        id="45"
         ta="59"
         in="reprendre"
         s1="Je vous prie de m’excuser, mais je dois reprendre mon travail."
@@ -692,7 +678,7 @@
         tres="retomar"
         trpt="resumo" />
     <verb
-        id="47"
+        id="46"
         ta="8"
         in="commencer"
         s1="Il commence ses devoirs à 16 heures."
@@ -706,7 +692,7 @@
         tres="empezar"
         trpt="começar" />
     <verb
-        id="48"
+        id="47"
         ta="81"
         in="suivre"
         s1="Elle suit les variations de la Bourse."
@@ -720,7 +706,7 @@
         tres="seguir"
         trpt="seguir" />
     <verb
-        id="49"
+        id="48"
         ta="7"
         in="montrer"
         s1="Elle ne voulait pas lui montrer sa déception."
@@ -733,10 +719,8 @@
         tren="show"
         tres="mostrar"
         trpt="mostrar" />
-
-    <!-- TOP 100 -->
     <verb
-        id="50"
+        id="49"
         ta="26"
         in="partir"
         s1="Partiras-tu à la campagne cet été? Elle est partie en voyage."
@@ -749,8 +733,10 @@
         tren="go"
         tres="marcharse, irse"
         trpt="deixar" />
+
+    <!-- TOP 100 -->
     <verb
-        id="51"
+        id="50"
         ta="35"
         in="mourir"
         s1="Je meurs de faim."
@@ -764,7 +750,7 @@
         tres="morir"
         trpt="morrer" />
     <verb
-        id="52"
+        id="51"
         ta="28"
         in="ouvrir"
         s1="Ouvre la porte."
@@ -778,7 +764,7 @@
         tres="abrir"
         trpt="abrir" />
     <verb
-        id="53"
+        id="52"
         ta="83"
         in="lire"
         s1="Paulo et Geneviève lisent une bande dessinée."
@@ -792,7 +778,7 @@
         tres="leer"
         trpt="ler" />
     <verb
-        id="54"
+        id="53"
         ta="7"
         in="arrêter"
         s1="Arrête de courir, je veux me reposer un peu."
@@ -806,7 +792,7 @@
         tres="detener"
         trpt="parar" />
     <verb
-        id="55"
+        id="54"
         ta="36"
         in="servir"
         s1="On doit servir un client de façon efficace."
@@ -820,7 +806,7 @@
         tres="servir"
         trpt="servir" />
     <verb
-        id="56"
+        id="55"
         ta="12"
         in="jeter"
         s1=""
@@ -834,7 +820,7 @@
         tres="lanzar"
         trpt="jogar" />
     <verb
-        id="57"
+        id="56"
         ta="40"
         in="recevoir"
         s1="Il a reçu une lettre."
@@ -848,7 +834,7 @@
         tres="recibir"
         trpt="receber" />
     <verb
-        id="58"
+        id="57"
         ta="7"
         in="monter"
         s1="Les prix ont monté."
@@ -862,7 +848,7 @@
         tres="escalar, trepar"
         trpt="subir" />
     <verb
-        id="59"
+        id="58"
         ta="10"
         in="lever"
         s1="Élisa lève la main."
@@ -876,7 +862,7 @@
         tres="elevar"
         trpt="levantar" />
     <verb
-        id="60"
+        id="59"
         ta="20"
         in="agir"
         s1="Ce médicament agit contre les maux de tête."
@@ -890,7 +876,7 @@
         tres="actuar"
         trpt="agir" />
     <verb
-        id="61"
+        id="60"
         ta="58"
         in="perdre"
         s1="Ne perds pas ton temps: il est trop précieux."
@@ -904,7 +890,7 @@
         tres="perder"
         trpt="perder" />
     <verb
-        id="62"
+        id="61"
         ta="7"
         in="écouter"
         s1="Elle écoute son frère, qui lui dit de ne pas laisser son vélo non cadenassé."
@@ -918,7 +904,7 @@
         tres="escuchar"
         trpt="ouvir" />
     <verb
-        id="63"
+        id="62"
         ta="7"
         in="continuer"
         s1="Elle aimerait continuer ses études à l'université."
@@ -932,7 +918,7 @@
         tres="continuar"
         trpt="continuar" />
     <verb
-        id="64"
+        id="63"
         ta="85"
         in="sourire"
         s1=""
@@ -946,7 +932,7 @@
         tres="sonreír"
         trpt="sorrir" />
     <verb
-        id="65"
+        id="64"
         ta="40"
         in="apercevoir"
         s1="Il apercevait la lune très clairement."
@@ -960,7 +946,7 @@
         tres="ver"
         trpt="ver" />
     <verb
-        id="66"
+        id="65"
         ta="69"
         in="reconnaître"
         s1="Je le reconnais bien malgré toutes ces années, il n’a pas changé."
@@ -974,7 +960,7 @@
         tres="reconocer"
         trpt="reconhecer" />
     <verb
-        id="67"
+        id="66"
         ta="7"
         in="ajouter"
         s1="N’ajoutez plus rien; j’ai compris."
@@ -988,7 +974,7 @@
         tres="añadir"
         trpt="adicionar" />
     <verb
-        id="68"
+        id="67"
         ta="7"
         in="jouer"
         s1="Il joue son poste, elle joue gros jeu."
@@ -1002,7 +988,7 @@
         tres="jugar"
         trpt="jogar" />
     <verb
-        id="69"
+        id="68"
         ta="7"
         in="marcher"
         s1="Elle marche trop vite pour moi."
@@ -1016,7 +1002,7 @@
         tres="caminar"
         trpt="andar" />
     <verb
-        id="70"
+        id="69"
         ta="7"
         in="garder"
         s1="Elle a gardé sa souplesse."
@@ -1030,7 +1016,7 @@
         tres="mantener"
         trpt="manter" />
     <verb
-        id="71"
+        id="70"
         ta="7"
         in="manquer"
         s1="Il a manqué son avion."
@@ -1044,7 +1030,7 @@
         tres="extrañar"
         trpt="perder" />
     <verb
-        id="72"
+        id="71"
         ta="7"
         in="retrouver"
         s1="Il a retrouvé son chapeau."
@@ -1058,7 +1044,7 @@
         tres="encontrar"
         trpt="encontrar" />
     <verb
-        id="73"
+        id="72"
         ta="58"
         in="descendre"
         s1="Martin descend l’escalier trop vite."
@@ -1072,7 +1058,7 @@
         tres="bajar"
         trpt="descer" />
     <verb
-        id="74"
+        id="73"
         ta="12"
         in="rappeler"
         s1="Rappelle-moi demain."
@@ -1086,7 +1072,7 @@
         tres="recordar, volver a llamar"
         trpt="lembrar" />
     <verb
-        id="75"
+        id="74"
         ta="7"
         in="quitter"
         s1="La directrice a quitté son bureau pour quelques minutes."
@@ -1100,7 +1086,7 @@
         tres="dejar"
         trpt="deixar" />
     <verb
-        id="76"
+        id="75"
         ta="7"
         in="tourner"
         s1="Tourne tes skis à l’envers."
@@ -1114,7 +1100,7 @@
         tres="girar"
         trpt="virar" />
     <verb
-        id="77"
+        id="76"
         ta="20"
         in="finir"
         s1="Ne finis pas la tarte, laisse-lui-en un peu."
@@ -1128,7 +1114,7 @@
         tres="terminar"
         trpt="terminar" />
     <verb
-        id="78"
+        id="77"
         ta="16"
         in="crier"
         s1="Cesse de crier, essaie de discuter calmement."
@@ -1142,7 +1128,7 @@
         tres="gritar"
         trpt="gritar" />
     <verb
-        id="79"
+        id="78"
         ta="34"
         in="courir"
         s1="Elle a couru le marathon."
@@ -1156,7 +1142,7 @@
         tres="correr"
         trpt="correr" />
     <verb
-        id="80"
+        id="79"
         ta="61"
         in="permettre"
         s1="L’école permet la consultation des dictionnaires."
@@ -1170,7 +1156,7 @@
         tres="permitir"
         trpt="permitir" />
     <verb
-        id="81"
+        id="80"
         ta="9"
         in="songer"
         s1="Martine songe à son avenir."
@@ -1184,7 +1170,7 @@
         tres="preguntarse"
         trpt="" />
     <verb
-        id="82"
+        id="81"
         ta="28"
         in="offrir"
         s1="Je vous offre 5 000 $ pour cette voiture."
@@ -1198,7 +1184,7 @@
         tres="regalar, offrecer"
         trpt="oferecer" />
     <verb
-        id="83"
+        id="82"
         ta="7"
         in="présenter"
         s1="Permettez-moi de vous présenter mon frère."
@@ -1212,7 +1198,7 @@
         tres="presentar"
         trpt="" />
     <verb
-        id="84"
+        id="83"
         ta="59"
         in="apprendre"
         s1="Elle apprend l’histoire de l’art aux enfants."
@@ -1226,7 +1212,7 @@
         tres="aprender"
         trpt="aprender" />
     <verb
-        id="85"
+        id="84"
         ta="28"
         in="souffrir"
         s1="Elle ne souffrira pas qu’on la contredise."
@@ -1240,7 +1226,7 @@
         tres="sufrir"
         trpt="sofrer" />
     <verb
-        id="86"
+        id="85"
         ta="7"
         in="exister"
         s1="Cette étoile existe."
@@ -1254,7 +1240,7 @@
         tres="existir"
         trpt="existir" />
     <verb
-        id="87"
+        id="86"
         ta="19"
         in="envoyer"
         s1="Allez, envoie-moi la balle!"
@@ -1268,7 +1254,7 @@
         tres="mandar"
         trpt="enviar" />
     <verb
-        id="88"
+        id="87"
         ta="7"
         in="expliquer"
         s1=""
@@ -1282,7 +1268,7 @@
         tres="explicar"
         trpt="explicar" />
     <verb
-        id="89"
+        id="88"
         ta="9"
         in="manger"
         s1="Il mangeait du poulet."
@@ -1296,7 +1282,7 @@
         tres="comer"
         trpt="comer" />
     <verb
-        id="90"
+        id="89"
         ta="49"
         in="valoir"
         s1="Les félicitations que ce travail lui a values."
@@ -1310,7 +1296,7 @@
         tres="valer"
         trpt="valer a pena" />
     <verb
-        id="91"
+        id="90"
         ta="16"
         in="oublier"
         s1="J’ai oublié cette formule mathématique."
@@ -1324,7 +1310,7 @@
         tres="olvidar"
         trpt="esquecer" />
     <verb
-        id="92"
+        id="91"
         ta="7"
         in="rentrer"
         s1=""
@@ -1338,7 +1324,7 @@
         tres="volver"
         trpt="regressar" />
     <verb
-        id="93"
+        id="92"
         ta="7"
         in="pousser"
         s1="Elle pousse son fils à faire ses devoirs."
@@ -1352,7 +1338,7 @@
         tres="empujar"
         trpt="empurrar" />
     <verb
-        id="94"
+        id="93"
         ta="7"
         in="occuper"
         s1="Il occupe le poste de contremaître."
@@ -1366,7 +1352,7 @@
         tres="ocupar"
         trpt="ocupar" />
     <verb
-        id="95"
+        id="94"
         ta="7"
         in="compter"
         s1="Cette école compte 25 salles de cours."
@@ -1380,7 +1366,7 @@
         tres="contar"
         trpt="contar" />
     <verb
-        id="96"
+        id="95"
         ta="7"
         in="empêcher"
         s1="Le parapet empêche les chutes."
@@ -1394,7 +1380,7 @@
         tres="impedir"
         trpt="prevenir" />
     <verb
-        id="97"
+        id="96"
         ta="68"
         in="plaire"
         s1="Cette jeune fille plaisait à François."
@@ -1408,7 +1394,7 @@
         tres="agradar"
         trpt="agradar" />
     <verb
-        id="98"
+        id="97"
         ta="7"
         in="travailler"
         s1="Cette idée de partir en voyage le travaille."
@@ -1422,7 +1408,7 @@
         tres="trabajar"
         trpt="trabalhar" />
     <verb
-        id="99"
+        id="98"
         ta="16"
         in="s'écrier"
         s1=""
@@ -1435,10 +1421,8 @@
         tren="exclaim"
         tres="exclamar"
         trpt="exclamar" />
-
-    <!-- TOP 250 -->
     <verb
-        id="100"
+        id="99"
         ta="7"
         in="fermer"
         s1="Ferme bien le pot."
@@ -1451,8 +1435,10 @@
         tren="close"
         tres="cerrar"
         trpt="fechar" />
+
+    <!-- TOP 250 -->
     <verb
-        id="101"
+        id="100"
         ta="33"
         in="dormir"
         s1="Ils dorment depuis deux heures."
@@ -1466,7 +1452,7 @@
         tres="dormir"
         trpt="dormir" />
     <verb
-        id="102"
+        id="101"
         ta="7"
         in="oser"
         s1="Elle a osé s’habiller en panthère."
@@ -1480,7 +1466,7 @@
         tres="atreverse"
         trpt="ousar" />
     <verb
-        id="103"
+        id="102"
         ta="7"
         in="rencontrer"
         s1="Ce soir, le Canadien de Montréal rencontrera les Sénateurs d’Ottawa."
@@ -1494,7 +1480,7 @@
         tres="encontrar"
         trpt="reunir-se" />
     <verb
-        id="104"
+        id="103"
         ta="11"
         in="répéter"
         s1="Il répète sans cesse la même chose."
@@ -1508,7 +1494,7 @@
         tres="repetir"
         trpt="repetir" />
     <verb
-        id="105"
+        id="104"
         ta="7"
         in="retourner"
         s1="Il faudrait retourner la terre."
@@ -1522,7 +1508,7 @@
         tres="volver"
         trpt="voltar" />
     <verb
-        id="106"
+        id="105"
         ta="9"
         in="changer"
         s1="L’alchimiste a changé le fer en or."
@@ -1536,7 +1522,7 @@
         tres="cambiar"
         trpt="trocar" />
     <verb
-        id="107"
+        id="106"
         ta="10"
         in="élever"
         s1="Elles élèvent les bras pour le saluer."
@@ -1550,7 +1536,7 @@
         tres="elevar"
         trpt="levantar" />
     <verb
-        id="108"
+        id="107"
         ta="7"
         in="toucher"
         s1="Il touche son salaire le jeudi."
@@ -1564,7 +1550,7 @@
         tres="tocar"
         trpt="tocar" />
     <verb
-        id="109"
+        id="108"
         ta="11"
         in="espérer"
         s1="Il espère que l’examen ne sera pas trop difficile."
@@ -1578,7 +1564,7 @@
         tres="esperar"
         trpt="esperar" />
     <verb
-        id="110"
+        id="109"
         ta="7"
         in="demeurer"
         s1="Il est demeuré marqué par l’évènement."
@@ -1592,7 +1578,7 @@
         tres="quedarse"
         trpt="ficar" />
     <verb
-        id="111"
+        id="110"
         ta="7"
         in="éprouver"
         s1="Il éprouve beaucoup de tendresse pour elle."
@@ -1606,7 +1592,7 @@
         tres="sentir"
         trpt="sentir" />
     <verb
-        id="112"
+        id="111"
         ta="7"
         in="apporter"
         s1="L’élève apporte ses cahiers à l’école."
@@ -1620,7 +1606,7 @@
         tres="llevar"
         trpt="trazer" />
     <verb
-        id="113"
+        id="112"
         ta="7"
         in="pleurer"
         s1="Il pleure la perte d’un ami."
@@ -1634,7 +1620,7 @@
         tres="llorar"
         trpt="chorar" />
     <verb
-        id="114"
+        id="113"
         ta="69"
         in="apparaître"
         s1="Cette œuvre intemporelle n’apparaît aucunement démodée."
@@ -1648,7 +1634,7 @@
         tres="aparecer"
         trpt="aparecer" />
     <verb
-        id="115"
+        id="114"
         ta="9"
         in="juger"
         s1="Ne le juge pas sur les apparences."
@@ -1662,7 +1648,7 @@
         tres="juzgar"
         trpt="julgar" />
     <verb
-        id="116"
+        id="115"
         ta="7"
         in="importer"
         s1="Ta réussite importe à tes amis."
@@ -1676,7 +1662,7 @@
         tres="importar"
         trpt="importar" />
     <verb
-        id="117"
+        id="116"
         ta="88"
         in="conduire"
         s1="Alain a hâte de conduire la voiture."
@@ -1690,7 +1676,7 @@
         tres="conducir"
         trpt="levar" />
     <verb
-        id="118"
+        id="117"
         ta="7"
         in="embrasser"
         s1="Embrasser la carrière diplomatique."
@@ -1704,7 +1690,7 @@
         tres="besar"
         trpt="adoptar" />
     <verb
-        id="119"
+        id="118"
         ta="7"
         in="raconter"
         s1="Il a une façon merveilleuse de raconter les histoires."
@@ -1718,7 +1704,7 @@
         tres="decir"
         trpt="dizer" />
     <verb
-        id="120"
+        id="119"
         ta="64"
         in="craindre"
         s1="Marie-Ève et Étienne ne craignent pas l’eau, ils adorent nager."
@@ -1732,7 +1718,7 @@
         tres="temer"
         trpt="temer" />
     <verb
-        id="121"
+        id="120"
         ta="7"
         in="causer"
         s1="La tempête a causé une panne de courant."
@@ -1746,7 +1732,7 @@
         tres="causar"
         trpt="causar" />
     <verb
-        id="122"
+        id="121"
         ta="7"
         in="chanter"
         s1="Que me chantez-vous là?"
@@ -1760,7 +1746,7 @@
         tres="cantar"
         trpt="cantar" />
     <verb
-        id="123"
+        id="122"
         ta="7"
         in="cacher"
         s1="L’écureuil a caché des glands."
@@ -1774,7 +1760,7 @@
         tres="esconder"
         trpt="esconder" />
     <verb
-        id="124"
+        id="123"
         ta="17"
         in="essayer"
         s1="Marie-Ève essaie une bicyclette."
@@ -1788,7 +1774,7 @@
         tres="probar"
         trpt="tentar" />
     <verb
-        id="125"
+        id="124"
         ta="51"
         in="asseoir"
         s1="Elle assoit son bébé sur une chaise haute."
@@ -1802,7 +1788,7 @@
         tres="sentar"
         trpt="sentar" />
     <verb
-        id="126"
+        id="125"
         ta="8"
         in="avancer"
         s1="Il a avancé une hypothèse."
@@ -1816,7 +1802,7 @@
         tres="avanzar"
         trpt="avançar" />
     <verb
-        id="127"
+        id="126"
         ta="88"
         in="produire"
         s1="Cette défectuosité a produit un accident."
@@ -1830,7 +1816,7 @@
         tres="producir"
         trpt="produzir" />
     <verb
-        id="128"
+        id="127"
         ta="7"
         in="poser"
         s1="Cela pose un problème."
@@ -1844,7 +1830,7 @@
         tres="plantear"
         trpt="posar" />
     <verb
-        id="129"
+        id="128"
         ta=""
         in=""
         s1=""
