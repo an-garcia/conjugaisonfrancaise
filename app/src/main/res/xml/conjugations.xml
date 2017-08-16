@@ -3971,7 +3971,7 @@
     <conjugation
         id          = "41"
         term        = ""
-        radicals    = "vo, v"
+        radicals    = "voi, voy, vi, vî, verr, vu"
         inf_pr      = "voir"
         inf_pa      = "avoir vu"
         pa_pr       = "voyant"
@@ -4491,7 +4491,7 @@
     <conjugation
         id          = "46"
         term        = ""
-        radicals    = ""
+        radicals    = "m"
         inf_pr      = "mouvoir"
         inf_pa      = "avoir mû"
         pa_pr       = "mouvant"
@@ -4595,7 +4595,7 @@
     <conjugation
         id          = "47"
         term        = ""
-        radicals    = ""
+        radicals    = "pl"
         inf_pr      = "pleuvoir"
         inf_pa      = "avoir plu"
         pa_pr       = "pleuvant"
@@ -4699,7 +4699,7 @@
     <conjugation
         id          = "48"
         term        = ""
-        radicals    = ""
+        radicals    = "fa"
         inf_pr      = "falloir"
         inf_pa      = "avoir fallu"
         pa_pr       = "-"
@@ -4803,7 +4803,7 @@
     <conjugation
         id          = "49"
         term        = ""
-        radicals    = ""
+        radicals    = "va"
         inf_pr      = "valoir"
         inf_pa      = "avoir valu"
         pa_pr       = "valant"
@@ -4907,7 +4907,7 @@
     <conjugation
         id          = "50"
         term        = ""
-        radicals    = ""
+        radicals    = "veu, voul, voud"
         inf_pr      = "vouloir"
         inf_pa      = "avoir voulu"
         pa_pr       = "voulant"

@@ -697,8 +697,18 @@ public class DetailsActivity extends AppCompatActivity implements
                 break;
             case 41:
                 // voir, vu : all verbes, known: voir, entrevoir, prevoir, revoir
-                if (modelR.contentEquals("v")) {
-                    verbR = infinitive.endsWith("voir")? infinitive.replace("voir", "v") : verbR;
+                if (modelR.contentEquals("voi")) {
+                    verbR = infinitive.endsWith("voir")? infinitive.replace("voir", "voi") : verbR;
+                } else if (modelR.contentEquals("voy")) {
+                    verbR = infinitive.endsWith("voir")? infinitive.replace("voir", "voy") : verbR;
+                } else if (modelR.contentEquals("vi")) {
+                    verbR = infinitive.endsWith("voir")? infinitive.replace("voir", "vi") : verbR;
+                } else if (modelR.contentEquals("vî")) {
+                    verbR = infinitive.endsWith("voir")? infinitive.replace("voir", "vî") : verbR;
+                } else if (modelR.contentEquals("verr")) {
+                    verbR = infinitive.endsWith("voir")? infinitive.replace("voir", "verr") : verbR;
+                } else if (modelR.contentEquals("vu")) {
+                    verbR = infinitive.endsWith("voir")? infinitive.replace("voir", "vu") : verbR;
                 }
                 break;
             case 42:
@@ -719,7 +729,34 @@ public class DetailsActivity extends AppCompatActivity implements
                     verbR = infinitive.endsWith("pouvoir")? infinitive.replace("pouvoir", "p") : verbR;
                 }
                 break;
-
+            case 46:
+                // mouvoir, mu : all verbes, known: mouvoir, émouvoir, promouvoir
+                if (modelR.contentEquals("m")) {
+                    verbR = infinitive.endsWith("mouvoir")? infinitive.replace("mouvoir", "m") : verbR;
+                }
+                break;
+            case 47:
+                // pleuvoir, plu : all verbes, known: pleuvoir, repleuvoir
+                if (modelR.contentEquals("pl")) {
+                    verbR = infinitive.endsWith("pleuvoir")? infinitive.replace("pleuvoir", "pl") : verbR;
+                }
+                break;
+            case 49:
+                // valoir, valu : all verbes, known: valoir, équivaloir, prévaloir, revaloir
+                if (modelR.contentEquals("va")) {
+                    verbR = infinitive.endsWith("valoir")? infinitive.replace("valoir", "va") : verbR;
+                }
+                break;
+            case 50:
+                // vouloir, veux : all verbes, known: vouloir, revouloir
+                if (modelR.contentEquals("veu")) {
+                    verbR = infinitive.endsWith("vouloir")? infinitive.replace("vouloir", "veu") : verbR;
+                } else if (modelR.contentEquals("voul")) {
+                    verbR = infinitive.endsWith("vouloir")? infinitive.replace("vouloir", "voul") : verbR;
+                } else if (modelR.contentEquals("voud")) {
+                    verbR = infinitive.endsWith("vouloir")? infinitive.replace("vouloir", "voud") : verbR;
+                }
+                break;
 
         }
         return verbR;
