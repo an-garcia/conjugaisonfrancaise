@@ -64,7 +64,7 @@ public class UniversalFragment extends Fragment {
     private String sortTYpe = ALPHABET; // alphabet, color, group
     private String itemType = LIST;     // card, list
     private String commonType = MOST_COMMON_ALL;
-    private TextToSpeech tts;
+    private TextToSpeech tts = null;
 
     public UniversalFragment() {
         // Required empty public constructor

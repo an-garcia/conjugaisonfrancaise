@@ -85,7 +85,7 @@ public class DetailsActivity extends AppCompatActivity implements
     private long conjugationID = -1;
     private Verb verb;
     private Conjugation conjugation;
-    private TextToSpeech tts;
+    private TextToSpeech tts = null;
     private TextView infinitive, group;
     private TextView definition, translation, sample1, sample2, sample3;
 

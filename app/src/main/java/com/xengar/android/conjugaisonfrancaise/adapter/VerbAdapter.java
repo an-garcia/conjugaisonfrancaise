@@ -35,7 +35,7 @@ public class VerbAdapter extends RecyclerView.Adapter<VerbHolder> {
 
     private final List<Verb> verbs;
     private String layoutType = LIST;
-    private final TextToSpeech tts;
+    private TextToSpeech tts = null;
 
     public VerbAdapter(final List<Verb> verbs, final String layoutType, final TextToSpeech tts) {
         this.verbs = verbs;

@@ -54,7 +54,7 @@ public class SearchActivity extends AppCompatActivity {
     private List<Verb> mVerbs; // all verbs in the database
     private SearchView mSearchView;
     private SearchAdapter mAdapter;
-    private TextToSpeech tts;
+    private TextToSpeech tts = null;
 
     //private FirebaseAnalytics mFirebaseAnalytics;
 

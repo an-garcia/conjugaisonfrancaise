@@ -36,7 +36,7 @@ public class VerbHolder extends RecyclerView.ViewHolder implements View.OnClickL
 
     private final Context context;
     private String layoutType = LIST;
-    private TextToSpeech tts;
+    private TextToSpeech tts = null;
     private Verb verb;
     private final TextView infinitive;
     private final TextView definition;
