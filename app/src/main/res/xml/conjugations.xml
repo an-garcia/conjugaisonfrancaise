@@ -7091,7 +7091,7 @@
     <conjugation
         id          = "71"
         term        = ""
-        radicals    = ""
+        radicals    = "pa"
         inf_pr      = "paître"
         inf_pa      = "-"
         pa_pr       = "paissant"
@@ -7195,7 +7195,7 @@
     <conjugation
         id          = "72"
         term        = ""
-        radicals    = ""
+        radicals    = "rep"
         inf_pr      = "repaître"
         inf_pa      = "avoir repu"
         pa_pr       = "repaissant"
@@ -7299,7 +7299,7 @@
     <conjugation
         id          = "73"
         term        = "oître"
-        radicals    = ""
+        radicals    = "cr"
         inf_pr      = "croître"
         inf_pa      = "avoir crû"
         pa_pr       = "croissant"
@@ -7403,7 +7403,7 @@
     <conjugation
         id          = "74"
         term        = ""
-        radicals    = ""
+        radicals    = "cr"
         inf_pr      = "croire"
         inf_pa      = "avoir cru"
         pa_pr       = "croyant"
@@ -7507,7 +7507,7 @@
     <conjugation
         id          = "75"
         term        = ""
-        radicals    = ""
+        radicals    = "b"
         inf_pr      = "boire"
         inf_pa      = "avoir bu"
         pa_pr       = "buvant"

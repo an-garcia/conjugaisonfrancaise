@@ -866,6 +866,24 @@ public class DetailsActivity extends AppCompatActivity implements
                     verbR = infinitive.endsWith("naître")? infinitive.replace("naître", "né") : verbR;
                 }
                 break;
+            case 73:
+                // croître, crû : all verbes, known: croître, accroître, décroître, recroître
+                if (modelR.contentEquals("cr")) {
+                    verbR = infinitive.endsWith("croître")? infinitive.replace("croître", "cr") : verbR;
+                }
+                break;
+            case 74:
+                // croire, cru : all verbes, known: croire, accroire
+                if (modelR.contentEquals("cr")) {
+                    verbR = infinitive.endsWith("croire")? infinitive.replace("croire", "cr") : verbR;
+                }
+                break;
+            case 75:
+                // boire, bu : all verbes, known: boire, emboire
+                if (modelR.contentEquals("b")) {
+                    verbR = infinitive.endsWith("boire")? infinitive.replace("boire", "b") : verbR;
+                }
+                break;
 
 
         }
