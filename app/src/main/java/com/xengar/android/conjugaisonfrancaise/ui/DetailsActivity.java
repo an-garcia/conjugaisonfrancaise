@@ -820,6 +820,53 @@ public class DetailsActivity extends AppCompatActivity implements
                     verbR = infinitive.endsWith("vaincre")? infinitive.replace("vaincre", "vain") : verbR;
                 }
                 break;
+            case 66:
+                // traire, trait : all verbes,
+                // known: traire, abstraire, distraire, extraire, retraire, raire, soustraire, braire
+                if (modelR.contentEquals("tra")) {
+                    verbR = infinitive.endsWith("raire")? infinitive.replace("raire", "ra") : verbR;
+                }
+                break;
+            case 67:
+                // faire, fait : all verbes,
+                // known: faire, contrefaire, defaire, forfaire, malfaire, mefaire, parfaire, redefaire,
+                //        refaire, satisfaire, surfaire
+                if (modelR.contentEquals("fai")) {
+                    verbR = infinitive.endsWith("faire")? infinitive.replace("faire", "fai") : verbR;
+                } else if (modelR.contentEquals("fo")) {
+                    verbR = infinitive.endsWith("faire")? infinitive.replace("faire", "fo") : verbR;
+                } else if (modelR.contentEquals("fe, fi, fî")) {
+                    verbR = infinitive.endsWith("faire")? infinitive.replace("faire", "fe") : verbR;
+                } else if (modelR.contentEquals("fi")) {
+                    verbR = infinitive.endsWith("faire")? infinitive.replace("faire", "fi") : verbR;
+                } else if (modelR.contentEquals("fî")) {
+                    verbR = infinitive.endsWith("faire")? infinitive.replace("faire", "fî") : verbR;
+                }
+                break;
+            case 68:
+                // plaire, plait : all verbes,
+                // known: plaire, complaire, déplaire, taire
+                if (modelR.contentEquals("pl")) {
+                    verbR = infinitive.endsWith("aire")? infinitive.replace("aire", "") : verbR;
+                }
+                break;
+            case 69:
+                // connaître, connu : all verbes,
+                // known: connaître, méconnaître, reconnaître, paraître, apparaître, comparaître,
+                //        disparaître, réapparaître, recomparaître, reparaître, transparaître
+                if (modelR.contentEquals("conn")) {
+                    verbR = infinitive.endsWith("aître")? infinitive.replace("aître", "") : verbR;
+                }
+                break;
+            case 70:
+                // naître, né : all verbes, known: naître, renaître
+                if (modelR.contentEquals("na")) {
+                    verbR = infinitive.endsWith("naître")? infinitive.replace("naître", "na") : verbR;
+                } else if (modelR.contentEquals("né")) {
+                    verbR = infinitive.endsWith("naître")? infinitive.replace("naître", "né") : verbR;
+                }
+                break;
+
 
         }
         return verbR;
