@@ -446,6 +446,7 @@ public class DetailsActivity extends AppCompatActivity implements
                             && !conjugation.getInfinitivePresent().contentEquals(verbName)) {
                         // if we need, conjugate the verb model.
                         conjugateVerb(conjugation, verbName);
+                        // TODO : Check auxiliar verb in verb, like partir and change auxiliar
                     }
                     addPronoms(conjugation);
                     fillConjugationDetails(conjugation);
@@ -645,7 +646,18 @@ public class DetailsActivity extends AppCompatActivity implements
                     verbR = infinitive.endsWith("enir")? infinitive.replace("enir", "în") : verbR;
                 }
                 break;
-
+            case 25:
+                // acquerir : verbes en -érir
+                if (modelR.contains("acqu")) {
+                    verbR = infinitive.endsWith("érir")? infinitive.replace("érir", "") : verbR;
+                }
+                break;
+            case 26:
+                // sentir : verbes eb -tir
+                if (modelR.contains("sen")) {
+                    verbR = infinitive.endsWith("tir")? infinitive.replace("tir", "") : verbR;
+                }
+                break;
         }
         return verbR;
     }

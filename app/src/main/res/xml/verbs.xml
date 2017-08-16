@@ -729,7 +729,7 @@
         gr="3"
         co="3"
         de="Quitter un lieu. Prendre le départ, se mettre en marche. Se déclencher, en parlant d’une arme à feu; jaillir, en parlant d’un projectile. Avoir pour point de départ. Disparaître."
-        no=""
+        no="être"
         tren="go"
         tres="marcharse, irse"
         trpt="deixar" />

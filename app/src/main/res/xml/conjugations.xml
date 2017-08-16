@@ -2307,7 +2307,7 @@
     <conjugation
         id          = "25"
         term        = "érir"
-        radicals    = ""
+        radicals    = "acqu"
         inf_pr      = "acquérir"
         inf_pa      = "avoir acquis"
         pa_pr       = "acquérant"
@@ -2411,7 +2411,7 @@
     <conjugation
         id          = "26"
         term        = "tir"
-        radicals    = ""
+        radicals    = "sen"
         inf_pr      = "sentir"
         inf_pa      = "avoir senti"
         pa_pr       = "sentant"
