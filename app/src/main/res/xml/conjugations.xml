@@ -3347,7 +3347,7 @@
     <conjugation
         id          = "35"
         term        = ""
-        radicals    = ""
+        radicals    = "mour, meur"
         inf_pr      = "mourir"
         inf_pa      = "être mort(e)(s)"
         pa_pr       = "mourant"
@@ -3451,7 +3451,7 @@
     <conjugation
         id          = "36"
         term        = ""
-        radicals    = ""
+        radicals    = "serv, ser"
         inf_pr      = "servir"
         inf_pa      = "avoir servi"
         pa_pr       = "servant"
@@ -3555,7 +3555,7 @@
     <conjugation
         id          = "37"
         term        = ""
-        radicals    = ""
+        radicals    = "fu"
         inf_pr      = "fuir"
         inf_pa      = "avoir fui"
         pa_pr       = "fuyant"
@@ -3659,7 +3659,7 @@
     <conjugation
         id          = "38"
         term        = ""
-        radicals    = ""
+        radicals    = "ou, oi, oy"
         inf_pr      = "ouïr"
         inf_pa      = "avoir ouï"
         pa_pr       = "oyant"
@@ -3763,7 +3763,7 @@
     <conjugation
         id          = "39"
         term        = ""
-        radicals    = ""
+        radicals    = "gis, g"
         inf_pr      = "gésir"
         inf_pa      = "-"
         pa_pr       = "gisant"
@@ -3867,7 +3867,7 @@
     <conjugation
         id          = "40"
         term        = "cevoir"
-        radicals    = ""
+        radicals    = "re"
         inf_pr      = "recevoir"
         inf_pa      = "avoir reçu"
         pa_pr       = "recevant"

@@ -677,6 +677,24 @@ public class DetailsActivity extends AppCompatActivity implements
                     verbR = infinitive.endsWith("dormir")? infinitive.replace("dormir", "dor") : verbR;
                 }
                 break;
+            case 35:
+                // mourir, meurs : all verbes, known: mourir, se mourir
+                if (modelR.contains("meur")) {
+                    verbR = infinitive.endsWith("mourir")? infinitive.replace("mourir", "meur") : verbR;
+                }
+                break;
+            case 36:
+                // servir, sers : all verbes, known: servir, desservir, reservir
+                if (modelR.contentEquals("ser")) {
+                    verbR = infinitive.endsWith("servir")? infinitive.replace("servir", "ser") : verbR;
+                }
+                break;
+            case 40:
+                // recevoir : verbes en -cevoir
+                if (modelR.contentEquals("re")) {
+                    verbR = infinitive.endsWith("cevoir")? infinitive.replace("cevoir", "") : verbR;
+                }
+                break;
         }
         return verbR;
     }
