@@ -3971,7 +3971,7 @@
     <conjugation
         id          = "41"
         term        = ""
-        radicals    = ""
+        radicals    = "vo, v"
         inf_pr      = "voir"
         inf_pa      = "avoir vu"
         pa_pr       = "voyant"
@@ -4075,7 +4075,7 @@
     <conjugation
         id          = "42"
         term        = ""
-        radicals    = ""
+        radicals    = "pourvo, pourv"
         inf_pr      = "pourvoir"
         inf_pa      = "avoir pourvu"
         pa_pr       = "pourvoyant"
@@ -4179,7 +4179,7 @@
     <conjugation
         id          = "43"
         term        = ""
-        radicals    = ""
+        radicals    = "sav, sai, su, sû, sau, sach"
         inf_pr      = "savoir"
         inf_pa      = "avoir su"
         pa_pr       = "sachant"
@@ -4283,7 +4283,7 @@
     <conjugation
         id          = "44"
         term        = ""
-        radicals    = ""
+        radicals    = "d"
         inf_pr      = "devoir"
         inf_pa      = "avoir dû"
         pa_pr       = "devant"
@@ -4387,7 +4387,7 @@
     <conjugation
         id          = "45"
         term        = ""
-        radicals    = ""
+        radicals    = "p"
         inf_pr      = "pouvoir"
         inf_pa      = "avoir pu"
         pa_pr       = "pouvant"

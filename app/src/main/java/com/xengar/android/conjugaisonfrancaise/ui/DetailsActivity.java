@@ -695,6 +695,32 @@ public class DetailsActivity extends AppCompatActivity implements
                     verbR = infinitive.endsWith("cevoir")? infinitive.replace("cevoir", "") : verbR;
                 }
                 break;
+            case 41:
+                // voir, vu : all verbes, known: voir, entrevoir, prevoir, revoir
+                if (modelR.contentEquals("v")) {
+                    verbR = infinitive.endsWith("voir")? infinitive.replace("voir", "v") : verbR;
+                }
+                break;
+            case 42:
+                // pourvoir, pourvu : all verbes, known: pourvoir, depourvoir
+                if (modelR.contentEquals("pourv")) {
+                    verbR = infinitive.endsWith("pourvoir")? infinitive.replace("pourvoir", "pourv") : verbR;
+                }
+                break;
+            case 44:
+                // devoir, dois : all verbes, known: devoir, redevoir
+                if (modelR.contentEquals("d")) {
+                    verbR = infinitive.endsWith("devoir")? infinitive.replace("devoir", "d") : verbR;
+                }
+                break;
+            case 45:
+                // pouvoir, pu : all verbes, known: pouvoir
+                if (modelR.contentEquals("p")) {
+                    verbR = infinitive.endsWith("pouvoir")? infinitive.replace("pouvoir", "p") : verbR;
+                }
+                break;
+
+
         }
         return verbR;
     }
