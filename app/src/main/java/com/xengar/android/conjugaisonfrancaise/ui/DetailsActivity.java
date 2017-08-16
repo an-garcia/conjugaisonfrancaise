@@ -781,6 +781,46 @@ public class DetailsActivity extends AppCompatActivity implements
                     verbR = infinitive.endsWith("battre")? infinitive.replace("battre", "bat") : verbR;
                 }
                 break;
+            case 61:
+                // mettre, mis : all verbes,
+                // known: mettre, admettre, commettre, compromettre, demettre, emettre, (.)mettre
+                if (modelR.contentEquals("met")) {
+                    verbR = infinitive.endsWith("mettre")? infinitive.replace("mettre", "met") : verbR;
+                } else if (modelR.contentEquals("mi")) {
+                    verbR = infinitive.endsWith("mettre")? infinitive.replace("mettre", "mi") : verbR;
+                } else if (modelR.contentEquals("mî")) {
+                    verbR = infinitive.endsWith("mettre")? infinitive.replace("mettre", "mî") : verbR;
+                }
+                break;
+            case 62:
+                // peindre, peignez : all verbes,
+                // known: peindre, astreindre, ceindre,  (.)eindre
+                if (modelR.contentEquals("pei")) {
+                    verbR = infinitive.endsWith("eindre")? infinitive.replace("eindre", "ei") : verbR;
+                }
+                break;
+            case 63:
+                // joindre, joins : all verbes,
+                // known: joindre, adjoindre, conjoindre, disjoindre, enjoindre, rejoindre, oindre, poindre
+                if (modelR.contentEquals("joi")) {
+                    verbR = infinitive.endsWith("oindre")? infinitive.replace("oindre", "oi") : verbR;
+                }
+                break;
+            case 64:
+                // craindre, craint : all verbes,
+                // known: craindre, contraindre, plaindre
+                if (modelR.contentEquals("crai")) {
+                    verbR = infinitive.endsWith("aindre")? infinitive.replace("aindre", "ai") : verbR;
+                }
+                break;
+            case 65:
+                // vaincre, vaincu : all verbes,
+                // known: vaincre, convaincre
+                if (modelR.contentEquals("vain")) {
+                    verbR = infinitive.endsWith("vaincre")? infinitive.replace("vaincre", "vain") : verbR;
+                }
+                break;
+
         }
         return verbR;
     }

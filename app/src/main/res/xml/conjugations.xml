@@ -6051,7 +6051,7 @@
     <conjugation
         id          = "61"
         term        = ""
-        radicals    = ""
+        radicals    = "met, mi, mî"
         inf_pr      = "mettre"
         inf_pa      = "avoir mis"
         pa_pr       = "mettant"
@@ -6155,7 +6155,7 @@
     <conjugation
         id          = "62"
         term        = "eindre"
-        radicals    = ""
+        radicals    = "pei"
         inf_pr      = "peindre"
         inf_pa      = "avoir peint"
         pa_pr       = "peignant"
@@ -6259,7 +6259,7 @@
     <conjugation
         id          = "63"
         term        = "oindre"
-        radicals    = ""
+        radicals    = "joi"
         inf_pr      = "joindre"
         inf_pa      = "avoir joint"
         pa_pr       = "joignant"
@@ -6363,7 +6363,7 @@
     <conjugation
         id          = "64"
         term        = "aindre"
-        radicals    = ""
+        radicals    = "crai"
         inf_pr      = "craindre"
         inf_pa      = "avoir craint"
         pa_pr       = "craignant"
@@ -6467,7 +6467,7 @@
     <conjugation
         id          = "65"
         term        = ""
-        radicals    = ""
+        radicals    = "vain"
         inf_pr      = "vaincre"
         inf_pa      = "avoir vaincu"
         pa_pr       = "vainquant"
