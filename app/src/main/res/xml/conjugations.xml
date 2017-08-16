@@ -8131,7 +8131,7 @@
     <conjugation
         id          = "81"
         term        = ""
-        radicals    = ""
+        radicals    = "sui"
         inf_pr      = "suivre"
         inf_pa      = "avoir suivi"
         pa_pr       = "suivant"
@@ -8235,7 +8235,7 @@
     <conjugation
         id          = "82"
         term        = ""
-        radicals    = ""
+        radicals    = "viv, vi, véc"
         inf_pr      = "vivre"
         inf_pa      = "avoir vécu"
         pa_pr       = "vivant"
@@ -8339,7 +8339,7 @@
     <conjugation
         id          = "83"
         term        = ""
-        radicals    = ""
+        radicals    = "l"
         inf_pr      = "lire"
         inf_pa      = "avoir lu"
         pa_pr       = "lisant"
@@ -8443,7 +8443,7 @@
     <conjugation
         id          = "84"
         term        = ""
-        radicals    = ""
+        radicals    = "d"
         inf_pr      = "dire"
         inf_pa      = "avoir dit"
         pa_pr       = "disant"
@@ -8547,7 +8547,7 @@
     <conjugation
         id          = "85"
         term        = ""
-        radicals    = ""
+        radicals    = "rir, r"
         inf_pr      = "rire"
         inf_pa      = "avoir ri"
         pa_pr       = "riant"
@@ -8651,7 +8651,7 @@
     <conjugation
         id          = "86"
         term        = ""
-        radicals    = ""
+        radicals    = "écri"
         inf_pr      = "écrire"
         inf_pa      = "avoir écrit"
         pa_pr       = "écrivant"
@@ -8755,7 +8755,7 @@
     <conjugation
         id          = "87"
         term        = ""
-        radicals    = ""
+        radicals    = "conf"
         inf_pr      = "confire"
         inf_pa      = "avoir confit"
         pa_pr       = "confisant"
@@ -8859,7 +8859,7 @@
     <conjugation
         id          = "88"
         term        = "uire"
-        radicals    = ""
+        radicals    = "cui"
         inf_pr      = "cuire"
         inf_pa      = "avoir cuit"
         pa_pr       = "cuisant"

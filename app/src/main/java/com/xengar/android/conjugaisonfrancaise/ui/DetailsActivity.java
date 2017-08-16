@@ -914,8 +914,64 @@ public class DetailsActivity extends AppCompatActivity implements
                     verbR = infinitive.endsWith("moudre")? infinitive.replace("moudre", "mou") : verbR;
                 }
                 break;
-
-
+            case 81:
+                // suivre, suivi : all verbes, known: suivre, ensuivre, poursuivre
+                if (modelR.contentEquals("sui")) {
+                    verbR = infinitive.endsWith("suivre")? infinitive.replace("suivre", "sui") : verbR;
+                }
+                break;
+            case 82:
+                // vivre, vécu : all verbes, known: vivre, revivre, survivre
+                if (modelR.contentEquals("viv, vi, véc")) {
+                    verbR = infinitive.endsWith("vivre")? infinitive.replace("vivre", "viv") : verbR;
+                } else if (modelR.contentEquals("vi")) {
+                    verbR = infinitive.endsWith("vivre")? infinitive.replace("vivre", "vi") : verbR;
+                } else if (modelR.contentEquals("véc")) {
+                    verbR = infinitive.endsWith("vivre")? infinitive.replace("vivre", "véc") : verbR;
+                }
+                break;
+            case 83:
+                // lire, lu : all verbes, known: lire, élire, réélire, relire
+                if (modelR.contentEquals("l")) {
+                    verbR = infinitive.endsWith("lire")? infinitive.replace("lire", "l") : verbR;
+                }
+                break;
+            case 84:
+                // dire, dit : all verbes, known: dire, contredire, dédire, interdire, médire, prédire, redire
+                if (modelR.contentEquals("d")) {
+                    verbR = infinitive.endsWith("dire")? infinitive.replace("dire", "d") : verbR;
+                }
+                break;
+            case 85:
+                // rire, ri : all verbes, known: rire, sourire
+                if (modelR.contentEquals("rir, r")) {
+                    verbR = infinitive.endsWith("rire")? infinitive.replace("rire", "rir") : verbR;
+                } else if (modelR.contentEquals("r")) {
+                    verbR = infinitive.endsWith("rire")? infinitive.replace("rire", "r") : verbR;
+                }
+                break;
+            case 86:
+                // écrire, écrit : all verbes,
+                // known: écrire, circonscrire, décrire, inscrire, prescrire, proscrire, récrire,
+                //        réinscrire, retranscrire, souscrire, transcrire
+                if (modelR.contentEquals("écri")) {
+                    verbR = infinitive.endsWith("crire")? infinitive.replace("crire", "cri") : verbR;
+                }
+                break;
+            case 87:
+                // confire, confit : all verbes,
+                // known: confire, déconfire, circoncire, frire, suffire
+                if (modelR.contentEquals("conf")) {
+                    verbR = infinitive.endsWith("ire")? infinitive.replace("ire", "") : verbR;
+                }
+                break;
+            case 88:
+                // cuire, cuit : all verbes,
+                // known: cuire, recuire, conduire, deduire, econduire, enduire, introduire, produire, (.)uire
+                if (modelR.contentEquals("cui")) {
+                    verbR = infinitive.endsWith("uire")? infinitive.replace("uire", "ui") : verbR;
+                }
+                break;
         }
         return verbR;
     }
