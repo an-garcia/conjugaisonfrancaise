@@ -554,9 +554,11 @@ public class DetailsActivity extends AppCompatActivity implements
             verbR = verbR.replace("er", "");
         } else if (verbR.endsWith("ir")) {
             verbR = verbR.replace("ir", "");
+        } else if (verbR.endsWith("re")) {
+            verbR = verbR.replace("re", "");
         }
 
-        // TODO: Check all models, check reflechi
+        // TODO: Check all models, check reflechi, check pronominals
         // know models
         switch (id) {
             case 8:
@@ -564,6 +566,7 @@ public class DetailsActivity extends AppCompatActivity implements
                 if (modelR.contains("ç")) {
                     verbR = infinitive.endsWith("cer")? infinitive.replace("cer", "ç") : verbR;
                 }
+                break;
             case 10:
                 // peser, pèser : verbes ayant un e muet à l'avant dèrniere syllabe de l'infinitif: verbes en e(.)er
                 if (modelR.contains("è")) {
@@ -757,7 +760,27 @@ public class DetailsActivity extends AppCompatActivity implements
                     verbR = infinitive.endsWith("vouloir")? infinitive.replace("vouloir", "voud") : verbR;
                 }
                 break;
-
+            case 51:
+                // asseoir : all verbes, known: asseoir, rasseoir,
+                if (modelR.contentEquals("ass")) {
+                    verbR = infinitive.endsWith("asseoir")? infinitive.replace("asseoir", "ass") : verbR;
+                }
+                break;
+            case 59:
+                // prendre, pris : all verbes,
+                // known: prendre, apprendre, comprendre, déprendre, désapprendre, entreprendre, s'éprendre,
+                //        se méprendre, rapprendre, reapprendre, reprendre, surprendre
+                if (modelR.contentEquals("pr")) {
+                    verbR = infinitive.endsWith("prendre")? infinitive.replace("prendre", "pr") : verbR;
+                }
+                break;
+            case 60:
+                // battre, battu : all verbes,
+                // known: battre, abattre, combattre, contrebattre, debattre, ebattre, embattre, rabattre, rebattre
+                if (modelR.contentEquals("bat")) {
+                    verbR = infinitive.endsWith("battre")? infinitive.replace("battre", "bat") : verbR;
+                }
+                break;
         }
         return verbR;
     }

@@ -5011,7 +5011,7 @@
     <conjugation
         id          = "51"
         term        = ""
-        radicals    = ""
+        radicals    = "ass"
         inf_pr      = "asseoir"
         inf_pa      = "avoir assis"
         pa_pr       = "asseyant"
@@ -5115,7 +5115,7 @@
     <conjugation
         id          = "52"
         term        = ""
-        radicals    = ""
+        radicals    = "si, se, sé"
         inf_pr      = "seoir"
         inf_pa      = "-"
         pa_pr       = "séant"
@@ -5219,7 +5219,7 @@
     <conjugation
         id          = "53"
         term        = ""
-        radicals    = ""
+        radicals    = "mess"
         inf_pr      = "messeoir"
         inf_pa      = "-"
         pa_pr       = "messéant"
@@ -5323,7 +5323,7 @@
     <conjugation
         id          = "54"
         term        = ""
-        radicals    = ""
+        radicals    = "surs"
         inf_pr      = "surseoir"
         inf_pa      = "avoir sursis"
         pa_pr       = "sursoyant"
@@ -5427,7 +5427,7 @@
     <conjugation
         id          = "55"
         term        = ""
-        radicals    = ""
+        radicals    = "ch"
         inf_pr      = "choir"
         inf_pa      = "avoir ou être chu(e)(s)"
         pa_pr       = "-"
@@ -5531,7 +5531,7 @@
     <conjugation
         id          = "56"
         term        = ""
-        radicals    = ""
+        radicals    = "éch"
         inf_pr      = "échoir"
         inf_pa      = "être échu(e)(s)"
         pa_pr       = "échéant"
@@ -5635,7 +5635,7 @@
     <conjugation
         id          = "57"
         term        = ""
-        radicals    = ""
+        radicals    = "déch"
         inf_pr      = "déchoir"
         inf_pa      = "avoir ou être déchu(e)(s)"
         pa_pr       = ""
@@ -5739,7 +5739,7 @@
     <conjugation
         id          = "58"
         term        = "andre, endre, ondre, erdre, ordre"
-        radicals    = ""
+        radicals    = "rend"
         inf_pr      = "rendre"
         inf_pa      = "avoir rendu"
         pa_pr       = "rendant"
@@ -5843,7 +5843,7 @@
     <conjugation
         id          = "59"
         term        = ""
-        radicals    = ""
+        radicals    = "pr"
         inf_pr      = "prendre"
         inf_pa      = "avoir pris"
         pa_pr       = "prenant"
@@ -5947,7 +5947,7 @@
     <conjugation
         id          = "60"
         term        = ""
-        radicals    = ""
+        radicals    = "bat"
         inf_pr      = "battre"
         inf_pa      = "avoir battu"
         pa_pr       = "battant"
