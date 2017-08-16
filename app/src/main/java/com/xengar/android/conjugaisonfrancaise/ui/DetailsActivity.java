@@ -550,6 +550,7 @@ public class DetailsActivity extends AppCompatActivity implements
      */
     private String generateRadical(String infinitive, String modelR, int id) {
         String verbR = infinitive;
+        // remove termination
         if (infinitive.endsWith("er")) {
             verbR = infinitive.substring(0, infinitive.length() - 2);
         } else if (infinitive.endsWith("ir")) {

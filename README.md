@@ -22,7 +22,7 @@ References
 - http://www.conjugaison.com/grammaire/conjugaison.html
 - http://monsu.desiderio.free.fr/atelier/freqverb.html
 - http://dictionnaire.reverso.net/francais-portugais/ouvrir
-
+- http://www.linguee.fr/francais-anglais/search?source=auto&query=continuer
 
 
 # Set up
