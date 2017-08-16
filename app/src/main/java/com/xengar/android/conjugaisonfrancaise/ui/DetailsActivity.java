@@ -550,12 +550,12 @@ public class DetailsActivity extends AppCompatActivity implements
      */
     private String generateRadical(String infinitive, String modelR, int id) {
         String verbR = infinitive;
-        if (verbR.endsWith("er")) {
-            verbR = verbR.replace("er", "");
-        } else if (verbR.endsWith("ir")) {
-            verbR = verbR.replace("ir", "");
-        } else if (verbR.endsWith("re")) {
-            verbR = verbR.replace("re", "");
+        if (infinitive.endsWith("er")) {
+            verbR = infinitive.substring(0, infinitive.length() - 2);
+        } else if (infinitive.endsWith("ir")) {
+            verbR = infinitive.substring(0, infinitive.length() - 2);
+        } else if (infinitive.endsWith("re")) {
+            verbR = infinitive.substring(0, infinitive.length() - 2);
         }
 
         // TODO: Check all models, check reflechi, check pronominals

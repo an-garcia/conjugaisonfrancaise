@@ -24,6 +24,7 @@ References
 - http://dictionnaire.reverso.net/francais-portugais/ouvrir
 
 
+
 # Set up
 
 Color Picker Module
