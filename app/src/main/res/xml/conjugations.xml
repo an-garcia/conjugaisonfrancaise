@@ -2515,7 +2515,7 @@
     <conjugation
         id          = "27"
         term        = ""
-        radicals    = ""
+        radicals    = "vêt"
         inf_pr      = "vêtir"
         inf_pa      = "avoir vêtu"
         pa_pr       = "vêtant"
@@ -2619,7 +2619,7 @@
     <conjugation
         id          = "28"
         term        = "vrir, frir"
-        radicals    = ""
+        radicals    = "couvr, couve"
         inf_pr      = "couvrir"
         inf_pa      = "avoir couvert"
         pa_pr       = "couvrant"
@@ -2723,7 +2723,7 @@
     <conjugation
         id          = "29"
         term        = ""
-        radicals    = ""
+        radicals    = "cueill"
         inf_pr      = "cueillir"
         inf_pa      = "avoir cueilli"
         pa_pr       = "cueillant"
@@ -2827,7 +2827,7 @@
     <conjugation
         id          = "30"
         term        = "aillir"
-        radicals    = ""
+        radicals    = "assaill"
         inf_pr      = "assaillir"
         inf_pa      = "avoir assailli"
         pa_pr       = "assaillant"

@@ -658,6 +658,13 @@ public class DetailsActivity extends AppCompatActivity implements
                     verbR = infinitive.endsWith("tir")? infinitive.replace("tir", "") : verbR;
                 }
                 break;
+            case 28:
+                // souffrir, souffert : verbes en -vrir, frir
+                if (modelR.contains("couve")) {
+                    verbR = infinitive.endsWith("vrir")? infinitive.replace("vrir", "ve") : verbR;
+                    verbR = infinitive.endsWith("frir")? infinitive.replace("frir", "fe") : verbR;
+                }
+                break;
         }
         return verbR;
     }
