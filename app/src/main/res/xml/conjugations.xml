@@ -7611,7 +7611,7 @@
     <conjugation
         id          = "76"
         term        = ""
-        radicals    = ""
+        radicals    = "cl"
         inf_pr      = "clore"
         inf_pa      = "avoir clos"
         pa_pr       = "closant"
@@ -7715,7 +7715,7 @@
     <conjugation
         id          = "77"
         term        = "clure"
-        radicals    = ""
+        radicals    = "con"
         inf_pr      = "conclure"
         inf_pa      = "avoir conclu"
         pa_pr       = "concluant"
@@ -7819,7 +7819,7 @@
     <conjugation
         id          = "78"
         term        = "soudre"
-        radicals    = ""
+        radicals    = "abso"
         inf_pr      = "absoudre"
         inf_pa      = "avoir absous"
         pa_pr       = "absolvant"
@@ -7923,7 +7923,7 @@
     <conjugation
         id          = "79"
         term        = ""
-        radicals    = ""
+        radicals    = "cou"
         inf_pr      = "coudre"
         inf_pa      = "avoir cousu"
         pa_pr       = "cousant"
@@ -8027,7 +8027,7 @@
     <conjugation
         id          = "80"
         term        = ""
-        radicals    = ""
+        radicals    = "mou"
         inf_pr      = "moudre"
         inf_pa      = "avoir moulu"
         pa_pr       = "moulant"

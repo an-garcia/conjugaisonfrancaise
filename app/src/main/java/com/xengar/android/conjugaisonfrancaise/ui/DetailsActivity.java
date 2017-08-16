@@ -884,6 +884,36 @@ public class DetailsActivity extends AppCompatActivity implements
                     verbR = infinitive.endsWith("boire")? infinitive.replace("boire", "b") : verbR;
                 }
                 break;
+            case 76:
+                // clore, clos : all verbes, known: clore, déclore, éclore, enclore, forclore
+                if (modelR.contentEquals("cl")) {
+                    verbR = infinitive.endsWith("clore")? infinitive.replace("clore", "cl") : verbR;
+                }
+                break;
+            case 77:
+                // conclure, conclu : all verbes, known: conclure, exclure, inclure, occlure, reclure
+                if (modelR.contentEquals("con")) {
+                    verbR = infinitive.endsWith("clure")? infinitive.replace("clure", "") : verbR;
+                }
+                break;
+            case 78:
+                // absoudre, absous : all verbes, known: absoudre, dissoudre, résoudre
+                if (modelR.contentEquals("abso")) {
+                    verbR = infinitive.endsWith("soudre")? infinitive.replace("soudre", "so") : verbR;
+                }
+                break;
+            case 79:
+                // coudre, cousu : all verbes, known: coudre, découdre, recoudre
+                if (modelR.contentEquals("cou")) {
+                    verbR = infinitive.endsWith("coudre")? infinitive.replace("coudre", "cou") : verbR;
+                }
+                break;
+            case 80:
+                // moudre, moulu : all verbes, known: moudre, émoudre, remoudre
+                if (modelR.contentEquals("mou")) {
+                    verbR = infinitive.endsWith("moudre")? infinitive.replace("moudre", "mou") : verbR;
+                }
+                break;
 
 
         }
